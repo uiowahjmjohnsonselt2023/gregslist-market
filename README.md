@@ -5,3 +5,4 @@ Final project repository for Team 08 (Fall '23)
 - Graham
 - Eric
 - Roy
+- Cindy
