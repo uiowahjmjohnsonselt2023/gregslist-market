@@ -6,3 +6,4 @@ Final project repository for Team 08 (Fall '23)
 - Eric
 - Roy
 - Cindy
+- Stewart
