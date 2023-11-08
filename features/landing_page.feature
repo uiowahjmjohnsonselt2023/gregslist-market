@@ -5,5 +5,5 @@ Feature: Landing page
   I want to see at least a blank page
 
 Scenario: see the landing page with welcome messages
-  When I am on　
+  When I am on the home page
   Then I should see "Homepage Gregslist Marketplace#index"
