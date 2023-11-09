@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'signup'  => 'users#new'
   # get 'navigation_pages/contact'
 
+  resources :users
 
 
 
