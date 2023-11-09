@@ -1,15 +1,47 @@
-require 'rails_helper'
+# spec/helpers/session_helper_spec.rb
 
-# Specs in this file have access to a helper object that includes
-# the SessionsHelper. For example:
-#
-# describe SessionsHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       expect(helper.concat_strings("this","that")).to eq("this that")
-#     end
-#   end
-# end
-RSpec.describe SessionsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+require 'rails_helper'
+# Include the SessionHelper module for testing
+include SessionHelper
+
+RSpec.describe SessionHelper, type: :helper do
+  let(:user) { create(:user) } # You can use FactoryBot for test data
+
+  describe '#log_in' do
+    it 'logs in the user' do
+      log_in(user)
+      expect(session[:user_id]).to eq(user.id)
+    end
+  end
+
+  describe '#log_out' do
+    it 'logs out the user' do
+      session[:user_id] = user.id
+      log_out
+      expect(session[:user_id]).to be_nil
+    end
+  end
+
+  describe '#current_user' do
+    it 'returns the current user' do
+      session[:user_id] = user.id
+      expect(current_user).to eq(user)
+    end
+  end
+
+  describe '#logged_in?' do
+    context 'when a user is logged in' do
+      it 'returns true' do
+        session[:user_id] = user.id
+        expect(logged_in?).to be true
+      end
+    end
+
+    context 'when no user is logged in' do
+      it 'returns false' do
+        session[:user_id] = nil
+        expect(logged_in?).to be false
+      end
+    end
+  end
 end
