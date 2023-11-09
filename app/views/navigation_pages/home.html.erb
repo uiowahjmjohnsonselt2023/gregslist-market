@@ -15,6 +15,16 @@
 <!--  This is the home page for the Gregslist App; Under Development-->
 <!--</p>-->
 
+<!--<div class="center jumbotron">-->
+<!--  <h1>Welcome to Gregslist Marketplace</h1>-->
+
+<!--  <h2>-->
+<!--    This is the home page for the Gregslist App; Under Development-->
+<!--  </h2>-->
+
+  <%#= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
+<!--</div>-->
+
 <div class="center jumbotron">
   <h1>Welcome to Gregslist Marketplace</h1>
 
@@ -22,8 +32,10 @@
     This is the home page for the Gregslist App; Under Development
   </h2>
 
-
-
-  <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
+  <% if logged_in? %>
+    <p>Welcome, <%= current_user.name %>!</p>
+    <!-- Additional content for logged-in users if needed -->
+  <% else %>
+    <%= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>
-

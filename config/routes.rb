@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   get 'signup'  => 'users#new'
   delete 'logout', to: 'sessions#destroy'
   # get 'navigation_pages/contact'
-
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  # delete 'logout'  => 'sessions#destroy'
+  get 'logout'  => 'sessions#destroy'
   resources :users
 
 

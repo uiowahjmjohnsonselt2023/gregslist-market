@@ -1,6 +1,3 @@
-// Entry point for the build script in your package.json
-// import ..
-
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
