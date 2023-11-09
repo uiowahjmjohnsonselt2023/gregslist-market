@@ -4,6 +4,6 @@ class SessionsController < ApplicationController
     session[:session_token]=nil
     @current_user=nil
     flash[:notice]="You have been logged out."
-    redirect_to 'navigation_pages/home'
+    redirect_to root_path
   end
 end
