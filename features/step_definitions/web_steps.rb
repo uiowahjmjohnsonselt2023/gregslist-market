@@ -48,19 +48,32 @@ And /^(?:|I )fill in "([^"]*)"$/ do |field|
 end
 
 When("I complete the signup form") do
-  @signup_username=fill_in "username", with: "cucum1"
-  @signup_password=fill_in "password", with: "ck1231KIas"
-  @signup_email=fill_in "email address", with: "ccumt9899@gmail.com"
-  click_button "Sign up"
-  User.create!(
-    username: @signup_username,
-    password: @signup_password,
-    email: @signup_email
-  )
+  @signup_name="coconace"
+  @signup_username="cucum1"
+  @signup_password=@signup_password_confirmation="ck1231KIas"
+  @signup_email="ccumt98901@gmail.com"
+  fill_in "user_name", with: @signup_name
+  fill_in "user_username", with: @signup_username
+  fill_in "user_password", with: @signup_password
+  fill_in "user_password_confirmation", with: @signup_password_confirmation
+  fill_in "user_email", with: @signup_email
+  click_button "Create my account"
+
+
 end
 
 Then("I should be registered as a new user") do
-  user = User.find_by(@signup_username)
+  user=User.new(
+    name: @signup_name,
+    username: @signup_username,
+    email: @signup_email,
+    password: @signup_password,
+    password_confirmation: @signup_password_confirmation
+  )
+  expect(user.valid?).to be true
+  user.save
+  expect(User.find_by(email: @signup_email)).not_to be_nil
+
 end
 
 Then("I should see my user information") do

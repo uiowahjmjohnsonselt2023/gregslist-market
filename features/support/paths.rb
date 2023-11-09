@@ -14,7 +14,7 @@ module NavigationHelpers
     case page_name
 
     when /^the (gregslist )?home\s?page$/ then ''
-    when /^the user sign-up page$/ then '/sign_up'
+    when /^the user signup page$/ then '/signup'
     when /^my profile$/ then '/profile'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

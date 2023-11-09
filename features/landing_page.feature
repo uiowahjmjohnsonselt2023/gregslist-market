@@ -6,4 +6,4 @@ Feature: Landing page
 
 Scenario: see the landing page with welcome messages
   When I am on the home page
-  Then I should see "Homepage Gregslist Marketplace#index"
+  Then I should see "Welcome to Gregslist Marketplace"
