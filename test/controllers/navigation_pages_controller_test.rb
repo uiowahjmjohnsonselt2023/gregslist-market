@@ -15,4 +15,11 @@ class NavigationPagesControllerTest < ActionDispatch::IntegrationTest
     get :about
     assert_response :success
   end
+
+  test "should get contact" do
+    get :contact
+    assert_response :success
+    assert_select "title", "Contact | Ruby on Rails Tutorial Sample App"
+  end
+
 end
