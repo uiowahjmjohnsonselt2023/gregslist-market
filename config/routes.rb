@@ -9,7 +9,10 @@ Rails.application.routes.draw do
   get 'navigation_pages/help' => 'navigation_pages#help'
   get 'navigation_pages/about' => 'navigation_pages#about'
   get 'navigation_pages/contact' => 'navigation_pages#contact'
+  get 'signup'  => 'users#new'
   # get 'navigation_pages/contact'
+
+
 
 
   # Defines the root path route ("/")
