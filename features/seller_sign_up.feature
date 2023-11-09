@@ -5,9 +5,8 @@ Feature: Seller Signup
   I want to sign up as a seller
 
 
-  Scenario: restrict to movies with "PG" and "PG-13" ratings
-    When I check the following ratings: "PG","PG-13"
-    And I uncheck the following ratings: "R","G"
-    And I press "Refresh"
-    Then I should see the following movies: "Chocolat", "Raiders of the Lost Ark", "The Help", "The Incredibles"
-    And I should not see the following movies: "2001: A Space Odyssey", "Aladdin", "Amelie", "Chicken Run", "The Terminator", "When Harry Met Sally"
+  Scenario: be able to sign up as seller
+    Given I am on the user signup page
+    When I check the "As a seller" checkbox
+    And I complete the signup form
+    Then I should be a valid seller

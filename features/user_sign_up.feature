@@ -6,11 +6,11 @@ Feature: Sign up as a new user
 
   Scenario: see the filling blocks for signing up
     Given I am on the user signup page
-    Then I should see the field for "username"
-    And I should see the field for "password"
-    And I should see the field for "email address"
+    Then I should see the field for "user_name"
+    And I should see the field for "user_password"
+    And I should see the field for "user_email"
 
   Scenario: be able to sign up
-    Given I am on the user sign-up page
+    Given I am on the user signup page
     When I complete the signup form
-    Then I should be registered as a new user
+    Then I should be a valid user

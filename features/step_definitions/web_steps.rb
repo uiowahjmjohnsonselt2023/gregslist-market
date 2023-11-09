@@ -51,7 +51,7 @@ When("I complete the signup form") do
   @signup_name="coconace"
   @signup_username="cucum1"
   @signup_password=@signup_password_confirmation="ck1231KIas"
-  @signup_email="ccumt98901@gmail.com"
+  @signup_email="ccumt989112@gmail.com"
   fill_in "user_name", with: @signup_name
   fill_in "user_username", with: @signup_username
   fill_in "user_password", with: @signup_password
@@ -62,7 +62,7 @@ When("I complete the signup form") do
 
 end
 
-Then("I should be registered as a new user") do
+Then("I should be a valid user") do
   user=User.new(
     name: @signup_name,
     username: @signup_username,
@@ -73,7 +73,19 @@ Then("I should be registered as a new user") do
   expect(user.valid?).to be true
   user.save
   expect(User.find_by(email: @signup_email)).not_to be_nil
+end
 
+Then("I should be a valid seller") do
+  seller=Seller.new(
+    name: @signup_name,
+    username: @signup_username,
+    email: @signup_email,
+    password: @signup_password,
+    password_confirmation: @signup_password_confirmation
+  )
+  expect(seller.valid?).to be true
+  seller.save
+  expect(Seller.find_by(email: @signup_email)).not_to be_nil
 end
 
 Then("I should see my user information") do
