@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'navigation_pages/about' => 'navigation_pages#about'
   get 'navigation_pages/contact' => 'navigation_pages#contact'
   get 'signup'  => 'users#new'
-  delete 'logout', to: 'sessions#destroy', as: 'logout'
+  delete 'logout', to: 'sessions#destroy'
   # get 'navigation_pages/contact'
 
   resources :users
