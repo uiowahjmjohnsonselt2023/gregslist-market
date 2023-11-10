@@ -1,9 +1,9 @@
 {
-  "GROUP" : "G008",
-  "ALL_SPRINTS" : {
-    "SPRINT1_URL" : http://blah.blee.boo/myapp,
-    "SPRINT2_URL" : http://blah.blee.boo/myapp,
-    "SPRINT3_URL" : http://blah.blee.boo/myapp,
-    "FINAL_URL" : http://blah.blee.boo/myapp
-  }
+    "GROUP": "G008",
+    "ALL_SPRINTS": {
+        "SPRINT1_URL": "http://blah.blee.boo/myapp",
+        "SPRINT2_URL": "http://blah.blee.boo/myapp",
+        "SPRINT3_URL": "http://blah.blee.boo/myapp",
+        "FINAL_URL": "http://blah.blee.boo/myapp"
+    }
 }
