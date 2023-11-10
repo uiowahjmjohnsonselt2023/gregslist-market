@@ -34,6 +34,13 @@ gem "jbuilder"
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
+gem "jquery-rails"
+# gem "bootstrap"
+# gem "sassc-rails"
+
+# gem 'bootstrap-sass', '3.2.0.2'
+
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt", "~> 3.1.7"
 
@@ -43,9 +50,11 @@ gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
-
+# gem "bootstrap-datepicker"
 gem 'bootstrap-sass', '~> 3.4.1'
+gem 'bootstrap-datepicker-rails'
 
+gem 'turbolinks', '~> 5.2.0'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
