@@ -4,12 +4,12 @@ Feature: User login and logout
   So that I can confirm that I log in as myself
   I want to see my profile
 
-Background: users have been added to database
-  Given the following users exist:
-  | name        | username    | password_digest                                               | email                     |
-  | selt_team8  | selt_team8  | $2a$12$5VDp0vtVvTjxXwyOx3d6D.AM0/6x/rI68mXtzQQeYxC9zIyxBGzem  | seltteamproject@gmail.com |
-  | snoopylover | snoopylover | $2a$12$c7aOaZ07fyRsuBbF8fG57.RBimtBwQDpNoAKSTI0qtkiJuGb9.rQG  | sslocdg@gmail.com         |
-  | catman      | catman      | $2a$12$xY5/Jw2qDyjWUVfT55DPmutvnisYmdF2DZGTkzdxGSr.Y6TBSE13O  | amandacat0912@gmail.com   |
+#Background: users have been added to database
+#  Given the following users exist:
+#  | name        | username    | password_digest                                               | email                     |
+#  | selt_team8  | selt_team8  | $2a$12$5VDp0vtVvTjxXwyOx3d6D.AM0/6x/rI68mXtzQQeYxC9zIyxBGzem  | seltteamproject@gmail.com |
+#  | snoopylover | snoopylover | $2a$12$c7aOaZ07fyRsuBbF8fG57.RBimtBwQDpNoAKSTI0qtkiJuGb9.rQG  | sslocdg@gmail.com         |
+#  | catman      | catman      | $2a$12$xY5/Jw2qDyjWUVfT55DPmutvnisYmdF2DZGTkzdxGSr.Y6TBSE13O  | amandacat0912@gmail.com   |
 
 
   Scenario: Login as catman
