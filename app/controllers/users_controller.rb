@@ -2,7 +2,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    debugger
   end
   def new
     @user = User.new
@@ -13,7 +12,6 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in @user
-
       flash[:success] = "Welcome to Greglist Marketplace!"
       redirect_to @user
       # Handle a successful save.
