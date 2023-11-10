@@ -12,8 +12,9 @@ World(WithinHelpers)
 Given /the following users exist/ do |users_table|
   users_table.hashes.each do |user|
     User.create!(
+      name: user['name'],
       username: user['username'],
-      password: user['password'],
+      password_digest: user['password_digest'],
       email: user['email']
     )
   end
