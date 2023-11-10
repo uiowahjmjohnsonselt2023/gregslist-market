@@ -78,7 +78,7 @@ GEM
       public_suffix (>= 2.0.2, < 6.0)
     autoprefixer-rails (10.4.15.0)
       execjs (~> 2)
-    base64 (0.1.1)
+    base64 (0.2.0)
     bcrypt (3.1.19)
     bigdecimal (3.1.4)
     bindex (0.8.1)
@@ -90,6 +90,7 @@ GEM
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
     builder (3.2.4)
+    byebug (11.1.3)
     capybara (3.39.2)
       addressable
       matrix
@@ -99,14 +100,50 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    coderay (1.1.3)
     concurrent-ruby (1.2.2)
     connection_pool (2.4.1)
     crass (1.0.6)
-    date (3.3.3)
+    cucumber (9.0.2)
+      builder (~> 3.2, >= 3.2.4)
+      cucumber-ci-environment (~> 9.2, >= 9.2.0)
+      cucumber-core (~> 11.1, >= 11.1.0)
+      cucumber-cucumber-expressions (~> 16.1, >= 16.1.2)
+      cucumber-gherkin (>= 24, < 26.2.1)
+      cucumber-html-formatter (~> 20.4, >= 20.4.0)
+      cucumber-messages (>= 19, < 23)
+      diff-lcs (~> 1.5, >= 1.5.0)
+      mini_mime (~> 1.1, >= 1.1.5)
+      multi_test (~> 1.1, >= 1.1.0)
+      sys-uname (~> 1.2, >= 1.2.3)
+    cucumber-ci-environment (9.2.0)
+    cucumber-core (11.1.0)
+      cucumber-gherkin (>= 24, < 27)
+      cucumber-messages (>= 19, < 22)
+      cucumber-tag-expressions (~> 4.1, >= 4.1.0)
+    cucumber-cucumber-expressions (16.1.2)
+    cucumber-gherkin (26.2.0)
+      cucumber-messages (>= 19.1.4, < 22.1)
+    cucumber-html-formatter (20.4.0)
+      cucumber-messages (>= 18.0, < 22.1)
+    cucumber-messages (21.0.1)
+    cucumber-rails (3.0.0)
+      capybara (>= 3.11, < 4)
+      cucumber (>= 5, < 10)
+      railties (>= 5.2, < 8)
+    cucumber-tag-expressions (4.1.0)
+    database_cleaner (2.0.2)
+      database_cleaner-active_record (>= 2, < 3)
+    database_cleaner-active_record (2.1.0)
+      activerecord (>= 5.a)
+      database_cleaner-core (~> 2.0.0)
+    database_cleaner-core (2.0.1)
+    date (3.3.4)
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
-    drb (2.1.1)
+    diff-lcs (1.5.0)
+    drb (2.2.0)
       ruby2_keywords
     erubi (1.12.0)
     execjs (2.9.1)
@@ -116,7 +153,7 @@ GEM
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
     io-console (0.6.0)
-    irb (1.8.3)
+    irb (1.9.0)
       rdoc
       reline (>= 0.3.8)
     jbuilder (2.11.5)
@@ -138,32 +175,37 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    method_source (1.0.0)
     mini_mime (1.1.5)
-    mini_portile2 (2.8.5)
     minitest (5.20.0)
     msgpack (1.7.2)
-    mutex_m (0.1.2)
-    net-imap (0.4.3)
+    multi_test (1.1.0)
+    mutex_m (0.2.0)
+    net-imap (0.4.4)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
-    net-protocol (0.2.1)
+    net-protocol (0.2.2)
       timeout
     net-smtp (0.4.0)
       net-protocol
     nio4r (2.5.9)
-    nokogiri (1.15.4)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.15.4-x86_64-linux)
       racc (~> 1.4)
+    pg (1.5.4)
+    pry (0.14.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-byebug (3.10.1)
+      byebug (~> 11.0)
+      pry (>= 0.13, < 0.15)
     psych (5.1.1.1)
       stringio
     public_suffix (5.0.3)
     puma (6.4.0)
       nio4r (~> 2.0)
-    racc (1.7.2)
+    racc (1.7.3)
     rack (3.0.8)
     rack-session (2.0.0)
       rack (>= 3.0.0)
@@ -186,6 +228,10 @@ GEM
       activesupport (= 7.1.1)
       bundler (>= 1.15.0)
       railties (= 7.1.1)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.2.0)
       activesupport (>= 5.0.0)
       minitest
@@ -202,12 +248,33 @@ GEM
       thor (~> 1.0, >= 1.2.2)
       zeitwerk (~> 2.6)
     rake (13.1.0)
-    rdoc (6.5.0)
+    rdoc (6.6.0)
       psych (>= 4.0.0)
     regexp_parser (2.8.2)
-    reline (0.3.9)
+    reline (0.4.0)
       io-console (~> 0.5)
     rexml (3.2.6)
+    rspec (3.12.0)
+      rspec-core (~> 3.12.0)
+      rspec-expectations (~> 3.12.0)
+      rspec-mocks (~> 3.12.0)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-rails (6.0.3)
+      actionpack (>= 6.1)
+      activesupport (>= 6.1)
+      railties (>= 6.1)
+      rspec-core (~> 3.12)
+      rspec-expectations (~> 3.12)
+      rspec-mocks (~> 3.12)
+      rspec-support (~> 3.12)
+    rspec-support (3.12.1)
     ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     sassc (2.4.0)
@@ -223,14 +290,14 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.8)
-      mini_portile2 (~> 2.8.0)
     sqlite3 (1.6.8-x86_64-linux)
     stimulus-rails (1.3.0)
       railties (>= 6.0.0)
     stringio (3.0.8)
+    sys-uname (1.2.3)
+      ffi (~> 1.1)
     thor (1.3.0)
-    timeout (0.4.0)
+    timeout (0.4.1)
     turbo-rails (1.5.0)
       actionpack (>= 6.0.0)
       activejob (>= 6.0.0)
@@ -255,7 +322,6 @@ GEM
     zeitwerk (2.6.12)
 
 PLATFORMS
-  ruby
   x86_64-linux
 
 DEPENDENCIES
@@ -263,17 +329,28 @@ DEPENDENCIES
   bootsnap
   bootstrap-datepicker-rails
   bootstrap-sass (~> 3.4.1)
+  byebug
   capybara
+  cucumber-rails
+  database_cleaner
   debug
   jbuilder
   jquery-rails
   jsbundling-rails
+  minitest
+  pg
+  pry
+  pry-byebug
   puma (>= 5.0)
   rails (~> 7.1.1)
+  rails-controller-testing
+  rspec
+  rspec-rails
   selenium-webdriver
   sprockets-rails
-  sqlite3 (~> 1.4)
+  sqlite3
   stimulus-rails
+  stringio (= 3.0.8)
   turbo-rails
   turbolinks (~> 5.2.0)
   tzinfo-data
