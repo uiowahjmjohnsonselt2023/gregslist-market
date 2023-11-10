@@ -9,8 +9,11 @@ Feature: Sign up as a new user
     Then I should see the field for "user_name"
     And I should see the field for "user_password"
     And I should see the field for "user_email"
-
-  Scenario: be able to sign up
+  Scenario: be able to register
     Given I am on the user signup page
     When I complete the signup form
-    Then I should be a valid user
+    Then I should see my name "coconaceas"
+  Scenario: be able to sign in
+    Given I am on the login page
+    When I sign in
+    Then I should see my name "coconaceas"
