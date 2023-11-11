@@ -21,4 +21,3 @@ class User < ActiveRecord::Base
     BCrypt::Password.create(string, cost:)
   end
 end
-
