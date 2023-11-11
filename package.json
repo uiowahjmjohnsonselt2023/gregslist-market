@@ -4,9 +4,5 @@
   "dependencies": {
     "bootstrap": "^5.3.2",
     "heroku": "^8.7.1"
-  },
-  "scripts": {
-    "type": "module",
-    "build": "yarn add bootstrap"
   }
 }
