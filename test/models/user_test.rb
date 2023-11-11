@@ -129,4 +129,30 @@ class UserTest < ActiveSupport::TestCase
     assert_not_nil @user.remember_digest
     assert BCrypt::Password.new(@user.remember_digest).is_password?(@user.remember_token)
   end
+
+  test "authenticated? method should return true for a valid remember_token" do
+    # Set up a remember_token (replace 'your_token' with an actual token)
+    remember_token = 'your_token'
+
+    # Set remember_digest to a valid BCrypt hash of the remember_token
+    @user.update_attribute(:remember_digest, User.digest(remember_token))
+
+    # Call the authenticated? method
+    result = @user.authenticated?(remember_token)
+
+    # Ensure that the result is true
+    assert result
+  end
+
+  test "authenticated? method should return false for a nil remember_digest" do
+    # Set remember_digest to nil
+    @user.update_attribute(:remember_digest, nil)
+
+    # Call the authenticated? method
+    result = @user.authenticated?('any_token')  # The actual token doesn't matter in this case
+
+    # Ensure that the result is false
+    assert_not result
+  end
+
 end
