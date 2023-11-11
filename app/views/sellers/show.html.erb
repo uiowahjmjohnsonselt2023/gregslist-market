@@ -1,0 +1,18 @@
+<% provide(:title, @seller.name) %>
+<% provide(@seller.address, @seller.description) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="seller_info">
+      <h1>
+        <%= @seller.name %>
+      </h1>
+      <h3>
+        <%= @seller.address %>
+      </h3>
+      <p>
+        <%= @seller.description %>
+      </p>
+
+    </section>
+  </aside>
+</div>
