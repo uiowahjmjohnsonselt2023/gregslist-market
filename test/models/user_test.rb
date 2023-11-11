@@ -104,6 +104,66 @@ class UserTest < ActiveSupport::TestCase
     assert BCrypt::Password.new(hashed_string).is_password?(input_string)
   end
 
+  test "new_token method should return a secure random token" do
+    # Call the new_token method
+    token = User.new_token
 
+    # Ensure that the result is a string
+    assert_instance_of String, token
+
+    # Ensure that the token has the correct length (adjust as needed)
+    assert_equal 22, token.length
+
+    # Ensure that the token consists of URL-safe base64 characters
+    assert_match(/\A[-\w]+\z/, token)
+  end
+
+  test "remember method should set remember_token and update remember_digest" do
+    # Call the remember method
+    @user.remember
+
+    # Ensure that remember_token is set
+    assert_not_nil @user.remember_token
+
+    # Ensure that remember_digest is updated
+    assert_not_nil @user.remember_digest
+    assert BCrypt::Password.new(@user.remember_digest).is_password?(@user.remember_token)
+  end
+
+  test "authenticated? method should return true for a valid remember_token" do
+    # Set up a remember_token (replace 'your_token' with an actual token)
+    remember_token = 'your_token'
+
+    # Set remember_digest to a valid BCrypt hash of the remember_token
+    @user.update_attribute(:remember_digest, User.digest(remember_token))
+
+    # Call the authenticated? method
+    result = @user.authenticated?(remember_token)
+
+    # Ensure that the result is true
+    assert result
+  end
+
+  test "authenticated? method should return false for a nil remember_digest" do
+    # Set remember_digest to nil
+    @user.update_attribute(:remember_digest, nil)
+
+    # Call the authenticated? method
+    result = @user.authenticated?('any_token')  # The actual token doesn't matter in this case
+
+    # Ensure that the result is false
+    assert_not result
+  end
+
+  test "forget method should set remember_digest to nil" do
+    # Set remember_digest to a non-nil value
+    @user.update_attribute(:remember_digest, 'non_nil_value')
+
+    # Call the forget method
+    @user.forget
+
+    # Ensure that remember_digest is set to nil
+    assert_nil @user.remember_digest
+  end
 
 end
