@@ -1,7 +1,4 @@
 require 'test_helper'
-require 'rails/test_help'
-SimpleCov.start 'rails'
-
 
 class UserTest < ActiveSupport::TestCase
 
