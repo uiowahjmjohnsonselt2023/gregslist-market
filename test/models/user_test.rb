@@ -118,4 +118,15 @@ class UserTest < ActiveSupport::TestCase
     assert_match(/\A[-\w]+\z/, token)
   end
 
+  test "remember method should set remember_token and update remember_digest" do
+    # Call the remember method
+    @user.remember
+
+    # Ensure that remember_token is set
+    assert_not_nil @user.remember_token
+
+    # Ensure that remember_digest is updated
+    assert_not_nil @user.remember_digest
+    assert BCrypt::Password.new(@user.remember_digest).is_password?(@user.remember_token)
+  end
 end
