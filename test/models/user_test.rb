@@ -104,6 +104,18 @@ class UserTest < ActiveSupport::TestCase
     assert BCrypt::Password.new(hashed_string).is_password?(input_string)
   end
 
+  test "new_token method should return a secure random token" do
+    # Call the new_token method
+    token = User.new_token
 
+    # Ensure that the result is a string
+    assert_instance_of String, token
+
+    # Ensure that the token has the correct length (adjust as needed)
+    assert_equal 22, token.length
+
+    # Ensure that the token consists of URL-safe base64 characters
+    assert_match(/\A[-\w]+\z/, token)
+  end
 
 end
