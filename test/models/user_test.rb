@@ -155,4 +155,15 @@ class UserTest < ActiveSupport::TestCase
     assert_not result
   end
 
+  test "forget method should set remember_digest to nil" do
+    # Set remember_digest to a non-nil value
+    @user.update_attribute(:remember_digest, 'non_nil_value')
+
+    # Call the forget method
+    @user.forget
+
+    # Ensure that remember_digest is set to nil
+    assert_nil @user.remember_digest
+  end
+
 end
