@@ -93,5 +93,17 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "digest method should return a hashed string" do
+    # Replace 'password' with the string you want to hash for testing
+    input_string = 'password'
+
+    # Call the digest method
+    hashed_string = User.digest(input_string)
+
+    # Ensure that the result is a valid BCrypt hash
+    assert BCrypt::Password.new(hashed_string).is_password?(input_string)
+  end
+
+
 
 end
