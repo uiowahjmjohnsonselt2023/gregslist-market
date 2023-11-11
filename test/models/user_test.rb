@@ -1,9 +1,12 @@
 require 'test_helper'
+require 'rails/test_help'
+SimpleCov.start 'rails'
+
 
 class UserTest < ActiveSupport::TestCase
 
   def setup
-    @user = User.new(name: "John Doe", username: 'johndoe' email: "john_doe@mymail.com",
+    @user = User.new(name: "John Doe", username: 'johndoe', email: "johndoe@mymail.com",
                      password: "foo@bar", password_confirmation: "foo@bar")
   end
 
@@ -52,12 +55,6 @@ class UserTest < ActiveSupport::TestCase
 
   test "email addresses should be unique" do
     duplicate_user = @user.dup
-    @user.save
-    assert_not duplicate_user.valid?
-  end
-
-  test "email addresses should be unique" do
-    duplicate_user = @user.dup
     duplicate_user.email = @user.email.upcase
     @user.save
     assert_not duplicate_user.valid?
@@ -72,4 +69,32 @@ class UserTest < ActiveSupport::TestCase
     @user.password = @user.password_confirmation = "a" * 5
     assert_not @user.valid?
   end
+
+  test "email addresses should be saved as lowercase" do
+    mixed_case_email = "Foo@ExAMPle.CoM"
+    @user.email = mixed_case_email
+    @user.save
+    assert_equal mixed_case_email.downcase, @user.reload.email
+  end
+
+  test "should have a unique username" do
+    duplicate_user = @user.dup
+    @user.save
+    assert_not duplicate_user.valid?
+  end
+
+  test "username should not be too long" do
+    @user.username = "a" * 31
+    assert_not @user.valid?
+  end
+
+  test "username validation should accept valid usernames" do
+    valid_usernames = %w[johndoe john_doe john123 johndoe123 john@doe john doe john&doe johndoe!]
+    valid_usernames.each do |valid_username|
+      @user.username = valid_username
+      assert @user.valid?, "#{valid_username.inspect} should be valid"
+    end
+  end
+
+
 end
