@@ -17,6 +17,12 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
   resources :users
 
+  get 'select_seller' => 'sellers#select'
+  post 'select_seller' => 'sellers#edit'
+  get 'edit_seller' => 'sellers#edit'
+  get 'new_seller' => 'sellers#new'
+  resources :sellers
+
   # Defines the root path route ("/")
   # root "posts#index"
   # root "home#index"
