@@ -1,1 +1,1 @@
-web: bundle exec rails server -p $PORTg
+web: bundle exec rails server
