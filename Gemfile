@@ -40,7 +40,7 @@ gem "jquery-rails"
 
 # gem 'bootstrap-sass', '3.2.0.2'
 
-
+gem "yarn"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 gem "bcrypt", "~> 3.1.7"
 
