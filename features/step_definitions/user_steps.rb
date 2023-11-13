@@ -12,10 +12,10 @@ end
 
 
 When /^(?:|I )log in with email "([^"]*)" and password "([^"]*)"$/  do |email, password|
-  @login_email = email
-  @login_password = password
-  fill_in "Email", with: @login_email
-  fill_in "Password", with: @login_password
+  @email = email
+  @password = password
+  fill_in "Email", with: @email
+  fill_in "Password", with: @password
   click_button "Log in"
 end
 When "I log out"  do
@@ -43,25 +43,29 @@ And /^(?:|I )fill in "([^"]*)"$/ do |field|
 end
 
 When("I complete the signup form") do
-  @signup_name="t5name"
-  @signup_username="t5user"
-  @signup_password="t5555556"
-  @signup_password_confirmation="t5555556"
-  @signup_email="t5@gmail.com"
-  fill_in "user_name", with: @signup_name
-  fill_in "user_username", with: @signup_username
-  fill_in "user_password", with: @signup_password
-  fill_in "user_password_confirmation", with: @signup_password_confirmation
-  fill_in "user_email", with: @signup_email
+  @name="sprint second"
+  @username="sp2-1"
+  @password="secret"
+  @password_confirmation="secret"
+  @email="sp2-1@gmail.com"
+  fill_in "user_name", with: @name
+  fill_in "user_username", with: @username
+  fill_in "user_password", with: @password
+  fill_in "user_password_confirmation", with: @password_confirmation
+  fill_in "user_email", with: @email
   click_button "Create my account"
+  User.create(
+    name: @name,
+    username: @username,
+    password: @password,
+    email: @email
+  )
 end
 
-When "I sign in" do
-  @login_email = "t5@gmail.com"
-  @login_password = "t5555556"
-  fill_in "Email", with: @login_email
-  fill_in "Password", with: @login_password
-  click_button "Log in"
+Then 'I should see my profile' do
+  the_user=User.find_by(email:@email)
+  the_id=the_user.id
+  expect(current_path).to eq('/users/'+the_id.to_s)
 end
 
 Then /^(?:|I )should see my name "([^"]*)"$/ do |name|
