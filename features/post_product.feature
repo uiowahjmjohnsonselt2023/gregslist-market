@@ -4,7 +4,7 @@ Feature: Seller post and update products
   So that I can make money
   I want to post a product for sale under a category and include its price, description and images
 
-  Background: users have been added to database
+  Background: products have been added to database
     Given the following products exist
       | name                                            | price      | date        | category | seller_username |
       | Sunglasses                                      | 25.7       | 2023-10-31  | Fashion  | Alice           |
