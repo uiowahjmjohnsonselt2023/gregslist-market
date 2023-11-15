@@ -18,8 +18,9 @@ Rails.application.routes.draw do
   resources :users
 
   get 'select_seller' => 'sellers#select'
-  post 'select_seller' => 'sellers#edit'
+  post 'select_seller' => 'sellers#show'
   get 'edit_seller' => 'sellers#edit'
+  post 'edit_seller' => 'sellers#edit'
   get 'new_seller' => 'sellers#new'
   resources :sellers
 
