@@ -9,6 +9,9 @@ Given /the following products exist/ do |products_table|
   end
 end
 
+Then /(.*) products should exist/ do | n_seeds |
+  expect(Product.count).to eq n_seeds.to_i
+end
 
 When /^(?:|I )am in (.+)$/ do |page_name|
   visit path_to(page_name)
