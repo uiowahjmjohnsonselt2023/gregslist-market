@@ -1,6 +1,6 @@
 # TL;DR: YOU SHOULD DELETE THIS FILE
 #
-# This file is used by web_steps.rb, which you should also delete
+# This file is used by user_steps.rb, which you should also delete
 #
 # You have been warned
 module NavigationHelpers
@@ -8,15 +8,18 @@ module NavigationHelpers
   #
   #   When /^I go to (.+)$/ do |page_name|
   #
-  # step definition in web_steps.rb
+  # step definition in user_steps.rb
   #
   def path_to(page_name)
     case page_name
 
     when /^the (gregslist )?home\s?page$/ then ''
     when /^the user signup page$/ then '/signup'
-    when /^my profile$/ then '/profile'
+    #when /^my profile$/ then '/profile'#'/users/2'
+    #when /^(.*) profile page$/ then '/users/'+i
     when /^the login page$/ then '/login'
+    when /^the storehouse$/ then '/storehouse'
+    when /^the admin page$/ then '/admin'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
