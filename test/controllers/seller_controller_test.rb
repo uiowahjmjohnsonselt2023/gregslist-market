@@ -7,7 +7,7 @@ class SellerControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'Should be able to see seller edit' do
-    get '/edit_seller'
+    post '/select_seller'
     assert_response :success
   end
 
