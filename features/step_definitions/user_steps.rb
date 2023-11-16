@@ -1,4 +1,3 @@
-
 Given /the following users exist/ do |users_table|
   users_table.hashes.each do |user|
     User.create(
@@ -10,6 +9,9 @@ Given /the following users exist/ do |users_table|
   end
 end
 
+Then /(.*) users should exist/ do | n_seeds |
+  expect(User.count).to eq n_seeds.to_i
+end
 
 When /^(?:|I )log in with email "([^"]*)" and password "([^"]*)"$/  do |email, password|
   @email = email
@@ -62,6 +64,10 @@ When("I complete the signup form") do
   )
 end
 
+And 'I want to apply as a seller' do
+  Seller
+end
+
 Then 'I should see my profile' do
   the_user=User.find_by(email:@email)
   the_id=the_user.id
@@ -78,4 +84,8 @@ end
 
 Then("I should see the field for {string}") do |field_name|
   expect(page).to have_field(field_name)
+end
+
+And /^(?:|I )delete the user whose username is "([^"]*)"$/ do |name|
+
 end
