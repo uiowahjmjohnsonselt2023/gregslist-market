@@ -1,4 +1,5 @@
 <% provide(:title, @user.name) %>
+
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
@@ -6,8 +7,12 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-
       <%#= image_tag @user.avatar.url %>
     </section>
+
+    <b>Edit your profile:</b>
+    <ul>
+      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+    </ul>
   </aside>
 </div>

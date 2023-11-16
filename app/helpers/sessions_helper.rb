@@ -57,10 +57,4 @@ module SessionsHelper
     session[:forwarding_url] = request.url if request.get?
   end
 
-  # should be in sessions controller
-  # def destroy
-  #   log_out
-  #   redirect_to root_url
-  # end
-
 end
