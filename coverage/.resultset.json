@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/models/user.rb": {
+      "/Users/ericababio/gregslist-market/app/models/user.rb": {
         "lines": [
           1,
           1,
@@ -16,148 +16,42 @@
           null,
           null,
           1,
-          1,
-          1,
+          0,
           null,
-          1,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
           0,
           null,
           0,
           null,
           null,
-          1,
-          0,
-          null,
-          null,
-          1,
           0,
           0,
           null,
           null,
-          null,
-          1,
+          0,
           0,
           0,
           null,
           null,
           null,
-          1,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          0,
           0,
           null,
           null
         ]
       },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/controllers/navigation_pages_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ]
-      },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/helpers/application_helper.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          1,
-          4,
-          4,
-          3,
-          null,
-          1,
-          null,
-          null,
-          null
-        ]
-      },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/helpers/navigation_pages_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/helpers/sessions_helper.rb": {
-        "lines": [
-          1,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          1,
-          5,
-          0,
-          5,
-          0,
-          0,
-          0,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          5,
-          null,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          null
-        ]
-      },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/helpers/users_helper.rb": {
-        "lines": [
-          1,
-          null
-        ]
-      },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/channels/application_cable/channel.rb": {
+      "/Users/ericababio/gregslist-market/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
           0,
@@ -167,7 +61,7 @@
         "branches": {
         }
       },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/channels/application_cable/connection.rb": {
+      "/Users/ericababio/gregslist-market/app/channels/application_cable/connection.rb": {
         "lines": [
           0,
           0,
@@ -177,7 +71,59 @@
         "branches": {
         }
       },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/controllers/sessions_controller.rb": {
+      "/Users/ericababio/gregslist-market/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ericababio/gregslist-market/app/controllers/help_requests_controller.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ericababio/gregslist-market/app/controllers/navigation_pages_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ericababio/gregslist-market/app/controllers/sessions_controller.rb": {
         "lines": [
           0,
           null,
@@ -212,32 +158,86 @@
         "branches": {
         }
       },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/controllers/users_controller.rb": {
+      "/Users/ericababio/gregslist-market/app/controllers/users_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ericababio/gregslist-market/app/helpers/application_helper.rb": {
         "lines": [
           0,
           null,
-          0,
-          0,
-          0,
-          0,
-          0,
-          0,
-          null,
           null,
           0,
           0,
           0,
           0,
-          0,
-          0,
-          null,
-          0,
-          0,
-          0,
-          0,
-          null,
-          0,
-          null,
           0,
           0,
           0,
@@ -247,7 +247,109 @@
         "branches": {
         }
       },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/jobs/application_job.rb": {
+      "/Users/ericababio/gregslist-market/app/helpers/help_requests_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ericababio/gregslist-market/app/helpers/navigation_pages_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ericababio/gregslist-market/app/helpers/sessions_helper.rb": {
+        "lines": [
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ericababio/gregslist-market/app/helpers/users_helper.rb": {
+        "lines": [
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {
+        }
+      },
+      "/Users/ericababio/gregslist-market/app/jobs/application_job.rb": {
         "lines": [
           0,
           null,
@@ -260,7 +362,7 @@
         "branches": {
         }
       },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/mailers/application_mailer.rb": {
+      "/Users/ericababio/gregslist-market/app/mailers/application_mailer.rb": {
         "lines": [
           0,
           0,
@@ -270,7 +372,7 @@
         "branches": {
         }
       },
-      "C:/Users/pchiu/RubymineProjects/gregslist-market/app/models/application_record.rb": {
+      "/Users/ericababio/gregslist-market/app/models/application_record.rb": {
         "lines": [
           0,
           0,
@@ -280,6 +382,6 @@
         }
       }
     },
-    "timestamp": 1699677205
+    "timestamp": 1700092745
   }
 }

@@ -10,21 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_15_214315) do
-  create_table "sellers", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "description"
-    t.text "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sellers_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "seller_id", null: false
-    t.index ["user_id", "seller_id"], name: "index_sellers_users_on_user_id_and_seller_id"
-  end
-
+ActiveRecord::Schema[7.1].define(version: 2023_11_16_032833) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "username"
@@ -33,6 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_15_214315) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "remember_digest"
+    t.boolean "admin", default: false
   end
 
 end

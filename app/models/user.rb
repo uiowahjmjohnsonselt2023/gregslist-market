@@ -1,31 +1,30 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :movie
   attr_accessor :remember_token
-
   before_save { self.email = email.downcase }
   before_save { self.username = username.downcase }
-  validates :name, presence: true, length: { maximum: 50 }
-  validates :username, presence: true, length: { maximum: 30 }
+  validates :name,  presence: true, length: { maximum: 50 }
+  validates :username,  presence: true, length: { maximum: 30 }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
-                    format: { with: VALID_EMAIL_REGEX },
-                    uniqueness: { case_sensitive: false }
+            format: { with: VALID_EMAIL_REGEX },
+            uniqueness: { case_sensitive: false }
+
+  #trying to add avatar
+  # has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  # validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+
 
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   validates_confirmation_of :password
 
-  def self.digest(string)
-    cost = if ActiveModel::SecurePassword.min_cost
-             BCrypt::Engine::MIN_COST
-           else
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
              BCrypt::Engine.cost
-           end
-    BCrypt::Password.create(string, cost:)
+    BCrypt::Password.create(string, cost: cost)
   end
-
   # Returns a random token.
-  def self.new_token
+  def User.new_token
     SecureRandom.urlsafe_base64
   end
 
@@ -36,8 +35,7 @@ class User < ActiveRecord::Base
 
   # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
-    return false if remember_digest.nil? # if remember_digest is nil, then return false
-
+    return false if remember_digest.nil? #if remember_digest is nil, then return false
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
