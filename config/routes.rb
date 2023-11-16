@@ -9,20 +9,23 @@ Rails.application.routes.draw do
   get 'navigation_pages/help' => 'navigation_pages#help'
   get 'navigation_pages/about' => 'navigation_pages#about'
   get 'navigation_pages/contact' => 'navigation_pages#contact'
-  get 'signup'  => 'users#new'
-  delete 'logout', to: 'sessions#destroy'
+  get 'signup' => 'users#new'
   # get 'navigation_pages/contact'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   # delete 'logout'  => 'sessions#destroy'
-  get 'logout'  => 'sessions#destroy'
+  get 'logout' => 'sessions#destroy'
   resources :users
 
-
+  get 'select_seller' => 'sellers#select'
+  post 'select_seller' => 'sellers#show'
+  get 'edit_seller' => 'sellers#edit'
+  post 'edit_seller' => 'sellers#edit'
+  get 'new_seller' => 'sellers#new'
+  resources :sellers
 
   # Defines the root path route ("/")
   # root "posts#index"
   # root "home#index"
-  root "navigation_pages#home"
-
+  root 'navigation_pages#home'
 end

@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: Beanland
+  description: "Beanland! Where everyone gets their beans!"
+  address: "Probably somewhere in canada"
+
+two:
+  name: Etsy
+  description: "A place for all things crafts"
+  address: "Everywhere"
