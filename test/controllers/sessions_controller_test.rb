@@ -4,7 +4,7 @@ class SessionsControllerTest < ActionController::TestCase
   include SessionsHelper
   def setup
     @user = User.create(name: "John Doe", username: 'johndoe', email: "johndoe@mymail.com",
-                     password: "foo@bar", password_confirmation: "foo@bar")
+                        password: "foo@bar", password_confirmation: "foo@bar")
   end
   test "new action should redirect to root_path if user is already logged in" do
     # Log in the user
@@ -15,7 +15,7 @@ class SessionsControllerTest < ActionController::TestCase
     assert_redirected_to root_path
     assert_equal "You are already logged in.", flash[:info]
 
-    end
+  end
   test "create action should log in user and redirect to user's show page on successful authentication" do
     post :create, params: { session: { email: @user.email, password: @user.password } }
     assert is_logged_in?
