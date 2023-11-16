@@ -47,6 +47,10 @@ gem "bcrypt", "~> 3.1.7"
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
+# some gems
+gem 'will_paginate', '~> 3.1.0'
+gem 'bootstrap-will_paginate', '1.0.0'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 # gem "bootstrap-datepicker"
