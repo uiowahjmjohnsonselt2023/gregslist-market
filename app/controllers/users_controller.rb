@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :correct_user,   only: [:edit, :update] #this is a private method
 
   def index
-    @users = User.all
+    # @users = User.all
+    @users = User.paginate(page: params[:page])
   end
   def show
     @user = User.find(params[:id])
