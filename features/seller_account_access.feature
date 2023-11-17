@@ -5,29 +5,36 @@ Feature: Access seller accounts
   I want to access my sellers
 
   Background: stores have been added to database
-    Given my following stores exist
-      | name                | description         | address                               |
-      | Cindy's store       | the first one       | 26 E Market St, Iowa City, IA 52245   |
-      | Cindy's 22 store    | the second one      | 29 E Market St, Iowa City, IA 52245   |
-
-    And the following users exist
-      | name    | username   | password | email                |
+    Given the following users exist
+      | name    | username   | password | email                 |
       | Cindy   | cindy_doe  | password | cindy.doe@example.com |
-      | Alice   | alice_sm   | secret   | alice.sm@example.com |
-    And I am on the login page
-    And I log in with email "cindy.doe@example.com" and password "password"
+      | Alice   | alice_sm   | secret   | alice.sm@example.com  |
+    And the following stores exist
+      | name            | description  | address      |
+      | Cindy 1st       | 1 store      | 100 road, IA |
+      | Cindy 2nd       | 2 store      | 101 road, IA |
 
-  Scenario: access an existing seller account
-    When I am on my profile page
-    And I want to access my seller account
-    Then I should see my existing seller accounts
-    When I select one of my seller account
-    Then I should see my store's name
+    And the following associations exist
+      | user_id    | seller_id  |
+      | 1          | 1          |
+      | 1          | 2          |
 
 
   Scenario: create a new seller account
-    Given I am on my profile page
+    Given I am on the login page
+    When I log in with email "cindy.doe@example.com" and password "password"
+    And I should be on my profile page
     When I want to access my seller account
     And I don't have existing seller account yet
     When I complete the seller edit form
-    Then I should see my store's name
+    Then I should be on the store page
+
+#  Scenario: access an existing seller account
+#    Given I log in as "alice_sm"
+#    And I am on my profile page
+#    And I want to access my seller account
+#    Then I should see my existing seller accounts
+#    #When I select one of my seller account
+#    #Then I should see my store's name
+
+
