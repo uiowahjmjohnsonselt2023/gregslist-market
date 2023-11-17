@@ -15,7 +15,8 @@ module NavigationHelpers
 
     when /^the (gregslist )?home\s?page$/ then ''
     when /^the user signup page$/ then '/signup'
-    when /^my profile page$/ then '/users/1'
+    #when /^my profile page$/ then '/users/1'
+    when /^my profile page$/ then "/users/#{User.last.id}"
     when /^my store page$/ then '/select_seller'
     when /^the login page$/ then '/login'
     when /^the admin page$/ then '/admin'

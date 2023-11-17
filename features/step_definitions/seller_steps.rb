@@ -10,7 +10,7 @@ end
 
 
 When 'I want to access my seller account' do
-  click_button('Access Seller accounts')
+  click_link('Access Seller accounts')
 end
 
 Then 'I should see my existing seller accounts' do

@@ -14,10 +14,12 @@ Feature: Access seller accounts
       | name    | username   | password | email                |
       | Cindy   | cindy_doe  | password | cindy.doe@example.com |
       | Alice   | alice_sm   | secret   | alice.sm@example.com |
+    And I am on the login page
+    And I log in with email "cindy.doe@example.com" and password "password"
 
   Scenario: access an existing seller account
-    Given I am on my profile page
-    When I want to access my seller account
+    When I am on my profile page
+    And I want to access my seller account
     Then I should see my existing seller accounts
     When I select one of my seller account
     Then I should see my store's name
