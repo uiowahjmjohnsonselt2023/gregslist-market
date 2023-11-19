@@ -35,8 +35,8 @@ Feature: Access seller accounts
     And I should be on my profile page
     When I want to access my seller account
     Then I should see all my existing seller accounts
-#    When I select the seller account with the name "Cindy 1st"
-#    Then I should be on the store page
+    When I select the seller account with the name "Cindy 2nd"
+    Then I should be on the store page
 
 
 

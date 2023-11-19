@@ -20,29 +20,14 @@ When 'I want to access my seller account' do
   click_link('Access Seller accounts')
 end
 
-# Then 'I should see my existing seller accounts' do
-#   seller =@user.sellers
-#   #seller_name = seller.name
-#   puts('user email=',@user.email)
-#   puts('seller name=',seller)
-#   stores.each do |store|
-#     print('num=',1)
-#     print('store=',store)
-#     #expect(page).to have_content(store.name)
-#   end
-# end
-
 Then 'I should see all my existing seller accounts' do
   user = @user
   puts('user=',user.name)
-  # 通过关联获取用户拥有的所有卖家帐户
   seller_accounts = user.seller
 
-  # 在页面上验证卖家帐户的信息
   seller_accounts.each do |seller|
     puts('seller.name=',seller.name)
     expect(page).to have_content(seller.name)
-    # 添加其他卖家帐户信息的验证
   end
 
 end
@@ -62,3 +47,12 @@ When 'I complete the seller edit form' do
   @store=Seller.find_by(name:name)
   @store_id=@store.id
 end
+
+When /^(?:|I )select the seller account with the name "([^"]*)"$/  do |name|
+  select name, from: 'seller[id]'
+  click_button "Select"
+  @store=Seller.find_by(name:name)
+  @store_id=@store.id
+
+end
+
