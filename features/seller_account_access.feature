@@ -22,19 +22,22 @@ Feature: Access seller accounts
 
   Scenario: create a new seller account
     Given I am on the login page
-    When I log in with email "cindy.doe@example.com" and password "password"
+    When I log in with email "alice.sm@example.com" and password "secret"
     And I should be on my profile page
     When I want to access my seller account
     And I don't have existing seller account yet
     When I complete the seller edit form
     Then I should be on the store page
 
-#  Scenario: access an existing seller account
-#    Given I log in as "alice_sm"
-#    And I am on my profile page
-#    And I want to access my seller account
-#    Then I should see my existing seller accounts
-#    #When I select one of my seller account
-#    #Then I should see my store's name
+  Scenario: access an existing seller account
+    Given I am on the login page
+    When I log in with email "cindy.doe@example.com" and password "password"
+    And I should be on my profile page
+    When I want to access my seller account
+    Then I should see all my existing seller accounts
+#    When I select the seller account with the name "Cindy 1st"
+#    Then I should be on the store page
+
+
 
 

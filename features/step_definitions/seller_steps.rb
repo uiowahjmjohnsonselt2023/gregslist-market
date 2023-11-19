@@ -32,16 +32,29 @@ end
 #   end
 # end
 
+Then 'I should see all my existing seller accounts' do
+  user = @user
+  puts('user=',user.name)
+  # 通过关联获取用户拥有的所有卖家帐户
+  seller_accounts = user.seller
 
+  # 在页面上验证卖家帐户的信息
+  seller_accounts.each do |seller|
+    puts('seller.name=',seller.name)
+    expect(page).to have_content(seller.name)
+    # 添加其他卖家帐户信息的验证
+  end
+
+end
 
 And "I don't have existing seller account yet" do
   click_link('Create new Seller account')
 end
 
 When 'I complete the seller edit form' do
-  name = "cindy's 1 store"
-  description = "the very first one"
-  address = "123 road, IA"
+  name = "alice's 1 store"
+  description = "the very first alice shop"
+  address = "A223 road, IA"
   fill_in "Name", with: name
   fill_in "Description", with: description
   fill_in "Address", with: address
