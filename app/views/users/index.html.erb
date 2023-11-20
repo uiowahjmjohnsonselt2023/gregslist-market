@@ -11,6 +11,8 @@
       <% if current_user.admin? && !current_user?(user) %>
         | <%= link_to "delete_user", user, method: :delete,
                       data: { confirm: "You sure?" } %>
+
+        | <%= button_to "Destroy", user, method: :delete, data: {confirm: "Are you sure?"} %>
       <% end %>
 
     </li>
