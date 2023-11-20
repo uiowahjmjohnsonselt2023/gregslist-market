@@ -9,7 +9,21 @@
   <%= render 'layouts/shim' %>
 </head>
 <body>
-<%= render 'layouts/header' %>
+
+<header>
+<!--  <h1>Main Header</h1>-->
+  <%= render 'layouts/header' %>
+  <!-- Your main header content goes here -->
+</header>
+
+<!--<nav>-->
+<!--  <h2>Secondary Header</h2>-->
+<!--</nav>-->
+
+<!--<section>-->
+<!--  <h3>Tertiary Header</h3>-->
+<!--</section>-->
+
 <div class="container">
   <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
@@ -17,5 +31,6 @@
   <%= yield %>
   <%= render 'layouts/footer' %>
 </div>
+
 </body>
 </html>

@@ -211,3 +211,24 @@ aside {
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+/* Misc */
+
+form.button_to {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  div { display: inline; }
+  input[type=submit] {
+    margin: 0;
+    padding: 0;
+    -webkit-appearance: caret;
+    background: none;
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    text-decoration: underline;
+    color: #0000FF;
+  }
+}
