@@ -1,4 +1,3 @@
-
 Given /the following users exist/ do |users_table|
   users_table.hashes.each do |user|
     User.create(
@@ -10,14 +9,18 @@ Given /the following users exist/ do |users_table|
   end
 end
 
+Then /(.*) users should exist/ do | n_seeds |
+  expect(User.count).to eq n_seeds.to_i
+end
 
 When /^(?:|I )log in with email "([^"]*)" and password "([^"]*)"$/  do |email, password|
-  @email = email
-  @password = password
-  fill_in "Email", with: @email
-  fill_in "Password", with: @password
+  @user=User.find_by(email:email)
+  @user_id=@user.id
+  fill_in "Email", with: email
+  fill_in "Password", with: password
   click_button "Log in"
 end
+
 When "I log out"  do
   click_button "Log out"
 end
@@ -27,7 +30,7 @@ When /^(?:|I )am on (.+)$/ do |page_name|
 end
 
 And /^(?:|I )should be on (.+)$/ do |page_name|
-  expect(current_path).to eq(page_name)
+  expect(current_path).to eq(path_to(page_name))
 end
 
 Then /^(?:|I )should not be on (.+)$/ do |page_name|
@@ -62,6 +65,10 @@ When("I complete the signup form") do
   )
 end
 
+And 'I want to apply as a seller' do
+  Seller
+end
+
 Then 'I should see my profile' do
   the_user=User.find_by(email:@email)
   the_id=the_user.id
@@ -78,4 +85,8 @@ end
 
 Then("I should see the field for {string}") do |field_name|
   expect(page).to have_field(field_name)
+end
+
+And /^(?:|I )delete the user whose username is "([^"]*)"$/ do |name|
+
 end

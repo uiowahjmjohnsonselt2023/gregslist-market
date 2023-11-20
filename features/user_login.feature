@@ -13,11 +13,11 @@ Feature: User login and logout
   Scenario: Login as John
     Given I am on the login page
     When I log in with email "john.doe@example.com" and password "password"
-    Then I should see my profile
+    Then I should be on my profile page
 
 
   Scenario: Login as Alice
     Given I am on the login page
     When I log in with email "alice.sm@example.com" and password "secret"
-    Then I should see my name "Alice"
+    Then I should be on my profile page
 
