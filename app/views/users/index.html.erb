@@ -8,16 +8,11 @@
     <li>
       <%= gravatar_for(user) %>
       Name: <%= link_to user.name, user %> | Username: <%= link_to user.username, user %>
-      <% if current_user.admin? && !current_user?(user) %>
-        | <%= link_to "delete_user", user, method: :delete,
-                      data: { confirm: "You sure?" } %>
-
+      <% if current_user == @user || current_user.admin?%>
         | <%= button_to "Destroy", user, method: :delete, data: {confirm: "Are you sure?"} %>
       <% end %>
-
     </li>
   <% end %>
 </ul>
 
 <%= will_paginate %>
-
