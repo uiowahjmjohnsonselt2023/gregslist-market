@@ -1,6 +1,7 @@
 class SellersController < ApplicationController
   def show
     @seller = Seller.find(params[:id] || params[:seller][:id])
+    @items = @seller.items
   end
 
   def new
