@@ -11,15 +11,15 @@ Rails.application.routes.draw do
   get 'navigation_pages/contact' => 'navigation_pages#contact'
   get 'signup' => 'users#new'
   delete 'logout', to: 'sessions#destroy'
-  # delete 'delete_user', to: 'users#destroy'
+  get 'delete_user', to: 'users#destroy'
+  post 'delete_user', to: 'users#destroy'
+  delete 'delete_user', to: 'users#destroy'
   # get 'navigation_pages/contact'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   # delete 'logout'  => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
   resources :users
-
-
 
   get 'select_seller' => 'sellers#select'
   post 'select_seller' => 'sellers#show'

@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.2.2"
 gem "stringio", "3.0.8"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.1.1"
+gem 'rails', '~> 7.0', '>= 7.0.8'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -98,3 +98,4 @@ group :production do
 end
 
 # To do: organize gem
+gem "solidus", "~> 4.2"
