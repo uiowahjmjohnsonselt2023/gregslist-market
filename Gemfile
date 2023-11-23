@@ -97,5 +97,3 @@ group :production do
   gem "pg"
 end
 
-# To do: organize gem
-gem "solidus", "~> 4.2"
