@@ -18,6 +18,21 @@
         <%= submit_tag("Edit store account") %>
       <% end %>
 
+      <h2>Items</h2>
+      <% @items.each do |item| %>
+        <p>
+          <strong>Name:</strong>
+          <%= item.name %>
+        </p>
+
+        <p>
+          <strong>Description:</strong>
+          <%= item.description %>
+        </p>
+
+        <!-- Add more item details here -->
+      <% end %>
+
     </section>
   </aside>
 </div>
