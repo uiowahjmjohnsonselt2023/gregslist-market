@@ -18,7 +18,7 @@
     <ul>
       <li><%= link_to "Settings", edit_user_path(current_user) %></li>
       <li>
-        <%= form_for @user, url: delete_user_path, method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
+        <%= form_for @user, url: delete_user_path, method: :post, data: { confirm: 'Are you sure?' } do |f| %>
           <%= f.submit "Delete Account" %>
         <% end %> 
       </li>
