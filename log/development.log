@@ -5736,3 +5736,869 @@ Processing by SellersController#show as HTML
 Completed 200 OK in 84ms (Views: 80.8ms | ActiveRecord: 1.4ms | Allocations: 8156)
 
 
+Started GET "/categories" for 127.0.0.1 at 2023-11-23 23:47:18 -0600
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:6
+  Rendered categories/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 460)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 94.6ms | Allocations: 7117)
+Completed 200 OK in 98ms (Views: 95.5ms | ActiveRecord: 1.2ms | Allocations: 7524)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-23 23:47:19 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (0.6ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 2.6ms | Allocations: 683)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 97.3ms | Allocations: 7476)
+Completed 200 OK in 99ms (Views: 97.3ms | ActiveRecord: 1.2ms | Allocations: 7901)
+
+
+Started POST "/select_seller" for 127.0.0.1 at 2023-11-23 23:47:20 -0600
+Processing by SellersController#show as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "seller"=>{"id"=>"1"}, "commit"=>"Select"}
+  [1m[36mSeller Load (0.7ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers" WHERE "sellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sellers_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/show.html.erb within layouts/application
+  [1m[36mItem Load (0.9ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."seller_id" = ?[0m  [["seller_id", 1]]
+  ↳ app/views/sellers/show.html.erb:26
+  Rendered sellers/show.html.erb within layouts/application (Duration: 5.1ms | Allocations: 667)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 94.5ms | Allocations: 7451)
+Completed 200 OK in 99ms (Views: 94.3ms | ActiveRecord: 2.0ms | Allocations: 8302)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-23 23:47:28 -0600
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:6
+  Rendered categories/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 459)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 98.5ms | Allocations: 7118)
+Completed 200 OK in 100ms (Views: 98.6ms | ActiveRecord: 1.2ms | Allocations: 7530)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-23 23:47:29 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (0.5ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 2.7ms | Allocations: 680)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 77.8ms | Allocations: 7339)
+Completed 200 OK in 80ms (Views: 78.1ms | ActiveRecord: 1.0ms | Allocations: 7772)
+
+
+Started POST "/select_seller" for 127.0.0.1 at 2023-11-23 23:47:33 -0600
+Processing by SellersController#show as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "seller"=>{"id"=>"1"}, "commit"=>"Select"}
+  [1m[36mSeller Load (0.7ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers" WHERE "sellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sellers_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/show.html.erb within layouts/application
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."seller_id" = ?[0m  [["seller_id", 1]]
+  ↳ app/views/sellers/show.html.erb:26
+  Rendered sellers/show.html.erb within layouts/application (Duration: 2.9ms | Allocations: 667)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 94.3ms | Allocations: 7323)
+Completed 200 OK in 98ms (Views: 94.2ms | ActiveRecord: 1.8ms | Allocations: 8159)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-11-23 23:47:46 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 8.9ms | Allocations: 974)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 115)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 85.2ms | Allocations: 7412)
+Completed 200 OK in 100ms (Views: 90.7ms | ActiveRecord: 1.0ms | Allocations: 8466)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-23 23:47:47 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (0.4ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 2.5ms | Allocations: 680)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 88.0ms | Allocations: 7453)
+Completed 200 OK in 90ms (Views: 88.4ms | ActiveRecord: 0.9ms | Allocations: 7854)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-11-23 23:47:51 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 609)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 115)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 91.5ms | Allocations: 6918)
+Completed 200 OK in 96ms (Views: 92.2ms | ActiveRecord: 1.3ms | Allocations: 7683)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-23 23:48:02 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (0.6ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 2.8ms | Allocations: 680)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 4.9ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 96.8ms | Allocations: 7339)
+Completed 200 OK in 100ms (Views: 96.1ms | ActiveRecord: 2.7ms | Allocations: 7751)
+
+
+Started POST "/select_seller" for 127.0.0.1 at 2023-11-23 23:48:03 -0600
+Processing by SellersController#show as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "seller"=>{"id"=>"1"}, "commit"=>"Select"}
+  [1m[36mSeller Load (0.5ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers" WHERE "sellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sellers_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/show.html.erb within layouts/application
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."seller_id" = ?[0m  [["seller_id", 1]]
+  ↳ app/views/sellers/show.html.erb:26
+  Rendered sellers/show.html.erb within layouts/application (Duration: 2.4ms | Allocations: 667)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 73.6ms | Allocations: 7323)
+Completed 200 OK in 77ms (Views: 73.9ms | ActiveRecord: 1.4ms | Allocations: 8147)
+
+
+Started GET "/items/new" for 127.0.0.1 at 2023-11-23 23:48:05 -0600
+  
+AbstractController::ActionNotFound (The action 'new' could not be found for ItemsController):
+  
+actionpack (7.1.2) lib/abstract_controller/base.rb:155:in `process'
+actionview (7.1.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/categories" for 127.0.0.1 at 2023-11-23 23:48:34 -0600
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:6
+  Rendered categories/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 459)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 76.7ms | Allocations: 7282)
+Completed 200 OK in 79ms (Views: 76.9ms | ActiveRecord: 1.0ms | Allocations: 7697)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-23 23:48:36 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (0.7ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 3.1ms | Allocations: 680)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.3ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 95.3ms | Allocations: 7339)
+Completed 200 OK in 97ms (Views: 95.3ms | ActiveRecord: 1.2ms | Allocations: 7755)
+
+
+Started POST "/select_seller" for 127.0.0.1 at 2023-11-23 23:48:37 -0600
+Processing by SellersController#show as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "seller"=>{"id"=>"1"}, "commit"=>"Select"}
+  [1m[36mSeller Load (0.6ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers" WHERE "sellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sellers_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/show.html.erb within layouts/application
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."seller_id" = ?[0m  [["seller_id", 1]]
+  ↳ app/views/sellers/show.html.erb:26
+  Rendered sellers/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 667)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 3.2ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 99.7ms | Allocations: 7322)
+Completed 200 OK in 104ms (Views: 99.7ms | ActiveRecord: 1.9ms | Allocations: 8170)
+
+
+Started GET "/items/new" for 127.0.0.1 at 2023-11-23 23:50:59 -0600
+Processing by ItemsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1257)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 1349)
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms | Allocations: 2247)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <%= form_for @item do |f| %>
+    2:     <div class="field">
+    3:       <%= f.label :name %><br>
+    4:       <%= f.text_field :name %>
+  
+app/views/items/new.html.erb:1
+Started GET "/items/new" for 127.0.0.1 at 2023-11-23 23:51:53 -0600
+Processing by ItemsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (Duration: 71.4ms | Allocations: 2705)
+  Rendered layout layouts/application.html.erb (Duration: 72.5ms | Allocations: 2797)
+Completed 500 Internal Server Error in 167ms (ActiveRecord: 48.7ms | Allocations: 12009)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `current_seller' for #<ActionView::Base:0x00000000071778>):
+    19:       <%= f.number_field :listed_price, step: 0.01 %>
+    20:     </div>
+    21:   
+    22:     <%= f.hidden_field :seller_id, value: current_seller.id %>
+    23:   
+    24:     <div class="actions">
+    25:       <%= f.submit %>
+  
+app/views/items/new.html.erb:22
+app/views/items/new.html.erb:1
+Started GET "/items/new" for 127.0.0.1 at 2023-11-23 23:52:36 -0600
+Processing by ItemsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2065)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 2157)
+Completed 500 Internal Server Error in 92ms (ActiveRecord: 48.2ms | Allocations: 8615)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    19:       <%= f.number_field :listed_price, step: 0.01 %>
+    20:     </div>
+    21:   
+    22:     <%= f.hidden_field :seller_id, value: current_seller.id %>
+    23:   
+    24:     <div class="actions">
+    25:       <%= f.submit %>
+  
+app/views/items/new.html.erb:22
+app/views/items/new.html.erb:1
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-23 23:53:10 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (2.0ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 14.5ms | Allocations: 4630)
+  Rendered layouts/_shim.html.erb (Duration: 4.9ms | Allocations: 96)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 33.8ms | Allocations: 7899)
+  Rendered layouts/_footer.html.erb (Duration: 4.9ms | Allocations: 172)
+  Rendered layout layouts/application.html.erb (Duration: 173.3ms | Allocations: 19698)
+Completed 200 OK in 204ms (Views: 177.9ms | ActiveRecord: 7.2ms | Allocations: 22647)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-11-23 23:53:14 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 8.4ms | Allocations: 957)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 115)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 100.1ms | Allocations: 7262)
+Completed 200 OK in 114ms (Views: 104.3ms | ActiveRecord: 1.2ms | Allocations: 8343)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-23 23:53:17 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (0.6ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 2.5ms | Allocations: 685)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 87.2ms | Allocations: 7344)
+Completed 200 OK in 89ms (Views: 87.2ms | ActiveRecord: 1.2ms | Allocations: 7763)
+
+
+Started POST "/select_seller" for 127.0.0.1 at 2023-11-23 23:53:19 -0600
+Processing by SellersController#show as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "seller"=>{"id"=>"1"}, "commit"=>"Select"}
+  [1m[36mSeller Load (0.7ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers" WHERE "sellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sellers_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/show.html.erb within layouts/application
+  [1m[36mItem Load (0.8ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."seller_id" = ?[0m  [["seller_id", 1]]
+  ↳ app/views/sellers/show.html.erb:26
+  Rendered sellers/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1942)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.3ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 93.9ms | Allocations: 8598)
+Completed 200 OK in 107ms (Views: 94.1ms | ActiveRecord: 2.0ms | Allocations: 10549)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-23 23:53:33 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (0.6ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 2.6ms | Allocations: 680)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 86.4ms | Allocations: 7339)
+Completed 200 OK in 88ms (Views: 86.3ms | ActiveRecord: 1.2ms | Allocations: 7739)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-23 23:57:54 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (0.5ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 2.8ms | Allocations: 680)
+  Rendered layouts/_shim.html.erb (Duration: 0.1ms | Allocations: 9)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.3ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 78.1ms | Allocations: 7339)
+Completed 200 OK in 80ms (Views: 78.6ms | ActiveRecord: 0.9ms | Allocations: 7755)
+
+
+Started POST "/select_seller" for 127.0.0.1 at 2023-11-23 23:57:55 -0600
+Processing by SellersController#show as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "seller"=>{"id"=>"1"}, "commit"=>"Select"}
+  [1m[36mSeller Load (0.6ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers" WHERE "sellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sellers_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/show.html.erb within layouts/application
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."seller_id" = ?[0m  [["seller_id", 1]]
+  ↳ app/views/sellers/show.html.erb:26
+  Rendered sellers/show.html.erb within layouts/application (Duration: 2.8ms | Allocations: 667)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 78.1ms | Allocations: 7489)
+Completed 200 OK in 86ms (Views: 78.2ms | ActiveRecord: 1.7ms | Allocations: 8317)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-23 23:57:59 -0600
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (0.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:6
+  Rendered categories/index.html.erb within layouts/application (Duration: 12.3ms | Allocations: 2892)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 472)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 90.5ms | Allocations: 9602)
+Completed 200 OK in 114ms (Views: 90.9ms | ActiveRecord: 3.0ms | Allocations: 11305)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-23 23:58:00 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (0.9ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 3.5ms | Allocations: 682)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 98.6ms | Allocations: 7350)
+Completed 200 OK in 102ms (Views: 99.5ms | ActiveRecord: 1.5ms | Allocations: 7770)
+
+
+Started POST "/select_seller" for 127.0.0.1 at 2023-11-23 23:58:02 -0600
+Processing by SellersController#show as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "seller"=>{"id"=>"1"}, "commit"=>"Select"}
+  [1m[36mSeller Load (0.7ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers" WHERE "sellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sellers_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/show.html.erb within layouts/application
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."seller_id" = ?[0m  [["seller_id", 1]]
+  ↳ app/views/sellers/show.html.erb:26
+  Rendered sellers/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 668)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 90.3ms | Allocations: 7324)
+Completed 200 OK in 95ms (Views: 90.3ms | ActiveRecord: 1.8ms | Allocations: 8155)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-11-23 23:58:06 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 3.1ms | Allocations: 609)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  Rendered layouts/_header.html.erb (Duration: 0.5ms | Allocations: 115)
+  Rendered layouts/_footer.html.erb (Duration: 0.2ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 83.5ms | Allocations: 6910)
+Completed 200 OK in 88ms (Views: 84.1ms | ActiveRecord: 1.1ms | Allocations: 7686)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-23 23:58:11 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (0.5ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 2.6ms | Allocations: 680)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.3ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 77.7ms | Allocations: 7339)
+Completed 200 OK in 79ms (Views: 77.9ms | ActiveRecord: 1.0ms | Allocations: 7770)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2023-11-24 00:06:31 -0600
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (30.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:12:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered users/show.html.erb within layouts/application (Duration: 10.2ms | Allocations: 1037)
+  Rendered layouts/_shim.html.erb (Duration: 3.8ms | Allocations: 94)
+  Rendered layouts/_header.html.erb (Duration: 4.3ms | Allocations: 499)
+  Rendered layouts/_footer.html.erb (Duration: 4.7ms | Allocations: 172)
+  Rendered layout layouts/application.html.erb (Duration: 121.3ms | Allocations: 8702)
+Completed 200 OK in 198ms (Views: 133.7ms | ActiveRecord: 55.0ms | Allocations: 16846)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-24 00:06:33 -0600
+Processing by SellersController#select as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 652)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/sellers_controller.rb:37:in `select'
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-24 00:07:11 -0600
+Processing by SellersController#select as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 637)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/sellers_controller.rb:37:in `select'
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-24 00:07:16 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (3.2ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 43.7ms | Allocations: 5015)
+  Rendered layouts/_shim.html.erb (Duration: 5.7ms | Allocations: 94)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 30.4ms | Allocations: 7880)
+  Rendered layouts/_footer.html.erb (Duration: 4.7ms | Allocations: 172)
+  Rendered layout layouts/application.html.erb (Duration: 250.9ms | Allocations: 20066)
+Completed 200 OK in 311ms (Views: 223.3ms | ActiveRecord: 53.1ms | Allocations: 23713)
+
+
+Started POST "/select_seller" for 127.0.0.1 at 2023-11-24 00:07:50 -0600
+Processing by SellersController#show as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "seller"=>{"id"=>"1"}, "commit"=>"Select"}
+  [1m[36mSeller Load (0.7ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers" WHERE "sellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sellers_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/show.html.erb within layouts/application
+  [1m[36mItem Load (0.5ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."seller_id" = ?[0m  [["seller_id", 1]]
+  ↳ app/views/sellers/show.html.erb:26
+  Rendered sellers/show.html.erb within layouts/application (Duration: 9.8ms | Allocations: 2340)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 3.1ms | Allocations: 471)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 99.2ms | Allocations: 8997)
+Completed 200 OK in 148ms (Views: 98.2ms | ActiveRecord: 4.2ms | Allocations: 19912)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-24 00:08:16 -0600
+Processing by SellersController#select as HTML
+Completed 500 Internal Server Error in 33ms (ActiveRecord: 0.0ms | Allocations: 3181)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/sellers_controller.rb:38:in `select'
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-24 00:08:20 -0600
+Processing by SellersController#select as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 647)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/sellers_controller.rb:38:in `select'
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-24 00:08:52 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (1.6ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 37.5ms | Allocations: 5031)
+  Rendered layouts/_shim.html.erb (Duration: 3.8ms | Allocations: 94)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 36.7ms | Allocations: 7881)
+  Rendered layouts/_footer.html.erb (Duration: 6.8ms | Allocations: 172)
+  Rendered layout layouts/application.html.erb (Duration: 198.3ms | Allocations: 20087)
+Completed 200 OK in 247ms (Views: 168.0ms | ActiveRecord: 48.8ms | Allocations: 23739)
+
+
+Started POST "/select_seller" for 127.0.0.1 at 2023-11-24 00:10:30 -0600
+Processing by SellersController#show as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "seller"=>{"id"=>"1"}, "commit"=>"Select"}
+  [1m[36mSeller Load (2.9ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers" WHERE "sellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sellers_controller.rb:3:in `show'
+Completed 500 Internal Server Error in 94ms (ActiveRecord: 55.3ms | Allocations: 9270)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"sellers", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/sellers_controller.rb:6:in `show'
+Started POST "/select_seller" for 127.0.0.1 at 2023-11-24 00:10:41 -0600
+Processing by SellersController#show as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "seller"=>{"id"=>"1"}, "commit"=>"Select"}
+  [1m[36mSeller Load (2.4ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers" WHERE "sellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sellers_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/show.html.erb within layouts/application
+  [1m[36mItem Load (0.6ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."seller_id" = ?[0m  [["seller_id", 1]]
+  ↳ app/views/sellers/show.html.erb:26
+  Rendered sellers/show.html.erb within layouts/application (Duration: 13.2ms | Allocations: 2404)
+  Rendered layouts/_shim.html.erb (Duration: 4.9ms | Allocations: 94)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 36.6ms | Allocations: 7824)
+  Rendered layouts/_footer.html.erb (Duration: 7.5ms | Allocations: 172)
+  Rendered layout layouts/application.html.erb (Duration: 193.4ms | Allocations: 17399)
+Completed 200 OK in 317ms (Views: 199.7ms | ActiveRecord: 58.6ms | Allocations: 27135)
+
+
+Started GET "/items/new" for 127.0.0.1 at 2023-11-24 00:11:04 -0600
+Processing by ItemsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (Duration: 7.2ms | Allocations: 2060)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 2152)
+Completed 500 Internal Server Error in 98ms (ActiveRecord: 51.4ms | Allocations: 8507)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    19:       <%= f.number_field :listed_price, step: 0.01 %>
+    20:     </div>
+    21:   
+    22:     <%= f.hidden_field :seller_id, value: current_seller.id %>
+    23:   
+    24:     <div class="actions">
+    25:       <%= f.submit %>
+  
+app/views/items/new.html.erb:22
+app/views/items/new.html.erb:1
+Started GET "/items/new" for 127.0.0.1 at 2023-11-24 00:11:17 -0600
+Processing by ItemsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1701)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1792)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 2191)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    19:       <%= f.number_field :listed_price, step: 0.01 %>
+    20:     </div>
+    21:   
+    22:     <%= f.hidden_field :seller_id, value: current_seller.id %>
+    23:   
+    24:     <div class="actions">
+    25:       <%= f.submit %>
+  
+app/views/items/new.html.erb:22
+app/views/items/new.html.erb:1
+Started GET "/items/new" for 127.0.0.1 at 2023-11-24 00:11:44 -0600
+Processing by ItemsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (Duration: 6.2ms | Allocations: 2062)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 2154)
+Completed 500 Internal Server Error in 99ms (ActiveRecord: 56.5ms | Allocations: 8595)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    19:       <%= f.number_field :listed_price, step: 0.01 %>
+    20:     </div>
+    21:   
+    22:     <%= f.hidden_field :seller_id, value: current_seller.id %>
+    23:   
+    24:     <div class="actions">
+    25:       <%= f.submit %>
+  
+app/views/items/new.html.erb:22
+app/views/items/new.html.erb:1
+Started GET "/items/new" for 127.0.0.1 at 2023-11-24 00:13:55 -0600
+Processing by ItemsController#new as HTML
+Completed 500 Internal Server Error in 69ms (ActiveRecord: 50.8ms | Allocations: 6006)
+
+
+  
+NoMethodError (undefined method `id' for nil:NilClass):
+  
+app/controllers/items_controller.rb:4:in `new'
+Started GET "/items/new" for 127.0.0.1 at 2023-11-24 00:14:12 -0600
+Processing by ItemsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2118)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 2210)
+Completed 500 Internal Server Error in 104ms (ActiveRecord: 50.6ms | Allocations: 8651)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    19:       <%= f.number_field :listed_price, step: 0.01 %>
+    20:     </div>
+    21:   
+    22:     <%= f.hidden_field :seller_id, value: current_seller.id %>
+    23:   
+    24:     <div class="actions">
+    25:       <%= f.submit %>
+  
+app/views/items/new.html.erb:22
+app/views/items/new.html.erb:1
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-24 00:14:14 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (1.9ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 15.9ms | Allocations: 4690)
+  Rendered layouts/_shim.html.erb (Duration: 5.7ms | Allocations: 94)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 34.9ms | Allocations: 7878)
+  Rendered layouts/_footer.html.erb (Duration: 4.9ms | Allocations: 172)
+  Rendered layout layouts/application.html.erb (Duration: 180.0ms | Allocations: 19734)
+Completed 200 OK in 219ms (Views: 187.0ms | ActiveRecord: 8.0ms | Allocations: 22663)
+
+
+Started GET "/select_seller" for 127.0.0.1 at 2023-11-24 00:14:17 -0600
+Processing by SellersController#select as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/select.html.erb within layouts/application
+  [1m[36mSeller Load (0.8ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers"[0m
+  ↳ app/views/sellers/select.html.erb:6
+  Rendered sellers/select.html.erb within layouts/application (Duration: 3.5ms | Allocations: 685)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 100.6ms | Allocations: 7344)
+Completed 200 OK in 103ms (Views: 100.9ms | ActiveRecord: 1.3ms | Allocations: 7765)
+
+
+Started POST "/select_seller" for 127.0.0.1 at 2023-11-24 00:14:18 -0600
+Processing by SellersController#show as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "seller"=>{"id"=>"1"}, "commit"=>"Select"}
+  [1m[36mSeller Load (0.7ms)[0m  [1m[34mSELECT "sellers".* FROM "sellers" WHERE "sellers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/sellers_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering sellers/show.html.erb within layouts/application
+  [1m[36mItem Load (0.7ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."seller_id" = ?[0m  [["seller_id", 1]]
+  ↳ app/views/sellers/show.html.erb:26
+  Rendered sellers/show.html.erb within layouts/application (Duration: 11.7ms | Allocations: 1942)
+  Rendered layouts/_shim.html.erb (Duration: 0.0ms | Allocations: 9)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:22:in `current_user'
+  Rendered layouts/_header.html.erb (Duration: 2.3ms | Allocations: 469)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 40)
+  Rendered layout layouts/application.html.erb (Duration: 95.0ms | Allocations: 8598)
+Completed 200 OK in 107ms (Views: 95.6ms | ActiveRecord: 1.9ms | Allocations: 10542)
+
+
+Started GET "/items/new" for 127.0.0.1 at 2023-11-24 00:14:19 -0600
+Processing by ItemsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering items/new.html.erb within layouts/application
+  Rendered items/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1702)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1793)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 2182)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+    19:       <%= f.number_field :listed_price, step: 0.01 %>
+    20:     </div>
+    21:   
+    22:     <%= f.hidden_field :seller_id, value: current_seller.id %>
+    23:   
+    24:     <div class="actions">
+    25:       <%= f.submit %>
+  
+app/views/items/new.html.erb:22
+app/views/items/new.html.erb:1
+Started POST "/__web_console/repl_sessions/eca2eb3778d729aef285c314e9c6f307/trace" for 127.0.0.1 at 2023-11-24 00:15:44 -0600
