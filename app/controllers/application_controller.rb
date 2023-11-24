@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
   #   render 'application/delete'
   # end
 
+  helper_method :current_seller
+
+  def current_seller
+    @current_seller ||= Seller.find(session[:seller_id]) if session[:seller_id]
+  end
 end
