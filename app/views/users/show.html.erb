@@ -17,11 +17,14 @@
     <b>Edit your profile:</b>
     <ul>
       <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-      <li>
-        <%= form_for @user, url: delete_user_path, method: :post, data: { confirm: 'Are you sure?' } do |f| %>
-          <%= f.submit "Delete Account" %>
-        <% end %> 
-      </li>
+
+      
+      <% if current_user == @user || current_user.admin? %>
+        <li>
+          <%= form_for @user, url: user_path(@user), method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
+            <%= f.submit "Delete Account" %>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </aside>
-</div>
