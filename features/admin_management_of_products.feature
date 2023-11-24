@@ -6,7 +6,7 @@ Feature: Admin manage unqualified products
 
   Background: products have been added to database
     Given the following products exist
-      | name                                            | price      | date        | category | seller_username |
+      | name                                            | price      | date        | category | seller |
       | Sunglasses                                      | 25.7       | 2023-10-31  | Fashion  | Alice           |
       | Modern Computer Organization and Architecture   | 70         | 2022-05-22  | Books    | Jack            |
       | Lover                                           | 39.99      | 2021-01-01  | Music    | Joanna          |
