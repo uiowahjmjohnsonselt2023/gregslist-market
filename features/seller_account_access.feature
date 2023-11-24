@@ -27,7 +27,7 @@ Feature: Access seller accounts
     When I want to access my seller account
     And I don't have existing seller account yet
     When I complete the seller edit form
-    Then I should be on the store page
+    Then I should be on my store page
 
   Scenario: access an existing seller account
     Given I am on the login page
@@ -36,7 +36,7 @@ Feature: Access seller accounts
     When I want to access my seller account
     Then I should see all my existing seller accounts
     When I select the seller account with the name "Cindy 2nd"
-    Then I should be on the store page
+    Then I should be on my store page
 
 
 

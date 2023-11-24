@@ -12,7 +12,7 @@ Given("the following associations exist") do |association_table|
   association_table.hashes.each do |row|
     user = User.find_by(id: row['user_id'])
     seller = Seller.find_by(id: row['seller_id'])
-    seller.user << user
+    seller.users << user
   end
 end
 
