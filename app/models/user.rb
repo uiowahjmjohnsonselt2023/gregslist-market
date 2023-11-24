@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :movie
+  has_and_belongs_to_many :seller
   attr_accessor :remember_token
 
   before_save { self.email = email.downcase }
