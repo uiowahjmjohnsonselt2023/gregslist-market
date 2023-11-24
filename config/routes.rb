@@ -35,7 +35,8 @@ Rails.application.routes.draw do
   # Defines the route for the categories page
   resources :categories
 
+
   # Defines the route for the items page
-  resources :items, only: [:new, :create]
+  resources :items
 
 end

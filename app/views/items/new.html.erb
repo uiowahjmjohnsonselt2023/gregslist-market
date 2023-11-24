@@ -1,27 +1,32 @@
 <%= form_for @item do |f| %>
-    <div class="field">
-      <%= f.label :name %><br>
-      <%= f.text_field :name %>
-    </div>
-  
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_field :description %>
-    </div>
-  
-    <div class="field">
-      <%= f.label :listing_date %><br>
-      <%= f.date_field :listing_date %>
-    </div>
-  
-    <div class="field">
-      <%= f.label :listed_price %><br>
-      <%= f.number_field :listed_price, step: 0.01 %>
-    </div>
-  
-    <%= f.hidden_field :seller_id, value: current_seller.id %>
-  
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :listing_date %><br>
+    <%= f.date_field :listing_date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :listed_price %><br>
+    <%= f.number_field :listed_price, step: 0.01 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %><br>
+    <%= f.collection_select :category_ids, Category.all, :id, :name, {}, { multiple: true } %>
+  </div>
+
+  <%= f.hidden_field :seller_id, value: current_seller.id %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

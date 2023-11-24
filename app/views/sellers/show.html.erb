@@ -18,9 +18,10 @@
         <%= submit_tag("Edit store account") %>
       <% end %>
 
-      <%= link_to 'View Categories', categories_path, class: 'button' %>
+      <%= link_to 'View Categories', categories_path(seller_id: @seller.id) %>
+
       <br>
-      <%= link_to 'Add Item', new_item_path, class: 'button' %>
+      <%= link_to 'Add Item', new_item_path(seller_id: @seller.id), class: 'button' %>
 
       <h2>Items</h2>
       <% @items.each do |item| %>
