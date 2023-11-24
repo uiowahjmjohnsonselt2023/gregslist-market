@@ -377,7 +377,7 @@ DEPENDENCIES
   pry
   pry-byebug
   puma (>= 5.0)
-  rails (~> 7.1.1)
+  rails (~> 7.0, >= 7.0.8)
   rails-controller-testing
   rspec
   rspec-rails

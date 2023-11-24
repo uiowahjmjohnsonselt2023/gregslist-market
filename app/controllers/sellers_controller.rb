@@ -1,6 +1,7 @@
 class SellersController < ApplicationController
   def show
     @seller = Seller.find(params[:id] || params[:seller][:id])
+    @items = @seller.items
   end
 
   def new
@@ -22,7 +23,7 @@ class SellersController < ApplicationController
 
   def create
     @seller = Seller.new(seller_params)
-    @seller.user << current_user
+    @seller.users << current_user
     if @seller.save
       redirect_to @seller
       puts 'SAVED'
