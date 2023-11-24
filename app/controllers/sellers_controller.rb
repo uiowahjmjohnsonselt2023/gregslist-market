@@ -34,7 +34,7 @@ class SellersController < ApplicationController
   end
 
   def select
-    @valid_sellers = Seller.all
+    @valid_sellers = current_user.seller
     render 'select'
   end
 

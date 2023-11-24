@@ -3,7 +3,7 @@
   <aside class="col-md-4">
 
     <%= form_tag do %>
-      <%= collection_select(:seller, :id, Seller.all, :id, :name) %>
+      <%= collection_select(:seller, :id, @valid_sellers, :id, :name) %>
       <%= submit_tag("Select") %>
     <% end %>
 
