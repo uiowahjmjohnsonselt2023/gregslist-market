@@ -31,4 +31,11 @@ Rails.application.routes.draw do
   # root "posts#index"
   # root "home#index"
   root 'navigation_pages#home'
+
+  # Defines the route for the categories page
+  resources :categories
+
+  # Defines the route for the items page
+  resources :items, only: [:new, :create]
+
 end
