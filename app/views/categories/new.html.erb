@@ -1,14 +1,13 @@
 <h1>New Category</h1>
-<h2>Problem, not working</h2>
 
-<%= form_with(model: @category, local: true) do |form| %>
+<%= form_for @category do |f| %>
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= f.submit %>
   </div>
 <% end %>
 
