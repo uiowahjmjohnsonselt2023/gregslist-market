@@ -45,3 +45,4 @@ class SessionsControllerTest < ActionController::TestCase
     # Ensure that the user is redirected to root_url
     assert_redirected_to root_path
   end
+  end
