@@ -1,4 +1,5 @@
-require 'test_helper'
+require 'C:\Users\pchiu\RubymineProjects\gregslist-market\test\test_helper.rb'
+
 
 class SessionsControllerTest < ActionController::TestCase
   include SessionsHelper

@@ -4,8 +4,20 @@
 # model remove the "{}" from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-# column: value
+one:
+  name: Shoes
+  description: NewBalance
+  seller_id: 1
+  listing_date: Date.current
+  listed_price: 80.99
+
+two:
+  name: Lover
+  description: Album
+  seller_id: 2
+  listing_date: Date.current
+  listed_price: 15.50
+
+
+
+

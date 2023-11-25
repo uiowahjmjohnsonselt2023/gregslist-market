@@ -1,5 +1,7 @@
 require "simplecov"
-require 'test_helper'
+#require 'test_helper'
+require 'C:\Users\pchiu\RubymineProjects\gregslist-market\test\test_helper.rb'
+
 SimpleCov.start "rails"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
