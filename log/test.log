@@ -30585,3 +30585,465 @@ Processing by SellersController#show as HTML
 Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.1ms | Allocations: 2248)
   [1m[36mItem Load (0.1ms)[0m  [1m[34mSELECT "items".* FROM "items" WHERE "items"."name" = ? LIMIT ?[0m  [["name", "Sunglasses"], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "schema_sha1"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.7ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.513800', '2023-11-25 01:57:53.513800');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.513800', '2023-11-25 01:57:53.513800');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.515199', '2023-11-25 01:57:53.515199');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.515199', '2023-11-25 01:57:53.515199');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.515934', '2023-11-25 01:57:53.515934');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.515934', '2023-11-25 01:57:53.515934');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.517042', '2023-11-25 01:57:53.517042');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.517042', '2023-11-25 01:57:53.517042');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.517674', '2023-11-25 01:57:53.517674');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.517674', '2023-11-25 01:57:53.517674')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.533362', '2023-11-25 01:57:53.533362');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.533362', '2023-11-25 01:57:53.533362');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.533414', '2023-11-25 01:57:53.533414');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.533414', '2023-11-25 01:57:53.533414');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.533442', '2023-11-25 01:57:53.533442');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.533442', '2023-11-25 01:57:53.533442');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.533521', '2023-11-25 01:57:53.533521');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.533521', '2023-11-25 01:57:53.533521');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.533552', '2023-11-25 01:57:53.533552');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.533552', '2023-11-25 01:57:53.533552')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.547254', '2023-11-25 01:57:53.547254');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.547254', '2023-11-25 01:57:53.547254');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.547302', '2023-11-25 01:57:53.547302');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.547302', '2023-11-25 01:57:53.547302');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.547330', '2023-11-25 01:57:53.547330');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.547330', '2023-11-25 01:57:53.547330');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.547356', '2023-11-25 01:57:53.547356');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.547356', '2023-11-25 01:57:53.547356');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.547385', '2023-11-25 01:57:53.547385');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.547385', '2023-11-25 01:57:53.547385')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.560655', '2023-11-25 01:57:53.560655');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.560655', '2023-11-25 01:57:53.560655');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.560712', '2023-11-25 01:57:53.560712');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.560712', '2023-11-25 01:57:53.560712');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.560742', '2023-11-25 01:57:53.560742');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.560742', '2023-11-25 01:57:53.560742');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.560771', '2023-11-25 01:57:53.560771');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.560771', '2023-11-25 01:57:53.560771');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.560801', '2023-11-25 01:57:53.560801');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.560801', '2023-11-25 01:57:53.560801')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.573874', '2023-11-25 01:57:53.573874');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.573874', '2023-11-25 01:57:53.573874');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.573944', '2023-11-25 01:57:53.573944');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.573944', '2023-11-25 01:57:53.573944');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.573973', '2023-11-25 01:57:53.573973');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.573973', '2023-11-25 01:57:53.573973');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.574003', '2023-11-25 01:57:53.574003');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.574003', '2023-11-25 01:57:53.574003');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.574033', '2023-11-25 01:57:53.574033');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.574033', '2023-11-25 01:57:53.574033')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.587428', '2023-11-25 01:57:53.587428');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.587428', '2023-11-25 01:57:53.587428');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.587495', '2023-11-25 01:57:53.587495');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.587495', '2023-11-25 01:57:53.587495');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.587525', '2023-11-25 01:57:53.587525');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.587525', '2023-11-25 01:57:53.587525');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.587552', '2023-11-25 01:57:53.587552');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.587552', '2023-11-25 01:57:53.587552');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.587587', '2023-11-25 01:57:53.587587');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.587587', '2023-11-25 01:57:53.587587')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.601437', '2023-11-25 01:57:53.601437');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.601437', '2023-11-25 01:57:53.601437');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.601511', '2023-11-25 01:57:53.601511');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.601511', '2023-11-25 01:57:53.601511');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.601542', '2023-11-25 01:57:53.601542');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.601542', '2023-11-25 01:57:53.601542');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.601568', '2023-11-25 01:57:53.601568');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.601568', '2023-11-25 01:57:53.601568');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.601600', '2023-11-25 01:57:53.601600');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.601600', '2023-11-25 01:57:53.601600')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.615662', '2023-11-25 01:57:53.615662');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.615662', '2023-11-25 01:57:53.615662');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.615732', '2023-11-25 01:57:53.615732');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.615732', '2023-11-25 01:57:53.615732');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.615760', '2023-11-25 01:57:53.615760');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.615760', '2023-11-25 01:57:53.615760');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.615791', '2023-11-25 01:57:53.615791');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.615791', '2023-11-25 01:57:53.615791');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.615822', '2023-11-25 01:57:53.615822');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.615822', '2023-11-25 01:57:53.615822')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.628768', '2023-11-25 01:57:53.628768');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.628768', '2023-11-25 01:57:53.628768');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.628836', '2023-11-25 01:57:53.628836');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.628836', '2023-11-25 01:57:53.628836');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.628865', '2023-11-25 01:57:53.628865');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.628865', '2023-11-25 01:57:53.628865');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.628891', '2023-11-25 01:57:53.628891');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.628891', '2023-11-25 01:57:53.628891');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.628922', '2023-11-25 01:57:53.628922');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.628922', '2023-11-25 01:57:53.628922')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.642436', '2023-11-25 01:57:53.642436');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.642436', '2023-11-25 01:57:53.642436');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.642503', '2023-11-25 01:57:53.642503');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.642503', '2023-11-25 01:57:53.642503');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.642531', '2023-11-25 01:57:53.642531');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.642531', '2023-11-25 01:57:53.642531');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.642557', '2023-11-25 01:57:53.642557');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.642557', '2023-11-25 01:57:53.642557');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.642586', '2023-11-25 01:57:53.642586');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.642586', '2023-11-25 01:57:53.642586')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.656047', '2023-11-25 01:57:53.656047');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.656047', '2023-11-25 01:57:53.656047');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.656117', '2023-11-25 01:57:53.656117');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.656117', '2023-11-25 01:57:53.656117');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.656145', '2023-11-25 01:57:53.656145');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.656145', '2023-11-25 01:57:53.656145');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.656173', '2023-11-25 01:57:53.656173');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.656173', '2023-11-25 01:57:53.656173');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.656203', '2023-11-25 01:57:53.656203');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.656203', '2023-11-25 01:57:53.656203')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.669436', '2023-11-25 01:57:53.669436');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.669436', '2023-11-25 01:57:53.669436');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.669504', '2023-11-25 01:57:53.669504');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.669504', '2023-11-25 01:57:53.669504');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.669532', '2023-11-25 01:57:53.669532');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.669532', '2023-11-25 01:57:53.669532');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.669557', '2023-11-25 01:57:53.669557');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.669557', '2023-11-25 01:57:53.669557');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.669590', '2023-11-25 01:57:53.669590');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.669590', '2023-11-25 01:57:53.669590')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.682442', '2023-11-25 01:57:53.682442');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.682442', '2023-11-25 01:57:53.682442');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.682509', '2023-11-25 01:57:53.682509');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.682509', '2023-11-25 01:57:53.682509');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.682539', '2023-11-25 01:57:53.682539');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.682539', '2023-11-25 01:57:53.682539');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.682566', '2023-11-25 01:57:53.682566');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.682566', '2023-11-25 01:57:53.682566');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.682598', '2023-11-25 01:57:53.682598');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.682598', '2023-11-25 01:57:53.682598')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.695866', '2023-11-25 01:57:53.695866');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.695866', '2023-11-25 01:57:53.695866');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.695933', '2023-11-25 01:57:53.695933');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.695933', '2023-11-25 01:57:53.695933');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.695961', '2023-11-25 01:57:53.695961');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.695961', '2023-11-25 01:57:53.695961');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.695987', '2023-11-25 01:57:53.695987');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.695987', '2023-11-25 01:57:53.695987');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.696017', '2023-11-25 01:57:53.696017');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.696017', '2023-11-25 01:57:53.696017')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.711373', '2023-11-25 01:57:53.711373');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.711373', '2023-11-25 01:57:53.711373');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.711434', '2023-11-25 01:57:53.711434');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.711434', '2023-11-25 01:57:53.711434');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.711462', '2023-11-25 01:57:53.711462');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.711462', '2023-11-25 01:57:53.711462');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.711489', '2023-11-25 01:57:53.711489');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.711489', '2023-11-25 01:57:53.711489');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.711519', '2023-11-25 01:57:53.711519');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.711519', '2023-11-25 01:57:53.711519')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (1.0ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.730601', '2023-11-25 01:57:53.730601');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.730601', '2023-11-25 01:57:53.730601');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.730674', '2023-11-25 01:57:53.730674');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.730674', '2023-11-25 01:57:53.730674');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.730705', '2023-11-25 01:57:53.730705');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.730705', '2023-11-25 01:57:53.730705');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.730734', '2023-11-25 01:57:53.730734');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.730734', '2023-11-25 01:57:53.730734');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.730769', '2023-11-25 01:57:53.730769');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.730769', '2023-11-25 01:57:53.730769')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.797718', '2023-11-25 01:57:53.797718');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.797718', '2023-11-25 01:57:53.797718');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.797803', '2023-11-25 01:57:53.797803');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.797803', '2023-11-25 01:57:53.797803');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.797834', '2023-11-25 01:57:53.797834');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.797834', '2023-11-25 01:57:53.797834');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.797866', '2023-11-25 01:57:53.797866');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.797866', '2023-11-25 01:57:53.797866');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.797897', '2023-11-25 01:57:53.797897');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.797897', '2023-11-25 01:57:53.797897')[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.812305', '2023-11-25 01:57:53.812305');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.812305', '2023-11-25 01:57:53.812305');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.812390', '2023-11-25 01:57:53.812390');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.812390', '2023-11-25 01:57:53.812390');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.812422', '2023-11-25 01:57:53.812422');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.812422', '2023-11-25 01:57:53.812422');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.812453', '2023-11-25 01:57:53.812453');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.812453', '2023-11-25 01:57:53.812453');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.812488', '2023-11-25 01:57:53.812488');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.812488', '2023-11-25 01:57:53.812488')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.2ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.826262', '2023-11-25 01:57:53.826262');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.826262', '2023-11-25 01:57:53.826262');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.826335', '2023-11-25 01:57:53.826335');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.826335', '2023-11-25 01:57:53.826335');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.826365', '2023-11-25 01:57:53.826365');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.826365', '2023-11-25 01:57:53.826365');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.826392', '2023-11-25 01:57:53.826392');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.826392', '2023-11-25 01:57:53.826392');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.826423', '2023-11-25 01:57:53.826423');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.826423', '2023-11-25 01:57:53.826423')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixtures Load (0.3ms)[0m  [1m[31mDELETE FROM "categories";
+DELETE FROM "item_categories";
+DELETE FROM "items";
+DELETE FROM "sellers";
+DELETE FROM "users";
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.839567', '2023-11-25 01:57:53.839567');
+INSERT INTO "categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.839567', '2023-11-25 01:57:53.839567');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.839642', '2023-11-25 01:57:53.839642');
+INSERT INTO "item_categories" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.839642', '2023-11-25 01:57:53.839642');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (980190962, '2023-11-25 01:57:53.839671', '2023-11-25 01:57:53.839671');
+INSERT INTO "items" ("id", "created_at", "updated_at") VALUES (298486374, '2023-11-25 01:57:53.839671', '2023-11-25 01:57:53.839671');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (980190962, 'Beanland', 'Beanland! Where everyone gets their beans!', 'Probably somewhere in canada', '2023-11-25 01:57:53.839700', '2023-11-25 01:57:53.839700');
+INSERT INTO "sellers" ("id", "name", "description", "address", "created_at", "updated_at") VALUES (298486374, 'Etsy', 'A place for all things crafts', 'Everywhere', '2023-11-25 01:57:53.839700', '2023-11-25 01:57:53.839700');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (980190962, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.839732', '2023-11-25 01:57:53.839732');
+INSERT INTO "users" ("id", "name", "username", "email", "created_at", "updated_at") VALUES (298486374, 'MyString', 'MyString', 'MyString', '2023-11-25 01:57:53.839732', '2023-11-25 01:57:53.839732')[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
