@@ -43,6 +43,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def graceful_delete
+    user = User.find(params[:user][:id])
+    # stores = user.stores
+    if user.destroy
+      flash[:success] = 'User deleted'
+      redirect_to logout_path
+    else
+      puts 'failed'
+    end
+  end
+
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)

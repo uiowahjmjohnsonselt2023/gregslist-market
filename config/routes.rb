@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   delete 'logout', to: 'sessions#destroy'
 
-  delete 'delete_user', to: 'users#destroy'
+  put 'delete_user', to: 'users#graceful_delete'
   # get 'navigation_pages/contact'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get 'new_seller' => 'sellers#new'
   resources :sellers
 
+  put 'debug' => 'users#temp_func'
+
   # Defines the root path route ("/")
   # root "posts#index"
   # root "home#index"
@@ -35,8 +37,6 @@ Rails.application.routes.draw do
   # Defines the route for the categories page
   resources :categories
 
-
   # Defines the route for the items page
   resources :items
-
 end
