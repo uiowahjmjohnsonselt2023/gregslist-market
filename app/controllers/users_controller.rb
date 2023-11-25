@@ -45,9 +45,12 @@ class UsersController < ApplicationController
 
   def graceful_delete
     user = User.find(params[:user][:id])
-    # stores = user.stores
+    stores = user.seller
     if user.destroy
       flash[:success] = 'User deleted'
+      stores.each do |w|
+        w.destroy if w.user.empty?
+      end
       redirect_to logout_path
     else
       puts 'failed'
