@@ -23,7 +23,8 @@ Feature: Seller post and update items
   Scenario: Post a item
     Given I log in as "cindy_doe"
     And I am at my store "Cindy 1st"
-    When I complete the item post form
+    When I want to add an item
+    And I complete the item post form
     Then I should see my item in my store
 
   Scenario: Update the price of an item

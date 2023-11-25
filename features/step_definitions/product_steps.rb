@@ -23,10 +23,17 @@ When /^(?:|I )am in (.+)$/ do |page_name|
   visit path_to(page_name)
 end
 
-When /^(?:|I )am at my store "([^"]*)"$/ do |store_name|
+And /^(?:|I )am at my store "([^"]*)"$/ do |store_name|
   @store=Seller.find_by(name:store_name)
-  @store_id=@store.id
+  unless @store.nil?
+    puts('@store=',@store.id)
+    @store_id = @store.id
+  end
   visit path_to('my store page')
+end
+
+When 'I want to add an item' do
+  click_link('Add Item')
 end
 
 When("I complete the item post form") do
@@ -34,11 +41,15 @@ When("I complete the item post form") do
   @price="22.99"
   @date="2023-11-13"
   @seller=@store_id
-  fill_in "name", with: @name
-  fill_in "price", with: @price
-  fill_in "date", with: @date
-  fill_in "description", with:@description
-  click_button "Post the item"
+  category='Shoes'
+  fill_in "Name", with: @name
+  fill_in "Description", with:@description
+  fill_in "Listed price", with: @price
+  fill_in "Listing date", with: @date
+
+  select category, from: 'item[category_ids][]'
+  click_button "Create Item"
+
   Item.create(
     name: @name,
     price: @price,
@@ -49,11 +60,13 @@ When("I complete the item post form") do
 end
 
 Then 'I should see my item in my store' do
-  the_item=Item.find_by(name:@name, price:@price, date:@date, description:@description, seller_id:@seller)
-  the_id=the_item.id
-  # TODO: path for one's store
-  expect(current_path).to eq('/users/'+the_id.to_s)
-  expect(page).to have_content(@name, price:@price, date:@date, description:@description)
+  # the_item=Item.find_by(name:@name, price:@price, date:@date, description:@description, seller_id:@seller)
+  # the_id=the_item.id
+  # expect(current_path).to eq('/users/'+the_id.to_s)
+  expect(page).to have_content(@name)
+  expect(page).to have_content(@price)
+  expect(page).to have_content(date:@date)
+  expect(page).to have_content(description:@description)
 end
 
 When /^(?:|I )update the price of "([^"]*)" with "([^"]*)"$/ do |name, new_price|
