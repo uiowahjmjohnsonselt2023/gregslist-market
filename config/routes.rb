@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   get 'navigation_pages/contact' => 'navigation_pages#contact'
   get 'signup' => 'users#new'
   delete 'logout', to: 'sessions#destroy'
-  get 'delete_user', to: 'users#destroy'
-  post 'delete_user', to: 'users#destroy'
+
   delete 'delete_user', to: 'users#destroy'
   # get 'navigation_pages/contact'
   get    'login'   => 'sessions#new'
@@ -32,4 +31,12 @@ Rails.application.routes.draw do
   # root "posts#index"
   # root "home#index"
   root 'navigation_pages#home'
+
+  # Defines the route for the categories page
+  resources :categories
+
+
+  # Defines the route for the items page
+  resources :items
+
 end
