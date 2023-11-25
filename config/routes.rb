@@ -27,6 +27,14 @@ Rails.application.routes.draw do
   get 'new_seller' => 'sellers#new'
   resources :sellers
 
+
+  get 'select_buyer' => 'buyers#select'
+  post 'select_buyer' => 'buyers#show'
+  get 'edit_buyer' => 'buyers#edit'
+  post 'edit_buyer' => 'buyers#edit'
+  get 'new_buyer' => 'buyers#new'
+  resources :buyers
+
   # Defines the root path route ("/")
   # root "posts#index"
   # root "home#index"
