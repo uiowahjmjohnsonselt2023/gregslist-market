@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_23_193925) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_25_024727) do
+  create_table "buyers", force: :cascade do |t|
+    t.string "first_name", null: false
+    t.string "last_name", null: false
+    t.text "payment_method"
+    t.text "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "buyers_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "buyer_id", null: false
+    t.index ["user_id", "buyer_id"], name: "index_buyers_users_on_user_id_and_buyer_id"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false

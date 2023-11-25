@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  has_and_belongs_to_many :seller
+  has_and_belongs_to_many :sellers
+  has_and_belongs_to_many :buyers
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
   before_save { self.username = username.downcase }
