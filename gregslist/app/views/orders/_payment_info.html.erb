@@ -1,0 +1,27 @@
+<div class="payment-info">
+  <h3 class="payment-info__title">
+    <%= t('spree.payment_information') %>
+  </h3>
+
+  <%= link_to(
+    "[#{t('spree.actions.edit')}]",
+    checkout_state_path(:payment),
+    { class: 'payment-info__edit' }
+  ) unless @order.completed? %>
+
+  <% order.payments.valid.each do |payment| %>
+    <ul class="payment-info__info">
+      <li>
+        <%= render partial_name_with_fallback(
+          'orders/payment_info',
+          payment.payment_method.partial_name,
+          'default'
+        ), payment: payment %>
+      </li>
+      <li>
+        <strong><%= payment.display_amount %></strong>
+        (<%= t(payment.state, scope: 'spree.payment_states') %>)
+      </li>
+    </ul>
+  <% end %>
+</div>
