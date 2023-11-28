@@ -1,7 +1,11 @@
 class ItemsController < ApplicationController
     def new
         @item = Item.new
-        @item.seller_id = session[:seller_id] if session[:seller_id] # This might be a problem
+        if params[:seller_id].present? || session[:seller_id].present?
+            session[:seller_id] = params[:seller_id] if params[:seller_id].present?
+            @item.seller_id = session[:seller_id]
+        end
+
     end
 
     def create
