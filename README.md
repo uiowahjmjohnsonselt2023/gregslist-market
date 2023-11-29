@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Gregslist Marketplace
+Final project repository for Team 08 (Fall '23)
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Roll call to make sure everyone can edit:
+Graham
+Eric
+Roy
+Cindy
+Stewart =======
+README
+Visit our project manual for more details.
