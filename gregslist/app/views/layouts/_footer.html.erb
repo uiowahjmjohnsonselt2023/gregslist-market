@@ -1,8 +1,18 @@
 <footer class="footer">
-  <p>
+<!--  <p>-->
+  <small>
+<!--    This is a Rails ecommerce app for SELT Team 08-->
+    SELT Team 08 ecommerce app built with <a href="http://rubyonrails.org/">Ruby on Rails</a>
+  </small>
     <%#= t 'spree.powered_by' %> <%#= link_to 'Solidus', 'http://solidus.io/' %>
-    This is a Rails ecommerce app for SELT Team 08
-  </p>
+
+<!--  </p>-->
+
+  <nav>
+    <ul>
+      <li><%= link_to "Contact", contacts_path %></li>
+    </ul>
+  </nav>
 
   <%
     available_locales = current_store.available_locales.map do |locale|

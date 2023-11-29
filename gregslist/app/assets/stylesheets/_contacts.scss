@@ -1,0 +1,31 @@
+/* Example styling - customize as needed */
+h1 {
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.team-members {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.member {
+  border: 1px solid #ccc;
+  padding: 10px;
+  width: 45%;
+}
+
+.member h3 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.member p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.member a {
+  color: #007bff;
+}

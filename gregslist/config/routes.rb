@@ -41,6 +41,9 @@ Rails.application.routes.draw do
   get '/locale/set', to: 'locale#set'
   post '/locale/set', to: 'locale#set', as: :select_locale
 
+  # get 'contacts/contact', to: 'contacts#contact'
+  # post 'contacts/contact', to: 'contacts#contact', as: :contact
+  resources :contacts
   resource :checkout_session, only: :new
   resource :checkout_guest_session, only: :create
 
