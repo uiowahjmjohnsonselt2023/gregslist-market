@@ -1,48 +1,78 @@
 Rails.application.routes.draw do
+  mount SolidusPaypalCommercePlatform::Engine, at: '/solidus_paypal_commerce_platform'
+  root to: 'home#index'
+
+  devise_for(:user, {
+    class_name: 'Spree::User',
+    singular: :spree_user,
+    controllers: {
+      sessions: 'user_sessions',
+      registrations: 'user_registrations',
+      passwords: 'user_passwords',
+      confirmations: 'user_confirmations'
+    },
+    skip: [:unlocks, :omniauth_callbacks],
+    path_names: { sign_out: 'logout' }
+  })
+
+  resources :users, only: [:edit, :update]
+
+  devise_scope :spree_user do
+    get '/login', to: 'user_sessions#new', as: :login
+    post '/login', to: 'user_sessions#create', as: :create_new_session
+    match '/logout', to: 'user_sessions#destroy', as: :logout, via: Devise.sign_out_via
+    get '/signup', to: 'user_registrations#new', as: :signup
+    post '/signup', to: 'user_registrations#create', as: :registration
+    get '/password/recover', to: 'user_passwords#new', as: :recover_password
+    post '/password/recover', to: 'user_passwords#create', as: :reset_password
+    get '/password/change', to: 'user_passwords#edit', as: :edit_password
+    put '/password/change', to: 'user_passwords#update', as: :update_password
+    get '/confirm', to: 'user_confirmations#show', as: :confirmation if Spree::Auth::Config[:confirmable]
+  end
+
+  resource :account, controller: 'users'
+
+  resources :products, only: [:index, :show]
+
+  resources :autocomplete_results, only: :index
+
+  resources :cart_line_items, only: :create
+
+  get '/locale/set', to: 'locale#set'
+  post '/locale/set', to: 'locale#set', as: :select_locale
+
+  resource :checkout_session, only: :new
+  resource :checkout_guest_session, only: :create
+
+  # non-restful checkout stuff
+  patch '/checkout/update/:state', to: 'checkouts#update', as: :update_checkout
+  get '/checkout/:state', to: 'checkouts#edit', as: :checkout_state
+  get '/checkout', to: 'checkouts#edit', as: :checkout
+
+  get '/orders/:id/token/:token' => 'orders#show', as: :token_order
+
+  resources :orders, only: :show do
+    resources :coupon_codes, only: :create
+  end
+
+  resource :cart, only: [:show, :update] do
+    put 'empty'
+  end
+
+  # route globbing for pretty nested taxon and product paths
+  get '/t/*id', to: 'taxons#show', as: :nested_taxons
+
+  get '/unauthorized', to: 'home#unauthorized', as: :unauthorized
+  get '/cart_link', to: 'store#cart_link', as: :cart_link
+
+  # This line mounts Solidus's routes at the root of your application.
+  # This means, any requests to URLs such as /products, will go to Spree::ProductsController.
+  # If you would like to change where this engine is mounted, simply change the :at option to something different.
+  #
+  # We ask that you don't use the :as option here, as Solidus relies on it being the default of "spree"
+  mount Spree::Core::Engine, at: '/'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  # get "up" => "rails/health#show", as: :rails_health_check
-  # get 'home/index'
-  get 'navigation_pages/home' => 'navigation_pages#home'
-  get 'navigation_pages/help' => 'navigation_pages#help'
-  get 'navigation_pages/about' => 'navigation_pages#about'
-  get 'navigation_pages/contact' => 'navigation_pages#contact'
-  get 'signup' => 'users#new'
-  delete 'logout', to: 'sessions#destroy'
-
-  put 'delete_user', to: 'users#graceful_delete'
-  # get 'navigation_pages/contact'
-  get    'login'   => 'sessions#new'
-  post   'login'   => 'sessions#create'
-  # delete 'logout'  => 'sessions#destroy'
-  get 'logout' => 'sessions#destroy'
-  resources :users
-
-  get 'select_seller' => 'sellers#select'
-  post 'select_seller' => 'sellers#show'
-  get 'edit_seller' => 'sellers#edit'
-  post 'edit_seller' => 'sellers#edit'
-  get 'new_seller' => 'sellers#new'
-  resources :sellers
-
-
-  get 'select_buyer' => 'buyers#select'
-  post 'select_buyer' => 'buyers#show'
-  get 'edit_buyer' => 'buyers#edit'
-  post 'edit_buyer' => 'buyers#edit'
-  get 'new_buyer' => 'buyers#new'
-  resources :buyers
-
   # Defines the root path route ("/")
-  # root "posts#index"
-  # root "home#index"
-  root 'navigation_pages#home'
-
-  # Defines the route for the categories page
-  resources :categories
-
-  # Defines the route for the items page
-  resources :items
+  # root "articles#index"
 end

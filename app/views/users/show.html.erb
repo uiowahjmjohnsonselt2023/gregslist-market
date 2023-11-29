@@ -1,32 +1,51 @@
-<% provide(:title, @user.name) %>
+<div class="account-summary">
+  <div class="account-summary__profile">
+    <h2><%= I18n.t('spree.email') %></h2>
+    <p><%= @user.email %> (<%= link_to I18n.t('spree.edit'), edit_account_path %>)</p>
+  </div>
 
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-      <%#= image_tag @user.avatar.url %>
-    </section>
+  <div class="account-summary__orders">
+    <h2><%= I18n.t('spree.my_orders') %></h2>
+    <% if @orders.present? %>
+      <% @orders.each do |order| %>
+        <dl class="account-order">
+          <div class="account-order__detail">
+            <dt><%= I18n.t(:number, scope: 'activerecord.attributes.spree/order') %></dt>
+            <dd><%= link_to order.number, order_url(order) %></dd>
+          </div>
 
-    <section class="action_sidebar">
-      <%= link_to "Access Seller accounts", select_seller_path, class: "btn btn btn-primary" %>
-      <%= link_to "Access Buyer accounts", select_buyer_path, class: "btn btn btn-primary" %>
-    </section>
+          <div class="account-order__detail">
+            <dt><%= I18n.t('spree.date') %></dt>
+            <dd><%= l order.completed_at.to_date %></dd>
+          </div>
 
-    <b>Edit your profile:</b>
-    <ul>
-      <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+          <div class="account-order__detail">
+            <dt><%= I18n.t('spree.status') %></dt>
+            <dd><%= I18n.t("spree.order_state.#{order.state}").titleize %></dd>
+          </div>
 
-      
-      <% if current_user == @user || current_user.admin? %>
-        <li>
-          <%= form_for @user, url: delete_user_path, method: :put, data: { confirm: 'Are you sure?' } do |f| %>
-            <%= f.hidden_field :id  %>
-            <%= f.submit "Delete Account" %>
-          <% end %>
-        </li>
+          <div class="account-order__detail">
+            <dt><%= I18n.t('spree.payment_state') %></dt>
+            <dd><%= I18n.t("spree.payment_states.#{order.payment_state}").titleize if order.payment_state %></dd>
+          </div>
+
+          <div class="account-order__detail">
+            <dt><%= I18n.t('spree.shipment_state') %></dt>
+            <dd><%= I18n.t("spree.shipment_states.#{order.shipment_state}").titleize if order.shipment_state %></dd>
+          </div>
+
+          <div class="account-order__detail">
+            <dt><%= I18n.t('spree.total') %></dt>
+            <dd><%= order.display_total %></dd>
+          </div>
+        </dl>
       <% end %>
-    </ul>
-  </aside>
+    <% else %>
+      <p><%= I18n.t('spree.you_have_no_orders_yet') %></p>
+    <% end %>
+  </div>
+
+  <%= form_with(url: logout_path, method: Devise.sign_out_via, local: true) do %>
+    <%= button_tag(t("spree.logout"), class: 'button-primary') %>
+  <% end %>
+</div>

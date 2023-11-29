@@ -1,13 +1,11 @@
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <div class="alert alert-danger">
-<!--      The form contains <%#= pluralize(@user.errors.count, "error") %>.-->
-      Signup is unsuccessful because of the following errors:
-    </div>
-    <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+<% if target && target.errors.any? %>
+  <div id="errorExplanation" class="errorExplanation" data-hook>
+    <h2><%= t('spree.errors_prohibited_this_record_from_being_saved', count: target.errors.count) %>:</h2>
+    <p><%= t('spree.there_were_problems_with_the_following_fields') %>:</p>
+     <ul>
+     <% target.errors.full_messages.each do |msg| %>
+       <li><%= msg %></li>
+     <% end %>
+     </ul>
   </div>
 <% end %>

@@ -1,98 +1,70 @@
-class UsersController < ApplicationController
-  before_action :logged_in_user, only: %i[index edit update destroy]
-  before_action :correct_user,   only: %i[edit update] # this is a private method
-  before_action :admin_user,     only: :destroy # this is a private method
+# frozen_string_literal: true
 
-  def index
-    # @users = User.all
-    @users = User.paginate(page: params[:page])
-  end
+class UsersController < StoreController
+  skip_before_action :set_current_order, only: :show, raise: false
+  prepend_before_action :authorize_actions, only: :new
+
+  include Taxonomies
 
   def show
-    @user = User.find(params[:id])
-  end
-
-  def new
-    @user = User.new
+    load_object
+    @orders = @user.orders.complete.order('completed_at desc')
   end
 
   def create
-    @user = User.new(user_params)
+    @user = Spree::User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = 'Welcome to Gregslist Marketplace!'
-      redirect_to @user
-      # Handle a successful save.
+
+      if current_order
+        session[:guest_token] = nil
+      end
+
+      redirect_back_or_default(root_url)
     else
-      render 'new'
+      render :new
     end
   end
 
   def edit
-    @user = User.find(params[:id])
-  end
-
-  def destroy
-    user = User.find(params[:id])
-    stores = user.stores
-    if user.destroy
-      flash[:success] = 'User deleted'
-      redirect_to logout
-    else
-      puts 'failed'
-    end
-  end
-
-  def graceful_delete
-    user = User.find(params[:user][:id])
-    stores = user.seller
-    if user.destroy
-      flash[:success] = 'User deleted'
-      stores.each do |w|
-        w.destroy if w.user.empty?
-      end
-      redirect_to logout_path
-    else
-      puts 'failed'
-    end
+    load_object
   end
 
   def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      flash[:success] = 'Profile updated'
-      redirect_to @user # Handle a successful update.
+    load_object
+    if @user.update(user_params)
+      spree_current_user.reload
+      redirect_url = account_url
+
+      if params[:user][:password].present?
+        # this logic needed b/c devise wants to log us out after password changes
+        if Spree::Auth::Config[:signout_after_password_change]
+          redirect_url = login_url
+        else
+          bypass_sign_in(@user)
+        end
+      end
+      redirect_to redirect_url, notice: I18n.t('spree.account_updated')
     else
-      render 'edit'
+      render :edit
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :username, :email, :password,
-                                 :password_confirmation)
-
-    # params.require(:user).permit(:avatar)
+    params.require(:user).permit(Spree::PermittedAttributes.user_attributes | [:email])
   end
 
-  # Confirms a logged-in user.
-  def logged_in_user
-    return if logged_in?
-
-    store_location # defined in sessions_helper.rb
-    flash[:danger] = 'Please log in.'
-    redirect_to login_url
+  def load_object
+    @user ||= Spree::User.find_by(id: spree_current_user&.id)
+    authorize! params[:action].to_sym, @user
   end
 
-  # Confirms the correct user.
-  def correct_user
-    @user = User.find(params[:id])
-    redirect_to(root_url) unless current_user?(@user) # current_user? is defined in sessions_helper.rb
+  def authorize_actions
+    authorize! params[:action].to_sym, Spree::User.new
   end
 
-  # Confirms an admin user.
-  def admin_user
-    redirect_to(root_url) unless current_user.admin?
+  def accurate_title
+    I18n.t('spree.my_account')
   end
 end

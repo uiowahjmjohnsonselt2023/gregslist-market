@@ -1,0 +1,26 @@
+<%= form_tag autocomplete_results_path, method: :get, class: "search-bar",
+    "data-turbo": true,
+    "data-turbo-stream": true,
+    "data-controller": "search",
+    "data-search-current-class": "autocomplete-results__item--current",
+    "data-search-target": "form" do %>
+
+  <%= search_field_tag :keywords, params[:keywords], placeholder: "Search", class: "search-bar__input", autocomplete: "off",
+    "data-action": "input->search#fetchResults
+                    keydown.down->search#nextResult
+                    keydown.up->search#previousResult
+                    keydown.enter->search#openResult:prevent:stop
+                    keydown.esc->search#reset:prevent:stop
+                    click@window->search#focusOut
+                    ",
+    "data-search-target": "keywords" %>
+
+  <%= button_tag class: "search-bar__button", title: 'Search' do %>
+    <svg class="search-bar__icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M14.5 25C20.299 25 25 20.299 25 14.5C25 8.70101 20.299 4 14.5 4C8.70101 4 4 8.70101 4 14.5C4 20.299 8.70101 25 14.5 25Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M21.9243 21.925L27.9994 28.0001" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  <% end %>
+
+  <div id="autocomplete-results" class="autocomplete-results" data-search-target="results"></div>
+<% end %>

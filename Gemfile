@@ -1,99 +1,99 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.2.2"
-gem "stringio", "3.0.8"
+ruby '3.2.2'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem 'rails', '~> 7.0', '>= 7.0.8'
+gem 'rails', '~> 7.0.8'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+gem 'sprockets-rails'
 
 # Use sqlite3 as the database for Active Record
-
+gem 'sqlite3', '~> 1.4'
 
 # Use the Puma web server [https://github.com/puma/puma]
-gem "puma", ">= 5.0"
+gem 'puma', '~> 5.0'
 
-# Bundle and transpile JavaScript [https://github.com/rails/jsbundling-rails]
-gem "jsbundling-rails"
+# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+gem 'importmap-rails'
 
 # Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
-gem "turbo-rails"
+gem 'turbo-rails'
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-gem "stimulus-rails"
+gem 'stimulus-rails'
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
-
-# gem 'devise', '~> 4.9', '>= 4.9.3'
+gem 'jbuilder'
 
 # Use Redis adapter to run Action Cable in production
-# gem "redis", ">= 4.0.1"
+# gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
 # gem "kredis"
 
-gem "jquery-rails"
-# gem "bootstrap"
-# gem "sassc-rails"
-
-# gem 'bootstrap-sass', '3.2.0.2'
-gem "bun"
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-gem "bcrypt", "~> 3.1.7"
+# gem "bcrypt", "~> 3.1.7"
 
-# gem 'webpacker', '~> 5.0'
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem "tzinfo-data", platforms: %i[ windows jruby ]
-
-# some gems
-gem 'will_paginate', '~> 3.1.0'
-gem 'bootstrap-will_paginate', '1.0.0'
+gem 'tzinfo-data', platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Reduces boot times through caching; required in config/boot.rb
-gem "bootsnap", require: false
-# gem "bootstrap-datepicker"
-gem 'bootstrap-sass', '~> 3.4.1'
-gem 'bootstrap-datepicker-rails'
+gem 'bootsnap', require: false
 
-gem 'turbolinks', '~> 5.2.0'
+# Use Sass to process CSS
+# gem "sassc-rails"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
-gem "minitest"
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
-  gem 'byebug'
-  gem 'database_cleaner'
   gem 'cucumber-rails', require: false
+  gem 'debug', platforms: %i[ mri mingw x64_mingw ]
+  gem 'factory_bot', '>= 4.8'
+  gem 'factory_bot_rails'
+  gem 'ffaker', '~> 2.13'
+  gem 'rails-controller-testing', '~> 1.0.5'
+  gem 'rspec-activemodel-mocks', '~> 1.1.0'
   gem 'rspec-rails'
-  gem 'rspec'
-  gem 'pry'
-  gem 'pry-byebug'
-  gem 'sqlite3'
+  gem 'rubocop', '~> 1.0'
+  gem 'rubocop-performance', '~> 1.5'
+  gem 'rubocop-rails', '~> 2.3'
+  gem 'rubocop-rspec', '~> 2.0'
 end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
+  gem 'web-console'
+
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-
 end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem "capybara"
-  gem "selenium-webdriver"
-  gem 'simplecov', :require=> false
-  gem 'rails-controller-testing'
+  gem 'capybara'
+  gem 'capybara-screenshot', '~> 1.0'
+  gem 'database_cleaner', '~> 1.7'
+  gem 'selenium-webdriver'
 end
 
-group :production do
-  gem "pg"
-end
+# Solidus gem dependencies
+
+gem 'solidus'
+gem 'solidus_auth_devise'
+gem 'solidus_paypal_commerce_platform'
+
+gem 'autoprefixer-rails'
+gem 'canonical-rails'
+gem 'mini_racer', platforms: :ruby
+gem 'responders'
+gem 'solidus_support'
+gem 'truncate_html'
+gem 'view_component', '~> 3.0'
 
