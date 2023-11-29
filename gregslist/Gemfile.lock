@@ -419,6 +419,9 @@ GEM
       solidus_core (>= 3.0, < 5.0)
       solidus_support (>= 0.8.0)
       solidus_webhooks (~> 0.2)
+    solidus_reviews (1.6.0)
+      solidus_core (>= 2.0.0, < 5)
+      solidus_support (~> 0.8)
     solidus_sample (4.2.3)
       solidus_core (= 4.2.3)
     solidus_support (0.10.0)
@@ -508,6 +511,7 @@ DEPENDENCIES
   solidus
   solidus_auth_devise
   solidus_paypal_commerce_platform
+  solidus_reviews (~> 1.6)
   solidus_support
   sprockets-rails
   sqlite3 (~> 1.4)

@@ -75,6 +75,10 @@ end
 
 gem 'solidus'
 gem 'solidus_auth_devise'
+# gem 'solidus_reviews'
+# gem 'solidus_reviews', '~> 1.6'
+# gem 'deface', github: 'spree/deface'
+# gem 'solidus_reviews', github: 'solidusio-contrib/solidus_reviews'
 gem 'solidus_paypal_commerce_platform'
 
 gem "responders"
@@ -102,3 +106,4 @@ group :development, :test do
   gem "rubocop-rails", "~> 2.3"
   gem "rubocop-rspec", "~> 2.0"
 end
+

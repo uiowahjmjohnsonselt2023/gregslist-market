@@ -12,3 +12,8 @@
  *= require screen
  *= require spree/frontend/solidus_paypal_commerce_platform
 */
+
+/*.logo {*/
+/*  width: 250px;*/
+/*  height: 100px;*/
+/*}*/
