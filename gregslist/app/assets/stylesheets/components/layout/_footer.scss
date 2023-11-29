@@ -13,6 +13,46 @@
 //  }
 //}
 
+//$color-background-lighter: #ffffff; /* Define light background color */
+//$color-copy-light: #777777; /* Define light copy color */
+//$color-copy: #555555; /* Define copy color for links */
+//
+//.footer {
+//  margin-top: 45px;
+//  padding-top: 5px;
+//  border-top: 1px solid #eaeaea;
+//  background: $color-background-lighter; /* Set light background color */
+//  color: $color-copy-light; /* Set light copy color */
+//  font-size: $font-size-small; /* Use your small font size variable */
+//  text-align: center;
+//
+//  a {
+//    color: $color-copy; /* Set copy color for links */
+//    &:hover {
+//      color: #222222; /* Darken link color on hover */
+//    }
+//  }
+//
+//  small {
+//    display: inline-block; /* Make small text display as a block */
+//    float: left; /* Align small text to the left */
+//  }
+//
+//  ul {
+//    display: inline-block; /* Make unordered list display as a block */
+//    float: right; /* Align unordered list to the right */
+//    list-style: none;
+//    padding: 0;
+//
+//    li {
+//      display: inline-block; /* Make list items display inline */
+//      float: left; /* Make list items float left */
+//      margin-left: 15px; /* Add margin between list items */
+//    }
+//  }
+//}
+
+
 $color-background-lighter: #ffffff; /* Define light background color */
 $color-copy-light: #777777; /* Define light copy color */
 $color-copy: #555555; /* Define copy color for links */
@@ -34,16 +74,18 @@ $color-copy: #555555; /* Define copy color for links */
   }
 
   small {
-    float: left; /* Align small text to the left */
+    display: inline-block; /* Display as block element */
+    margin-right: 20px; /* Adjust right margin for spacing */
   }
 
   ul {
-    float: right; /* Align unordered list to the right */
+    display: inline-block; /* Display as block element */
     list-style: none;
     padding: 0;
+    margin: 0; /* Remove default margin */
 
     li {
-      float: left; /* Make list items float left */
+      display: inline-block; /* Display list items inline */
       margin-left: 15px; /* Add margin between list items */
     }
   }
