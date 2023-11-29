@@ -1,10 +1,28 @@
+//.hero {
+//  background: $color-background-dark;
+//  color: $color-copy-bright;
+//  padding: 10rem 0;
+//
+//  &__container {
+//    @extend %section-spacings;
+//    display: flex;
+//  }
+//}
+
+$color-background-dark: #000; /* Define dark black color */
+
 .hero {
-  background: $color-background-dark;
+  background: $color-background-dark; /* Set background color to dark black */
   color: $color-copy-bright;
-  padding: 10rem 0;
+  padding: 3rem 0;
+  display: flex; /* Center content horizontally */
 
   &__container {
     @extend %section-spacings;
-    display: flex;
+    margin: 0 auto; /* Center content horizontally within the container */
+    max-width: 114rem; /* Set maximum width for the content */
+    text-align: center; /* Center text content */
+    flex-direction: column; /* Align items vertically */
+    justify-content: center; /* Center items vertically */
   }
 }
