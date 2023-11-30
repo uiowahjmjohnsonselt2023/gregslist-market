@@ -236,6 +236,7 @@ GEM
     mime-types-data (3.2023.1003)
     mini_magick (4.12.0)
     mini_mime (1.1.5)
+    mini_portile2 (2.8.5)
     mini_racer (0.8.0)
       libv8-node (~> 18.16.0.0)
     minitest (5.20.0)
@@ -450,6 +451,9 @@ GEM
       solidus_core (>= 3.0, < 5.0)
       solidus_support (>= 0.8.0)
       solidus_webhooks (~> 0.2)
+    solidus_reviews (1.6.0)
+      solidus_core (>= 2.0.0, < 5)
+      solidus_support (~> 0.8)
     solidus_sample (4.2.3)
       solidus_core (= 4.2.3)
     solidus_support (0.10.0)
@@ -464,8 +468,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
-    sqlite3 (1.6.9-x64-mingw-ucrt)
-    sqlite3 (1.6.9-x86_64-linux)
+    sqlite3 (1.6.9)
+      mini_portile2 (~> 2.8.0)
     state_machines (0.6.0)
     state_machines-activemodel (0.9.0)
       activemodel (>= 6.0)
@@ -545,6 +549,7 @@ DEPENDENCIES
   solidus
   solidus_auth_devise
   solidus_paypal_commerce_platform
+  solidus_reviews (~> 1.6)
   solidus_support
   sprockets-rails
   sqlite3 (~> 1.4)
@@ -559,4 +564,4 @@ RUBY VERSION
    ruby 3.2.2p53
 
 BUNDLED WITH
-   2.4.10
+   2.4.21
