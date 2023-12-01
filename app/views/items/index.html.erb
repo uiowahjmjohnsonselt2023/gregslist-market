@@ -1,18 +1,15 @@
 <% provide(:title, 'All items') %>
 <h1>All items</h1>
 
-<%= will_paginate %>
 
 <ul class="items">
   <% @items.each do |item| %>
     <li>
-      <%= gravatar_for(item) %>
-      Name: <%= link_to item.name, item %> | itemname: <%= link_to item.itemname, item %>
-      <% if current_item == @item || current_item.admin?%>
+      <%= link_to item.name, item %>: $<%= item.listed_price %>
+      <% if current_user.admin?%>
         | <%= button_to "Destroy", item, method: :delete, data: {confirm: "Are you sure?"} %>
       <% end %>
     </li>
   <% end %>
 </ul>
 
-<%= will_paginate %>
