@@ -1,15 +1,5 @@
 <% provide(:title, 'All items') %>
 <h1>All items</h1>
 
-
-<ul class="items">
-  <% @items.each do |item| %>
-    <li>
-      <%= link_to item.name, item %>: $<%= item.listed_price %>
-      <% if current_user.admin?%>
-        | <%= button_to "Destroy", item, method: :delete, data: {confirm: "Are you sure?"} %>
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<%= render partial: "items/item_list", locals: { items: @items } %>
 

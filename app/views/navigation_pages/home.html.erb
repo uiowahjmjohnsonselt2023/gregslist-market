@@ -25,10 +25,12 @@
     Home page for the Gregslist Marketplace
   </h2>
 
+
   <% if logged_in? %>
     <p>Welcome, <%= current_user.name %>!</p>
 
-  <%# else %>
+    <%# else %>
     <%#= link_to "Sign up", signup_path, class: "btn btn-lg btn-primary" %>
   <% end %>
 </div>
+<%= render partial: "items/item_list", locals: { items: @items } %>

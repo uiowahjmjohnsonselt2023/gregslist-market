@@ -1,5 +1,6 @@
 class NavigationPagesController < ApplicationController
   def home
+    @items = Item.all
   end
 
   def help

@@ -24,19 +24,7 @@
       <%= link_to 'Add Item', new_item_path(seller_id: @seller.id), class: 'button' %>
 
       <h2>Items</h2>
-      <% @items.each do |item| %>
-        <p>
-          <strong>Name:</strong>
-          <%= item.name %>
-        </p>
-
-        <p>
-          <strong>Description:</strong>
-          <%= item.description %>
-        </p>
-
-        <!-- Add more item details here -->
-      <% end %>
+      <%= render partial: "items/item_list", locals: { items: @items } %>
 
     </section>
   </aside>
