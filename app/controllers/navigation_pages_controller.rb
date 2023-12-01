@@ -3,14 +3,9 @@ class NavigationPagesController < ApplicationController
     @items = Item.all
   end
 
-  def help
-  end
+  def help; end
 
-  def about
+  def about; end
 
-  end
-
-  def contact
-
-  end
+  def contact; end
 end
