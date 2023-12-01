@@ -23,7 +23,6 @@
       <% if logged_in? %>
         <%= link_to "Welcome back, #{current_user.name}!", user_path(current_user), class: "mr-3" %>
         <%= link_to "Settings", edit_user_path(current_user) %>
-        <%= link_to "View Cart ( #{current_cart.items.count} items )", cart_path(current_cart), class: "ml-2 mr-2, nav-link, text-black" %>
         <%= link_to "Log out", logout_path, class: "mr-2 ml-2 nav-link text-black"%>
       <% else %>
         <%= link_to "Sign up", signup_path, class: "mr-2 nav-link text-black"%>
