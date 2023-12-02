@@ -1,0 +1,22 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="review_info">
+      <h1>
+        <%= @review.user.name %>
+      </h1>
+      <h3>
+        Reviewing: <%= @review.seller.name %>
+      </h3>
+      <h3><%= @review.rating %></h3>
+      <p>
+      <%= @review.text %>
+      </p>
+
+      <%= form_tag(edit_seller_review_path) do %>
+        <%= hidden_field(:id, @review.id) %>
+        <%= submit_tag("Edit review") %>
+      <% end %>
+
+    </section>
+  </aside>
+</div>
