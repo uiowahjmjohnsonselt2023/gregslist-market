@@ -5,6 +5,8 @@ class SellerReviewsController < ApplicationController
 
   def new
     @review = SellerReview.new
+    @user = current_user
+    @seller_id = params[:seller_id]
   end
 
   def edit
@@ -20,8 +22,8 @@ class SellerReviewsController < ApplicationController
   end
 
   def create
-    @review = SellerReview.new(seller_params)
-    @review.users << current_user
+    @review = SellerReview.new(seller_review_params)
+    @review.user_id ||= current_user
     if @review.save
       redirect_to @review
       puts 'SAVED'
@@ -31,14 +33,9 @@ class SellerReviewsController < ApplicationController
     end
   end
 
-  def select
-    @valid_sellers = current_user.seller
-    render 'select'
-  end
-
   private
 
-  def seller_params
-    params.require(:seller).permit(:name, :description, :address)
+  def seller_review_params
+    params.require(:seller_review).permit(:seller_id, :user_id, :rating, :text)
   end
 end
