@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_02_021256) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_25_033926) do
   create_table "buyers", force: :cascade do |t|
     t.string "first_name", null: false
     t.string "last_name", null: false
@@ -51,6 +51,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_02_021256) do
     t.datetime "updated_at", null: false
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
+
 
   create_table "seller_reviews", force: :cascade do |t|
     t.integer "seller_id", null: false

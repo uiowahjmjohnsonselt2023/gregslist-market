@@ -1,4 +1,4 @@
-require 'rails_helper'
+require './spec/rails_helper'
 
 # Specs in this file have access to a helper object that includes
 # the ItemsHelper. For example:
