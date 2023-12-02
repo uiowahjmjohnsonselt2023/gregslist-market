@@ -33,6 +33,7 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'parallel_tests'
 end
 
 group :development do
@@ -44,6 +45,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
   gem 'simplecov', require: false
+  gem 'shoulda-matchers', '~> 5.0'
 end
 
 group :production do

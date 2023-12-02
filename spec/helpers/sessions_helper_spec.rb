@@ -1,10 +1,10 @@
 # spec/helpers/session_helper_spec.rb
 
-require 'rails_helper'
+require './spec/rails_helper'
 # Include the SessionHelper module for testing
-include SessionHelper
+include SessionsHelper
 
-RSpec.describe SessionHelper, type: :helper do
+RSpec.describe SessionsHelper, type: :helper do
   let(:user) { create(:user) } # You can use FactoryBot for test data
 
   describe '#log_in' do
