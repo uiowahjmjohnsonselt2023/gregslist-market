@@ -27,7 +27,6 @@ Rails.application.routes.draw do
   get 'new_seller' => 'sellers#new'
   resources :sellers
 
-
   get 'select_buyer' => 'buyers#select'
   post 'select_buyer' => 'buyers#show'
   get 'edit_buyer' => 'buyers#edit'
@@ -45,4 +44,7 @@ Rails.application.routes.draw do
 
   # Defines the route for the items page
   resources :items
+
+  # Defines the routes for reviews
+  resources :seller_reviews
 end
