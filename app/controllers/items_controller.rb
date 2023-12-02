@@ -23,10 +23,10 @@ class ItemsController < ApplicationController
     # end
     if @item.update({ name: params[:item][:name], description: params[:item][:description],
                       listed_price: params[:item][:listed_price] })
-      flash[:notice] = 'item updated'
+      flash[:notice] = 'Item updated'
       redirect_to item_path
     else
-      flash[:error] = 'invalid new values'
+      flash[:error] = 'Invalid new values'
     end
   end
 
