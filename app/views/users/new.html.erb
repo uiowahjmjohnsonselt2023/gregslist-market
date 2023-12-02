@@ -21,6 +21,9 @@
       <%= f.label :password_confirmation, "Password Confirmation" %>
       <%= f.password_field :password_confirmation %>
 
+      <%= f.label "Profile Picture" %>
+      <%= f.file_field :avatar, accept: 'image/jpeg' %>
+
       <%= f.submit "Create my account", class: "btn btn-primary" %>
     <% end %>
   </div>
