@@ -3,8 +3,12 @@
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info">
+      <% if @user.avatar.attached? %>
+        <%= image_tag @user.avatar, class: "img-fluid"%>
+      <% else %>
+        <img src="https://cdn.discordapp.com/attachments/1180250200695124121/1180328761586110504/65535_52706077934_9a3860e070_z_360_360_nofilter.png?ex=657d05d2&is=656a90d2&hm=ce72654fec5b27963229dd9d3ae63afd7c37af5484e2cf3ea4c3365c605056c6&" alt="" class="img-fluid">
+      <% end %> 
       <h1>
-        <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
       <%#= image_tag @user.avatar.url %>
