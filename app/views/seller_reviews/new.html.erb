@@ -1,0 +1,17 @@
+<% provide(:title, 'Create Review') %>
+<h1>Edit Seller Review</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@review) do |f| %>
+      <%= f.hidden_field :seller_id, :value => @seller_id  %>
+      <%= f.hidden_field :user_id, :value => @user.id %>
+      <%= f.label :rating %>
+      <%= f.text_field :rating, class: 'form-control' %>
+
+      <%= f.text_field :text, class: 'form-control' %>
+
+      <%= f.submit "Create review", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

@@ -10,7 +10,7 @@
       <%= f.text_field :name, class: 'form-control' %>
 
       <%= f.label :username %>
-      <%= f.email_field :username, class: 'form-control' %>
+      <%= f.text_field :username, class: 'form-control' %>
 
       <%= f.label :email %>
       <%= f.email_field :email, class: 'form-control' %>
@@ -24,14 +24,7 @@
       <%= f.submit "Save changes", class: "btn btn-primary" %>
     <% end %>
 
-<!--    #more stuff to tryout -->
-    <%#= form_for @user, :url => users_path, :html => { :multipart => true } do    |form| %>
-      <%#= form.file_field :avatar %>
-    <%# end %>
-
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
-      <a href="http://gravatar.com/emails" target="_blank">Change</a>
-    </div>
+    <%= f.label "Profile Picture" %>
+    <%= f.file_field :avatar, accept: 'image/jpeg' %>
   </div>
 </div>
