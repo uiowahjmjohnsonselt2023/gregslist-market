@@ -1,6 +1,9 @@
 <% items.each do |item| %>
   <div class="card mr-4 mt-4" style="width: 18rem;">
     <div class="card-body">
+      <% if item.owned_by?(current_user) || (current_user && current_user.admin?)%>
+         <%= link_to "Edit", edit_item_path(item) %>
+      <% end %>
       <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
       <h6 class="card-subtitle mb-2 text-muted">Description: <%= item.description %></h6>
       <h6 class="card-subtitle mb-2"> Categories: <%= item.category_names.join(", ") %> </h6>
