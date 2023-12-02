@@ -8,6 +8,12 @@ require 'rspec/rails'
 require 'database_cleaner'
 require 'simplecov'
 SimpleCov.start 'rails'
+SimpleCov.start do
+  add_filter '/spec/'
+  add_filter '/config/'
+  add_group 'Helpers', 'app/helpers'
+  track_files 'app/helpers/*.rb'
+end
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
