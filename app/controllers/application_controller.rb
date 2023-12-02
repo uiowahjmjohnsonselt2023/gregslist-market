@@ -2,9 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
 
-  # def delete
-  #   render 'application/delete'
-  # end
+  private
 
   helper_method :current_seller
 
@@ -12,3 +10,4 @@ class ApplicationController < ActionController::Base
     @current_seller ||= Seller.find(session[:seller_id]) if session[:seller_id]
   end
 end
+
