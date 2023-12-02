@@ -23,6 +23,10 @@
       <br>
       <%= link_to 'Add Item', new_item_path(seller_id: @seller.id), class: 'button' %>
 
+      <% if current_user && !@seller.users.include?(current_user) %>
+        <%= link_to "Add Review", new_seller_review_path({:seller_id=>@seller.id}), method: :get %>
+      <% end %>
+
       <h2>Items</h2>
       <%= render partial: "items/item_list", locals: { items: @items } %>
 
