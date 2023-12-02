@@ -15,12 +15,12 @@
       <%= link_to "Access Buyer accounts", select_buyer_path, class: "btn btn btn-primary" %>
     </section>
 
+
     <b>Edit your profile:</b>
     <ul>
       <li><%= link_to "Settings", edit_user_path(current_user) %></li>
 
-      
-      <% if current_user == @user || current_user.admin? %>
+      <% if current_user && (current_user == @user || current_user.admin?) %>
         <li>
           <%= form_for @user, url: delete_user_path, method: :put, data: { confirm: 'Are you sure?' } do |f| %>
             <%= f.hidden_field :id  %>

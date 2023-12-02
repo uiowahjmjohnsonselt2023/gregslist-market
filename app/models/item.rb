@@ -6,4 +6,8 @@ class Item < ApplicationRecord
   def category_names
     categories.map { |cat| cat.name }
   end
+
+  def owned_by?(user)
+    seller.users.include? user
+  end
 end
