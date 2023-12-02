@@ -11,6 +11,25 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
+  def edit
+    @item = Item.find(params[:id])
+  end
+
+  def update
+    @item = Item.find(params[:id])
+    # if @item.update({ name: params[:item][:name], description: params[:item][:description],
+    #                   address: params[:item][:address] })
+    #   flash[:notice] = 'item updated'
+    # end
+    if @item.update({ name: params[:item][:name], description: params[:item][:description],
+                      listed_price: params[:item][:listed_price] })
+      flash[:notice] = 'item updated'
+      redirect_to item_path
+    else
+      flash[:error] = 'invalid new values'
+    end
+  end
+
   def create
     @item = Item.new(item_params)
 
