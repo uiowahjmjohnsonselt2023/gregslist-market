@@ -1,5 +1,2 @@
-tmp
-log
-storage
-tmp
-tmp
+gregslist/*
+log/*
