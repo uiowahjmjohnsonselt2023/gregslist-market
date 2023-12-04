@@ -22,9 +22,10 @@
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
+
+      <%= f.label "Profile Picture" %>
+      <%= f.file_field :avatar, accept: 'image/jpeg' %>
     <% end %>
 
-    <%= f.label "Profile Picture" %>
-    <%= f.file_field :avatar, accept: 'image/jpeg' %>
   </div>
 </div>
