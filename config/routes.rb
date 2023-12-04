@@ -47,4 +47,10 @@ Rails.application.routes.draw do
 
   # Defines the routes for reviews
   resources :seller_reviews
+
+  # Defines the routes for cart
+  resources :carts, only: [:show] do
+    post "add/:item_id", to: "carts#add", as: :add_to
+    post "remove/:item_id", to: "carts#remove", as: :remove_from
+  end
 end

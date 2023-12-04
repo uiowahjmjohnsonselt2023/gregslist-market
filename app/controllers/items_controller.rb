@@ -1,20 +1,34 @@
 class ItemsController < ApplicationController
   def new
     @item = Item.new
-    return unless params[:seller_id].present? || session[:seller_id].present?
-
-    session[:seller_id] = params[:seller_id] if params[:seller_id].present?
-    @item.seller_id = session[:seller_id]
+    if params[:seller_id].present? || session[:seller_id].present?
+      session[:seller_id] = params[:seller_id] if params[:seller_id].present?
+      @item.seller_id = session[:seller_id]
+    end
   end
 
   def index
     @items = Item.all
   end
 
+  def show
+    @item = Item.find(params[:id])
+  end
+
   def edit
     @item = Item.find(params[:id])
   end
 
+  def create
+    @item = Item.new(item_params)
+
+    if @item.save
+      redirect_to seller_path(@item.seller_id)
+    else
+      render 'new'
+    end
+  end
+  
   def update
     @item = Item.find(params[:id])
     # if @item.update({ name: params[:item][:name], description: params[:item][:description],
@@ -30,19 +44,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def create
-    @item = Item.new(item_params)
-
-    if @item.save
-      redirect_to seller_path(@item.seller_id)
-    else
-      render 'new'
-    end
-  end
-
-  def show
-    @item = Item.find(params[:id])
-  end
+  
 
   private
 
