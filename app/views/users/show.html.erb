@@ -16,7 +16,7 @@
 
     <section class="action_sidebar">
       <%= link_to "Access Seller accounts", select_seller_path, class: "btn btn btn-primary" %>
-      <%= link_to "Access Buyer accounts", select_buyer_path, class: "btn btn btn-primary" %>
+      <%= link_to "Edit payment information", edit_buyer_path(@user.id), method: "edit", class: "btn btn btn-primary" %>
     </section>
 
 
