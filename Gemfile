@@ -71,10 +71,10 @@ group :development, :test do
   gem 'rspec'
   gem 'pry'
   gem 'pry-byebug'
-  gem 'sqlite3'
 end
 
 group :development do
+  gem 'sqlite3'
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
@@ -88,6 +88,7 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
+  gem "pg"
   gem "selenium-webdriver"
   gem 'simplecov', :require=> false
   gem 'rails-controller-testing'
