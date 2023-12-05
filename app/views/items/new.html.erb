@@ -24,6 +24,9 @@
     <%= f.collection_select :category_ids, Category.all, :id, :name, {}, { multiple: true } %>
   </div>
 
+  <%= f.label "Product image" %>
+  <%= f.file_field :image, accept: 'image/jpeg'%>
+
   <%= f.hidden_field :seller_id, value: current_seller.id %>
 
   <div class="actions">
