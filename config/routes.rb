@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # delete 'logout'  => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
   resources :users
+  resources :account_activations, only: [:edit]
 
   get 'select_seller' => 'sellers#select'
   post 'select_seller' => 'sellers#show'
