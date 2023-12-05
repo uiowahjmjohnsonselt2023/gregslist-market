@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_04_051929) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_05_014739) do
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -46,6 +47,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_051929) do
     t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id", null: false
+    t.index ["user_id"], name: "index_buyers_on_user_id"
   end
 
   create_table "buyers_users", id: false, force: :cascade do |t|
@@ -94,6 +97,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_051929) do
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
+  create_table "purchases", force: :cascade do |t|
+    t.integer "cart_id", null: false
+    t.integer "user_id", null: false
+    t.decimal "total_price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cart_id"], name: "index_purchases_on_cart_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
+  end
+
   create_table "seller_reviews", force: :cascade do |t|
     t.integer "seller_id", null: false
     t.integer "user_id", null: false
@@ -132,11 +145,14 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_04_051929) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "buyers", "users"
   add_foreign_key "cart_items", "carts"
   add_foreign_key "cart_items", "items"
   add_foreign_key "item_categories", "categories"
   add_foreign_key "item_categories", "items"
   add_foreign_key "items", "sellers"
+  add_foreign_key "purchases", "carts"
+  add_foreign_key "purchases", "users"
   add_foreign_key "seller_reviews", "sellers"
   add_foreign_key "seller_reviews", "users"
 end

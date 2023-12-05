@@ -15,9 +15,9 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def edit
-    @item = Item.find(params[:id])
-  end
+  # def edit
+  #   @item = Item.find(params[:id])
+  # end
 
   def create
     @item = Item.new(item_params)
@@ -28,7 +28,8 @@ class ItemsController < ApplicationController
       render 'new'
     end
   end
-  
+
+  # Update method for items?
   def update
     @item = Item.find(params[:id])
     # if @item.update({ name: params[:item][:name], description: params[:item][:description],

@@ -1,6 +1,7 @@
 class Cart < ApplicationRecord
     has_many :cart_items
     has_many :items, through: :cart_items
+    has_one :purchase
 
     #add items to the cart, unless it is already in that shit
     def add_item(item)

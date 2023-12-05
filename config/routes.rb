@@ -27,11 +27,6 @@ Rails.application.routes.draw do
   get 'new_seller' => 'sellers#new'
   resources :sellers
 
-  get 'select_buyer' => 'buyers#select'
-  post 'select_buyer' => 'buyers#show'
-  get 'edit_buyer' => 'buyers#edit'
-  post 'edit_buyer' => 'buyers#edit'
-  get 'new_buyer' => 'buyers#new'
   resources :buyers
 
   # Defines the root path route ("/")
@@ -50,7 +45,9 @@ Rails.application.routes.draw do
 
   # Defines the routes for cart
   resources :carts, only: [:show] do
-    post "add/:item_id", to: "carts#add", as: :add_to
-    post "remove/:item_id", to: "carts#remove", as: :remove_from
+    post 'add/:item_id', to: 'carts#add', as: :add_to
+    post 'remove/:item_id', to: 'carts#remove', as: :remove_from
   end
+  # Defines the routes for purchases
+  resources :purchases, only: [:new, :create]
 end

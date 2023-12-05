@@ -1,0 +1,70 @@
+<div class="row mt-3">
+  <!-- payment column with offset -->
+  <div class="col row offset-2 light-blue-background min-padding rounded">
+    <!-- billing address stuff -->
+    <div class="col d-flex flex-column">
+      <h3 class="">Billing Address</h3>
+      <label><i class="fa fa-user"></i> Full Name</label>
+      <input type="text" id="fname" value=<%=current_user.name%>>
+
+      <label><i class="fa fa-envelope mt-3"></i> Email</label>
+      <input type="text" id="email" name="email" value=<%=current_user.email%>>
+
+      <label><i class="fa fa-address-card-o mt-3"></i> Address</label>
+      <input type="text" id="adr" name="address">
+
+      <label><i class="fa fa-institution mt-3"></i> City</label>
+      <input type="text" id="city" name="city">
+
+      <label class="mt-3">State</label>
+      <input type="text" id="state" name="state">
+
+      <label class="mt-3">Zip</label>
+      <input type="text" id="zip" name="zip">
+
+    </div>
+    <!-- payment infor stuff -->
+    <div class="col d-flex flex-column">
+      <h3>Payment</h3>
+      <label>Accepted Cards</label>
+      <div class="card-collection">
+        <i class="fa fa-cc-visa" style="color:navy;"></i>
+        <i class="fa fa-cc-amex" style="color:blue;"></i>
+        <i class="fa fa-cc-mastercard" style="color:red;"></i>
+        <i class="fa fa-cc-discover" style="color:orange;"></i>
+      </div>
+      <label class="mt-3">Name on Card</label>
+      <input type="text" id="cname" name="cardname" value=<%=current_user.name%>>
+      <label class="mt-3">Credit card number</label>
+      <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
+      <label class="mt-3">Expiration</label>
+      <input type="text" id="expmonth" name="expmonth" placeholder="3/12/2025">
+      <label class="mt-3">CVV</label>
+      <input type="text" id="expmonth" name="expmonth" placeholder="012">
+    </div>
+  </div>
+
+
+  <!-- item viewer on right hand -->
+  <div class="col-3 ml-4">
+    <ul class="list-group">
+      <!-- title list group with total items -->
+      <li class="list-group-item d-flex justify-content-between align-items-center rounded-top">
+        <strong>Total Items In Cart : <%= @cart.items.count %></strong>
+      </li>
+      <!-- show all items in the cart -->
+      <% @cart.items.each do |item| %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= item.name %>
+          <span class=""><%= number_to_currency(item.listed_price) %></span>
+        </li>
+      <% end %>
+      <!-- total price for all items in cart -->
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <strong>Total Cost : <%= number_to_currency(@cart.items.sum { |item| item.listed_price }) %></strong>
+        <%= button_to "Check Out!", purchases_path, method: :post, class: "btn btn-info" %>
+      </li>
+    </ul>
+  </div>
+  <div class="col-1"></div>
+</div>

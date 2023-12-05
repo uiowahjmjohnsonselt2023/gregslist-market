@@ -7,29 +7,34 @@ class BuyersController < ApplicationController
 
   def new
     @buyer = Buyer.new
+    @user_id = params[:id]
   end
 
   def edit
-    @buyer = Buyer.find(params[:id].keys[0])
+    @user = User.find(params[:id])
+    @buyer = @user.buyer
+    if @buyer
+
+    else
+      redirect_to new_buyer_path(id: @user.id)
+    end
   end
 
   def update
     @buyer = Buyer.find(params[:buyer][:id])
-    if @buyer.update({ first_name: params[:buyer][:first_name], last_name: params[:buyer][:last_name], payment_method: params[:buyer][:payment_method],
-                        address: params[:buyer][:address] })
+    if @buyer.update({ first_name: params[:buyer][:first_name], last_name: params[:buyer][:last_name],
+                       payment_method: params[:buyer][:payment_method], address: params[:buyer][:address] })
       flash[:notice] = 'Buyer updated'
     end
-    redirect_to buyer_path
+    redirect_to user_path
   end
 
   def create
     @buyer = Buyer.new(buyer_params)
-    @buyer.users << current_user
     if @buyer.save
-      redirect_to @buyer
-      puts 'SAVED'
+      redirect_to @buyer.user
     else
-      puts 'NEW'
+      flash[:error] = 'Invalid purchase info'
       render 'new'
     end
   end
@@ -42,6 +47,6 @@ class BuyersController < ApplicationController
   private
 
   def buyer_params
-    params.require(:buyer).permit(:first_name, :last_name, :payment_method, :address)
+    params.require(:buyer).permit(:first_name, :last_name, :payment_method, :address, :user_id)
   end
 end
