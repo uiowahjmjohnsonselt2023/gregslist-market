@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @purchase_history = Purchase.where(user_id: @user.id).order(id: :desc)
   end
 
   def new
