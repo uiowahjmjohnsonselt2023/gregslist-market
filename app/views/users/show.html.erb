@@ -1,63 +1,79 @@
 <% provide(:title, @user.name) %>
 
-<!-- https://cdn.discordapp.com/attachments/1180250200695124121/1180328761586110504/65535_52706077934_9a3860e070_z_360_360_nofilter.png?ex=657d05d2&is=656a90d2&hm=ce72654fec5b27963229dd9d3ae63afd7c37af5484e2cf3ea4c3365c605056c6& -->
-
-<div class="col-10 offset-1">
-  <!-- user information panel -->
-  <div class="col row">
-    <!-- profile picture -->
-    <div class="col-2">
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
       <% if @user.avatar.attached? %>
-        <%= image_tag @user.avatar, class: "img-fluid"%>
+        <%= image_tag @user.avatar, class: "img-fluid" %>
       <% else %>
         <img src="https://cdn.discordapp.com/attachments/1180250200695124121/1180328761586110504/65535_52706077934_9a3860e070_z_360_360_nofilter.png?ex=657d05d2&is=656a90d2&hm=ce72654fec5b27963229dd9d3ae63afd7c37af5484e2cf3ea4c3365c605056c6&" alt="" class="img-fluid">
       <% end %>
-    </div>
-    <div class="col-5 mt-3">
-      <h2><%=@user.username%></h2>
-        <h4><%=@user.name%></h4>
-          <%= link_to "Manage Seller Accounts", select_seller_path, class: "btn btn btn-primary" %>
-    </div>
-  </div>
-  <!-- order history -->
-  <div class="col">
-    <h2>Order History:</h2>
+      <h1>
+        <%= @user.name %>
+      </h1>
 
-    <ul class="list-group">
-      <!-- title list group with total items -->
-      <li class="list-group-item d-flex justify-content-between align-items-center rounded-top">
-        <strong>Total Orders : <%= @purchase_history.count %></strong>
-        <strong>Total Spent : <%= number_to_currency(@purchase_history.sum{ |pur| pur.total_price }) %></strong>
-      </li>
-      <!-- show all items in the cart -->
-      <% @purchase_history.each do |single_purchase| %>
-        <li class="list-group-item col-12">
-          <div class="col-12">
-            <div class="row col-12">
-              <h5>Order Number : <%= single_purchase.id %></h5>
-                <h6 class="ml-3">Date : <%= single_purchase.created_at.strftime("%m/%d/%Y") %></h6>
-                  <h6 class="ml-3">Cost : <%= number_to_currency(single_purchase.total_price) %>
-                    <h6 class="ml-3">Order is being processed ( EST : <%= rand(1..10) %>  Days ) </h6>
-            </div>
-            <% single_purchase.cart.items.each do |item| %>
-              <div class="row mb-2">
-                <div class="col-1">
-                  <%if item.image.attached? %>
-                    <%= image_tag item.image, class: "card-img-top img-fluid"%>
-                  <%else%>
-                    <img src="https://cdn.discordapp.com/attachments/1180250200695124121/1180328761586110504/65535_52706077934_9a3860e070_z_360_360_nofilter.png?ex=657d05d2&is=656a90d2&hm=ce72654fec5b27963229dd9d3ae63afd7c37af5484e2cf3ea4c3365c605056c6&" alt="" class="img-fluid">
-                  <% end %>
-                </div>
-                <div class="col">
-                  <h3><%= link_to item.name, seller_path(item.seller.id)%></h3>
-                  <h5><%= number_to_currency(item.listed_price) %></h5>
-                </div>
-              </div>
+      <section class="action_sidebar">
+        <%= link_to "Access Seller accounts", select_seller_path, class: "btn btn btn-primary" %>
+        <%= link_to "Edit payment information", edit_buyer_path(@user.id), method: "edit", class: "btn btn btn-primary" %>
+      </section>
+
+      <b>Edit your profile:</b>
+      <ul>
+        <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+
+        <% if current_user && (current_user == @user || current_user.admin?) %>
+          <li>
+            <%= form_for @user, url: delete_user_path, method: :put, data: { confirm: 'Are you sure?' } do |f| %>
+              <%= f.hidden_field :id  %>
+              <%= f.submit "Delete Account" %>
             <% end %>
-          </div>
+          </li>
+        <% end %>
+      </ul>
+    </section>
+  </aside>
+
+    <!-- Order history -->
+    <div class="col">
+      <h2>Order History:</h2>
+
+      <ul class="list-group">
+        <!-- Title list group with total items -->
+        <li class="list-group-item d-flex justify-content-between align-items-center rounded-top">
+          <strong>Total Orders : <%= @purchase_history.count %></strong>
+          <strong>Total Spent : <%= number_to_currency(@purchase_history.sum{ |pur| pur.total_price }) %></strong>
         </li>
-      <% end %>
-      <!-- total price for all items in cart -->
-    </ul>
+        <!-- Show all items in the cart -->
+        <% @purchase_history.each do |single_purchase| %>
+          <li class="list-group-item col-12">
+            <div class="col-12">
+              <div class="row col-12">
+                <h5>Order Number : <%= single_purchase.id %></h5>
+                <h6 class="ml-3">Date : <%= single_purchase.created_at.strftime("%m/%d/%Y") %></h6>
+                <h6 class="ml-3">Cost : <%= number_to_currency(single_purchase.total_price) %></h6>
+                <h6 class="ml-3">Order is being processed ( EST : <%= rand(1..10) %>  Days ) </h6>
+              </div>
+              <% single_purchase.cart.items.each do |item| %>
+                <div class="row mb-2">
+                  <div class="col-1">
+                    <% if item.image.attached? %>
+                      <%= image_tag item.image, class: "card-img-top img-fluid"%>
+                    <% else %>
+                      <img src="https://cdn.discordapp.com/attachments/1180250200695124121/1180328761586110504/65535_52706077934_9a3860e070_z_360_360_nofilter.png?ex=657d05d2&is=656a90d2&hm=ce72654fec5b27963229dd9d3ae63afd7c37af5484e2cf3ea4c3365c605056c6&" alt="" class="img-fluid">
+                    <% end %>
+                  </div>
+                  <div class="col">
+                    <h3><%= link_to item.name, seller_path(item.seller.id)%></h3>
+                    <h5><%= number_to_currency(item.listed_price) %></h5>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </li>
+        <% end %>
+        <!-- Total price for all items in cart -->
+      </ul>
+    </div>
   </div>
 </div>
+ 

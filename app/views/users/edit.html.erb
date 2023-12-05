@@ -25,6 +25,9 @@
       <%= f.file_field :avatar, accept: 'image/jpeg'%>
 
       <%= f.submit "Save changes", class: "btn btn-primary" %>
+
+      <%= f.label "Profile Picture" %>
+      <%= f.file_field :avatar, accept: 'image/jpeg' %>
     <% end %>
 
     <!--    #more stuff to tryout -->
@@ -32,9 +35,10 @@
     <%#= form.file_field :avatar %>
     <%# end %>
 
-    <div class="gravatar_edit">
-      <%= gravatar_for @user %>
+    <!-- <div class="gravatar_edit">
+      <%#= gravatar_for @user %>
       <a href="http://gravatar.com/emails" target="_blank">Change</a>
-    </div>
+    </div>-->
+    
   </div>
 </div>
