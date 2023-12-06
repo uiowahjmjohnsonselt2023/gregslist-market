@@ -40,7 +40,12 @@ Rails.application.routes.draw do
   resources :categories
 
   # Defines the route for the items page
+  get 'search' => 'items#search'
+  get 'search_results' => 'items#search_results'
+
   resources :items
+
+
 
 
   # Defines the routes for reviews
