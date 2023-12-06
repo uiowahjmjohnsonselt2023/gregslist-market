@@ -1,0 +1,31 @@
+<!--<h2>Your Cart</h2>-->
+
+<%# if @cart.cart_items.any? %>
+<!--    <ul>-->
+        <%# @cart.cart_items.each do |cart_item| %>
+<!--            <li>-->
+                <%#= cart_item.item.name %>
+                <%#= button_to 'Remove from Cart', cart_remove_from_path(cart_id: @cart.id, item_id: cart_item.item.id), method: :post, class: "btn btn-danger" %>
+<!--            </li>-->
+        <%# end %>
+<!--    </ul>-->
+<!--    <p>Total: <%#= number_to_currency(@cart.total_price) %></p>-->
+<%# else %>
+<!--    <p>Your cart is empty.</p>-->
+<%# end %>
+
+<h2>Your Cart</h2>
+
+<% if @cart.cart_items.any? %>
+  <ul>
+    <% @cart.cart_items.each do |cart_item| %>
+      <li>
+        <%= cart_item.item.name %>
+        <%= button_to 'Remove from Cart', cart_remove_from_path(cart_id: @cart.id, item_id: cart_item.item.id), method: :post, class: "btn btn-danger" %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to "Proceed to Checkout", new_purchase_path, class: "btn btn-success" %>
+<% else %>
+  <p>Your cart is empty.</p>
+<% end %>

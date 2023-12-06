@@ -1,0 +1,16 @@
+<% provide(:title, 'Edit Review') %>
+<h1>Edit Review</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@review) do |f| %>
+      <%= f.hidden_field :id  %>
+      <%= f.label :rating %>
+      <%= f.text_field :rating, class: 'form-control' %>
+
+      <%= f.text_field :text, class: 'form-control' %>
+
+      <%= f.submit "Save review", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

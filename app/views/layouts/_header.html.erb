@@ -1,28 +1,38 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "Gregslist", root_path, id: "logo" %>
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home", root_path %></li>
+<nav class="navbar navbar-expand-lg navbar-light">
+  <%= link_to image_tag('mainlogo.png', style: 'width: 250px; height: auto;'), navigation_pages_home_path %>
+  <!--<%= image_tag "mainlogo.png", class: "navbar-brand small-logo" %>-->
 
-        <% if logged_in? %>
-          <li><%= link_to "Profile", current_user %></li>
-          <!--              <li><%#= link_to "Settings", edit_user_path(current_user) %></li>-->
-<!--                        <li><%#= link_to "Users", users_path %></li>-->
-<!--                        <li class="divider"></li>-->
-          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-<!--          </ul>-->
-        <% else %>
-          <li><%= link_to "Sign up", signup_path %></li>
-          <li><%= link_to "Log in", login_path %></li>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        <%= link_to "Home", navigation_pages_home_path, class: "nav-link" %>
+      </li>
+      <!--<li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>-->
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Search</button>
+      <% if logged_in? %>
+        <%= link_to "Welcome, #{current_user.name}!", user_path(current_user), class: "mr-3" %>
+        <%#= link_to "Settings", edit_user_path(current_user) %>
+        <%= link_to cart_path(current_cart), class: "ml-2 mr-2 nav-link text-black" do %>
+          <i class="fa fa-shopping-cart"></i> 
+          (<%= pluralize(current_cart.items.count, 'item') %>)
         <% end %>
-        <li><%= link_to "Help", navigation_pages_help_path %></li>
-
-        <% if current_user.present? && current_user.admin? %>
-          <li><%= link_to "Users", users_path %></li>
-        <% end %>
-
-      </ul>
-        </nav>
+        <%= link_to "Log out", logout_path, class: "mr-2 ml-2 nav-link text-black"%>
+      <% else %>
+        <%= link_to "Sign up", signup_path, class: "mr-2 nav-link text-black"%>
+        <%= link_to "Log in", login_path, class: "mr-2 nav-link text-black"%>
+      <% end %>
+    </form>
   </div>
-</header>
+</nav>

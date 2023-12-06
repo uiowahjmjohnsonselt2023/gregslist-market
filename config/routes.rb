@@ -12,13 +12,15 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   delete 'logout', to: 'sessions#destroy'
 
-  put 'delete_user', to: 'users#graceful_delete'
+  put 'delete_user', to: 'users#delete'
   # get 'navigation_pages/contact'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   # delete 'logout'  => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
   resources :users
+  resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   get 'select_seller' => 'sellers#select'
   post 'select_seller' => 'sellers#show'
@@ -27,12 +29,6 @@ Rails.application.routes.draw do
   get 'new_seller' => 'sellers#new'
   resources :sellers
 
-
-  get 'select_buyer' => 'buyers#select'
-  post 'select_buyer' => 'buyers#show'
-  get 'edit_buyer' => 'buyers#edit'
-  post 'edit_buyer' => 'buyers#edit'
-  get 'new_buyer' => 'buyers#new'
   resources :buyers
 
   # Defines the root path route ("/")
@@ -45,4 +41,15 @@ Rails.application.routes.draw do
 
   # Defines the route for the items page
   resources :items
+
+  # Defines the routes for reviews
+  resources :seller_reviews
+
+  # Defines the routes for cart
+  resources :carts, only: [:show] do
+    post 'add/:item_id', to: 'carts#add', as: :add_to
+    post 'remove/:item_id', to: 'carts#remove', as: :remove_from
+  end
+  # Defines the routes for purchases
+  resources :purchases, only: [:new, :create]
 end

@@ -1,5 +1,5 @@
-require 'rails_helper'
-
+require './spec/rails_helper'
+require './app/helpers/items_helper'
 # Specs in this file have access to a helper object that includes
 # the ItemsHelper. For example:
 #
@@ -11,5 +11,5 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe ItemsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
 end

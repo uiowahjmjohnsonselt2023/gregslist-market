@@ -1,5 +1,5 @@
-require 'rails_helper'
-
+require './spec/rails_helper'
+require './app/helpers/categories_helper'
 # Specs in this file have access to a helper object that includes
 # the CategoriesHelper. For example:
 #
@@ -11,5 +11,5 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe CategoriesHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
 end
