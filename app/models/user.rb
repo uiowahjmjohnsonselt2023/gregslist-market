@@ -1,9 +1,10 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :seller
   has_one :buyer
-  attr_accessor :remember_token
+  attr_accessor :remember_token, :activation_token, :reset_token
 
   before_save { self.email = email.downcase }
+  before_create :create_activation_digest
   before_save { self.username = username.downcase }
   validates :name, presence: true, length: { maximum: 50 }
   validates :username, presence: true, length: { maximum: 30 }
@@ -43,12 +44,52 @@ class User < ActiveRecord::Base
   # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
     return false if remember_digest.nil? # if remember_digest is nil, then return false
-
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  end
+
+  def authenticated_activation?(activation_token)
+    return false if activation_digest.nil? # if remember_digest is nil, then return false
+    BCrypt::Password.new(activation_digest).is_password?(activation_token)
   end
 
   # Forgets a user.
   def forget
     update_attribute(:remember_digest, nil)
   end
+
+  def activate
+    update_attribute(:activated,    true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
+  end
+
+  def create_reset_digest
+    self.reset_token = User.new_token
+    update_attribute(:reset_digest, User.digest(reset_token))
+    update_attribute(:reset_sent_at, Time.zone.now)
+  end
+
+  def send_password_reset_email
+    UserMailer.password_reset(self).deliver_now
+  end
+
+  def password_reset_expired?
+    reset_sent_at < 2.hours.ago
+  end
+
+
+  private
+  def downcase_email
+    self.email = email.downcase
+  end
+
+  # Creates and assigns the activation token and digest.
+  def create_activation_digest
+    self.activation_token  = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
+
 end
