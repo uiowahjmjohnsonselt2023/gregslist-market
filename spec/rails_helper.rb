@@ -11,6 +11,7 @@ SimpleCov.start 'rails'
 SimpleCov.start do
   add_filter '/spec/'
   add_filter '/config/'
+  add_filter '/app/helpers'
   add_group 'Helpers', 'app/helpers'
   track_files 'app/helpers/*.rb'
 end
