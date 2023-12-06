@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
   def new
     @item = Item.new
-    if params[:seller_id].present? || session[:seller_id].present?
-      session[:seller_id] = params[:seller_id] if params[:seller_id].present?
-      @item.seller_id = session[:seller_id]
-    end
+    return unless params[:seller_id].present? || session[:seller_id].present?
+
+    session[:seller_id] = params[:seller_id] if params[:seller_id].present?
+    @item.seller_id = session[:seller_id]
   end
 
   def index
@@ -32,7 +32,7 @@ class ItemsController < ApplicationController
       render 'new'
     end
   end
-  
+
   def update
     @item = Item.find(params[:id])
     # if @item.update({ name: params[:item][:name], description: params[:item][:description],
@@ -47,8 +47,6 @@ class ItemsController < ApplicationController
       flash[:error] = 'Invalid new values'
     end
   end
-
-  
 
   private
 
