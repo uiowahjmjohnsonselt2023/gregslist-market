@@ -11,7 +11,6 @@
 # It's strongly recommended that you check this file into your version control system.
 
 ActiveRecord::Schema[7.1].define(version: 2023_12_05_193310) do
-
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -49,12 +48,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_193310) do
     t.datetime "updated_at", null: false
     t.integer "user_id", null: false
     t.index ["user_id"], name: "index_buyers_on_user_id"
-  end
-
-  create_table "buyers_users", id: false, force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "buyer_id", null: false
-    t.index ["user_id", "buyer_id"], name: "index_buyers_users_on_user_id_and_buyer_id"
   end
 
   create_table "cart_items", force: :cascade do |t|
