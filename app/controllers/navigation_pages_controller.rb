@@ -1,6 +1,6 @@
 class NavigationPagesController < ApplicationController
   def home
-    @items = Item.all
+    @items = Item.joins(seller: :users)
   end
 
   def help; end

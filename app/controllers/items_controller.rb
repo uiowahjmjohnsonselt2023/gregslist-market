@@ -8,7 +8,11 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = Item.all
+    @items = if current_user && current_user.admin
+               Item.all
+             else
+               Item.joins(seller: :users)
+             end
   end
 
   def show
