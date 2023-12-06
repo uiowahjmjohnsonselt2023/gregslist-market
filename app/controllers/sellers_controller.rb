@@ -23,7 +23,8 @@ class SellersController < ApplicationController
 
   def create
     @seller = Seller.new(seller_params)
-    @seller.users << current_user
+    @seller.user << current_user
+    current_user.seller << @seller
     if @seller.save
       redirect_to @seller
       puts 'SAVED'
