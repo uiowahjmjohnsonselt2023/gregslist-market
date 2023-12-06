@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   # Defines the route for the items page
   resources :items
 
+
   # Defines the routes for reviews
   resources :seller_reviews
 

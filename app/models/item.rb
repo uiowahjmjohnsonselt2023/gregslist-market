@@ -11,4 +11,5 @@ class Item < ApplicationRecord
   def owned_by?(user)
     seller.users.include? user
   end
+
 end
