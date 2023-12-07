@@ -15,4 +15,5 @@ class Item < ApplicationRecord
   def is_listed?
     seller.exists? && seller.is_listed?
   end
+
 end
