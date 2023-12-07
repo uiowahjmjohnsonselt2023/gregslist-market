@@ -11,4 +11,8 @@ class Item < ApplicationRecord
   def owned_by?(user)
     seller.users.include? user
   end
+
+  def is_listed?
+    seller.exists? && seller.is_listed?
+  end
 end

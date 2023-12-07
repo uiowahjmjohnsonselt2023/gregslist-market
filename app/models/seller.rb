@@ -6,4 +6,8 @@ class Seller < ApplicationRecord
 
   before_save { self.address = address.downcase }
   validates :name, presence: true, length: { maximum: 100 }
+
+  def is_listed?
+    users.exists?
+  end
 end

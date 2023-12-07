@@ -12,13 +12,15 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   delete 'logout', to: 'sessions#destroy'
 
-  put 'delete_user', to: 'users#graceful_delete'
+  put 'delete_user', to: 'users#delete'
   # get 'navigation_pages/contact'
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   # delete 'logout'  => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
   resources :users
+  resources :account_activations, only: [:edit]
+  resources :password_resets, only: [:new, :create, :edit, :update]
 
   get 'select_seller' => 'sellers#select'
   post 'select_seller' => 'sellers#show'

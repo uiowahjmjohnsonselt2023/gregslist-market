@@ -17,44 +17,41 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  # def create
+  #   @user = User.new(user_params)
+  #   if @user.save
+  #     log_in @user
+  #     flash[:success] = 'Welcome to Gregslist Marketplace!'
+  #     redirect_to @user
+  #     # Handle a successful save.
+  #   else
+  #     render 'new'
+  #   end
+  # end
+
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = 'Welcome to Gregslist Marketplace!'
-      redirect_to @user
-      # Handle a successful save.
+      @user.send_activation_email # defined in app/models/user.rb
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new'
     end
   end
+
 
   def edit
     @user = User.find(params[:id])
   end
 
   def destroy
-    user = User.find(params[:id])
-    stores = user.stores
-    if user.destroy
-      flash[:success] = 'User deleted'
-      redirect_to logout
-    else
-      puts 'failed'
-    end
-  end
-
-  def graceful_delete
     user = User.find(params[:user][:id])
-    stores = user.seller
     if user.destroy
       flash[:success] = 'User deleted'
-      stores.each do |w|
-        w.destroy if w.user.empty?
-      end
       redirect_to logout_path
     else
-      puts 'failed'
+      flash[:error] = 'failed to delete user'
     end
   end
 
