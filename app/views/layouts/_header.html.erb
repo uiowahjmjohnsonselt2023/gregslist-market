@@ -1,6 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light">
   <%= link_to image_tag('mainlogo.png', style: 'width: 250px; height: auto;'), navigation_pages_home_path %>
-  <!--<%= image_tag "mainlogo.png", class: "navbar-brand small-logo" %>-->
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,21 +10,14 @@
       <li class="nav-item active">
         <%= link_to "Home", navigation_pages_home_path, class: "nav-link" %>
       </li>
-      <!--<li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>-->
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search">
       <button class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Search</button>
       <% if logged_in? %>
-        <%= link_to "Welcome, #{current_user.name}!", user_path(current_user), class: "mr-3" %>
-        <%#= link_to "Settings", edit_user_path(current_user) %>
+        <%= link_to "Account", user_path(current_user), class: "mr-3" %>
         <%= link_to cart_path(current_cart), class: "ml-2 mr-2 nav-link text-black" do %>
-          <i class="fa fa-shopping-cart"></i> 
+          <i class="fa fa-shopping-cart"></i>
           (<%= pluralize(current_cart.items.count, 'item') %>)
         <% end %>
         <%= link_to "Log out", logout_path, class: "mr-2 ml-2 nav-link text-black"%>
@@ -36,3 +28,5 @@
     </form>
   </div>
 </nav>
+
+

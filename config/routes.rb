@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   # Defines the route for the items page
   resources :items
 
+
   # Defines the routes for reviews
   resources :seller_reviews
 
@@ -50,6 +51,7 @@ Rails.application.routes.draw do
     post 'add/:item_id', to: 'carts#add', as: :add_to
     post 'remove/:item_id', to: 'carts#remove', as: :remove_from
   end
+
   # Defines the routes for purchases
   resources :purchases, only: [:new, :create]
 end
