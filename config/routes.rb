@@ -40,12 +40,7 @@ Rails.application.routes.draw do
   resources :categories
 
   # Defines the route for the items page
-  get 'search' => 'items#search'
-  get 'search_results' => 'items#search_results'
-
   resources :items
-
-
 
 
   # Defines the routes for reviews
@@ -56,6 +51,7 @@ Rails.application.routes.draw do
     post 'add/:item_id', to: 'carts#add', as: :add_to
     post 'remove/:item_id', to: 'carts#remove', as: :remove_from
   end
+
   # Defines the routes for purchases
   resources :purchases, only: [:new, :create]
 end

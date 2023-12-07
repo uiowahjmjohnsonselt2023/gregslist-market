@@ -12,14 +12,8 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <%= form_tag(search_path, :method => "get") do %>
-        <%= search_field_tag :search, params[:search], class: "form-control mr-sm-2", placeholder: "Search" %>
-        <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0 mr-3" %>
-      <% end %>
-
-
-<!--      <input class="form-control mr-sm-2" type="search" placeholder="Search">-->
-<!--      <button class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Search</button>-->
+      <input class="form-control mr-sm-2" type="search" placeholder="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Search</button>
       <% if logged_in? %>
         <%= link_to "Account", user_path(current_user), class: "mr-3" %>
         <%= link_to cart_path(current_cart), class: "ml-2 mr-2 nav-link text-black" do %>
