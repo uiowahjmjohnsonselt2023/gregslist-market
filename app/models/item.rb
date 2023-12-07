@@ -12,4 +12,8 @@ class Item < ApplicationRecord
     seller.users.include? user
   end
 
+  def is_listed?
+    seller.exists? && seller.is_listed?
+  end
+
 end

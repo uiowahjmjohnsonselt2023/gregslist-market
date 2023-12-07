@@ -1,14 +1,18 @@
 class ItemsController < ApplicationController
   def new
     @item = Item.new
-    if params[:seller_id].present? || session[:seller_id].present?
-      session[:seller_id] = params[:seller_id] if params[:seller_id].present?
-      @item.seller_id = session[:seller_id]
-    end
+    return unless params[:seller_id].present? || session[:seller_id].present?
+
+    session[:seller_id] = params[:seller_id] if params[:seller_id].present?
+    @item.seller_id = session[:seller_id]
   end
 
   def index
-    @items = Item.all
+    @items = if current_user && current_user.admin
+               Item.all
+             else
+               Item.joins(seller: :users)
+             end
   end
 
   def show
@@ -29,7 +33,6 @@ class ItemsController < ApplicationController
     end
   end
 
-  # Update method for items?
   def update
     @item = Item.find(params[:id])
     # if @item.update({ name: params[:item][:name], description: params[:item][:description],
