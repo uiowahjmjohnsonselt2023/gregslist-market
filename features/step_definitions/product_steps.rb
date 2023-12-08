@@ -67,15 +67,20 @@ end
 Then 'I should see my product in my store' do
   the_item=Item.find_by(name:@name, description:@description, listed_price:@price, listing_date:@date, seller_id:@store_id)
   expect(current_path).to eq("/sellers/#{@store_id}")
-  # puts('path=',current_path)
   expect(page).to have_content(the_item.name)
   expect(page).to have_content(the_item.description)
 end
 
 When /^(?:|I )update the price of "([^"]*)" with "([^"]*)"$/ do |name, new_price|
-  the_item=Item.find_by(name:name)
-  the_id=the_item.id
-  Item.update(the_id,listed_price:new_price)
+  the_item=Item.where(name:name,seller_id:@store_id).first
+  if the_item.present?
+    the_id=the_item.id
+    visit "items/#{the_id}/edit"
+    fill_in "Listed price", with: new_price
+    click_button "Update Item"
+    the_item.listed_price=new_price
+    the_item.save!
+    end
 
   end
 

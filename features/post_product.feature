@@ -34,11 +34,11 @@ Feature: Seller post and update items
     When I want to add an item
     When I complete the product post form
     Then I should see my product in my store
-#
-#  Scenario: Update the price of a product
-#    Given I am in the storehouse
-#    When I update the price of "Sunglasses" with "$20.12"
-#    Then I should see "Sunglasses" with "$20.12"
-#    And I should not see "Sunglasses" with "$25.7"
+
+  Scenario: Update the price of a product from my store
+    Given I am in Cindy 1st as the store owner
+    When I update the price of "Sunglasses" with "20.12"
+    Then I should see "Item updated"
+#    And I should not see "Sunglasses" with "25.7"
 
 
