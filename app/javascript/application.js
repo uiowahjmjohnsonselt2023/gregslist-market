@@ -10,6 +10,7 @@
 //= require_tree .
 
 
+
 import "jquery"
 import "jquery_ujs"
 import "popper"
