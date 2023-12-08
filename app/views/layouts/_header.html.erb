@@ -13,26 +13,26 @@
       </li>
       <!--<li class="nav-item">
         <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
+        </li>
+        <li class="nav-item">
         <a class="nav-link disabled" href="#">Disabled</a>
-      </li>-->
+        </li>-->
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0 mr-3" type="submit">Search</button>
-      <% if logged_in? %>
-        <%= link_to "Welcome, #{current_user.name}!", user_path(current_user), class: "mr-3" %>
-        <%#= link_to "Settings", edit_user_path(current_user) %>
-        <%= link_to cart_path(current_cart), class: "ml-2 mr-2 nav-link text-black" do %>
-          <i class="fa fa-shopping-cart"></i> 
-          (<%= pluralize(current_cart.items.count, 'item') %>)
-        <% end %>
-        <%= link_to "Log out", logout_path, class: "mr-2 ml-2 nav-link text-black"%>
-      <% else %>
-        <%= link_to "Sign up", signup_path, class: "mr-2 nav-link text-black"%>
-        <%= link_to "Log in", login_path, class: "mr-2 nav-link text-black"%>
+    <%= form_tag(items_path, method: "get") do %>
+      <%= text_field :search, :q %>
+      <%= submit_tag "Search!" %>
+    <% end %>
+    <% if logged_in? %>
+      <%= link_to "Welcome, #{current_user.name}!", user_path(current_user), class: "mr-3" %>
+      <%#= link_to "Settings", edit_user_path(current_user) %>
+      <%= link_to cart_path(current_cart), class: "ml-2 mr-2 nav-link text-black" do %>
+        <i class="fa fa-shopping-cart"></i> 
+        (<%= pluralize(current_cart.items.count, 'item') %>)
       <% end %>
-    </form>
+      <%= link_to "Log out", logout_path, class: "mr-2 ml-2 nav-link text-black"%>
+    <% else %>
+      <%= link_to "Sign up", signup_path, class: "mr-2 nav-link text-black"%>
+      <%= link_to "Log in", login_path, class: "mr-2 nav-link text-black"%>
+    <% end %>
   </div>
 </nav>
