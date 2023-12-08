@@ -1,8 +1,20 @@
+Given /the following buyers exist/ do |buyers_table|
+  buyers_table.hashes.each do |buyer|
+    Buyer.create(
+      first_name: buyer['first name'],
+      last_name: buyer['last name'],
+      payment_method: buyer['payment method'],
+      address: buyer['address'],
+      user_id:buyer['user id']
+    )
+  end
+end
+
 When("I complete the edit form") do
-  @first_name="sprint second"
-  @last_name="sp2-1"
-  @address="secret"
-  @payment_method="sp2-1@gmail.com"
+  @first_name="Joe"
+  @last_name="Jans"
+  @address="1234 King road, TN"
+  @payment_method="Master"
 
   fill_in "First name", with: @first_name
   fill_in "Last name", with: @last_name

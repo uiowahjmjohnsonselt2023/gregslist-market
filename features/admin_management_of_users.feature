@@ -6,12 +6,12 @@ Feature: Admin manage unqualified users
 
   Background: users have been added to database
     Given the following users exist
-      | name    | username   | password | email                 |
-      | John    | john_doe   | password | john.doe@example.com  |
-      | Alice   | alice_sm   | secret   | alice.sm@example.com  |
-      | Kevin   | kevin_pjk  | ksecret  | kevin.pjk@example.com |
-      | Emily   | emily_em   | esecret  | emily.em@example.com  |
-    And I am on the admin page
+      | name    | username   | password | email                 | activated |
+      | John    | john_doe   | password | john.doe@example.com  | true      |
+      | Alice   | alice_sm   | secret   | alice.sm@example.com  | true      |
+      | Kevin   | kevin_pjk  | ksecret  | kevin.pjk@example.com | true      |
+      | Emily   | emily_em   | esecret  | emily.em@example.com  | true      |
+    And I log in as an admin
     Then 4 users should exist
 
   Scenario: Delete a user
