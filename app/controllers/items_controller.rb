@@ -8,20 +8,24 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = if current_user && current_user.admin
+    @items = if current_user&.admin
                Item.all
              else
                Item.joins(seller: :users)
              end
+    @q = params[:search] && params[:search][:q]
+    return unless @q && !@items.empty?
+
+    @items = @items.ransack(name_i_cont: @q).result(distinct: true)
   end
 
   def show
     @item = Item.find(params[:id])
   end
 
-  # def edit
-  #   @item = Item.find(params[:id])
-  # end
+  def edit
+    @item = Item.find(params[:id])
+  end
 
   def create
     @item = Item.new(item_params)
@@ -35,10 +39,6 @@ class ItemsController < ApplicationController
 
   def update
     @item = Item.find(params[:id])
-    # if @item.update({ name: params[:item][:name], description: params[:item][:description],
-    #                   address: params[:item][:address] })
-    #   flash[:notice] = 'item updated'
-    # end
     if @item.update({ name: params[:item][:name], description: params[:item][:description],
                       listed_price: params[:item][:listed_price] })
       flash[:notice] = 'Item updated'
@@ -47,7 +47,6 @@ class ItemsController < ApplicationController
       flash[:error] = 'Invalid new values'
     end
   end
-
 
   private
 

@@ -7,7 +7,11 @@ class Seller < ApplicationRecord
   before_save { self.address = address.downcase }
   validates :name, presence: true, length: { maximum: 100 }
 
-  def is_listed?
+  def listed?
     users.exists?
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[address description name]
   end
 end

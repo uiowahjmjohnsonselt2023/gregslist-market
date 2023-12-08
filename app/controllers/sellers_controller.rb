@@ -8,6 +8,18 @@ class SellersController < ApplicationController
     @seller = Seller.new
   end
 
+  def index
+    @sellers = if current_user&.admin
+                 Seller.all
+               else
+                 Seller.joins(:users)
+               end
+    @q = params[:search] && params[:search][:q]
+    return unless @q && !@sellers.empty?
+
+    @sellers = @sellers.ransack(name_i_cont: @q).result(distinct: true)
+  end
+
   def edit
     @seller = Seller.find(params[:id].keys[0])
   end

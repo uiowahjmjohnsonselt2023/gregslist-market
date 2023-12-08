@@ -3,14 +3,6 @@ class CartsController < ApplicationController
         @cart = current_cart
     end
 
-    # def add
-    #     cart = current_cart
-    #     item = Item.find(params[:item_id])
-    #     cart.add_item(item)
-    #     # redirect_to cart_path(id: cart.id)
-    #     redirect_to root_path
-    # end
-
     def add
         cart = current_cart
         item = Item.find(params[:item_id])
