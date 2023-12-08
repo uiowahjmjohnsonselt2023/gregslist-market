@@ -54,6 +54,11 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(activation_digest).is_password?(activation_token)
   end
 
+  def authenticated_reset?(reset_token)
+    return false if reset_digest.nil? # if remember_digest is nil, then return false
+    BCrypt::Password.new(reset_digest).is_password?(reset_token)
+  end
+
   # Forgets a user
   def forget
     update_attribute(:remember_digest, nil)
