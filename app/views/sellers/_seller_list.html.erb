@@ -1,0 +1,14 @@
+<% sellers.each do |seller| %>
+  <div class="card mr-4 mt-4" style="width: 18rem;">
+    <div class="card-body">
+      <% if seller.owned_by?(current_user) || (current_user && current_user.admin?)%>
+         <%= link_to "Edit", edit_seller_path(seller) %>
+      <% end %>
+      <h5 class="card-title"><%= link_to seller.name, seller_path(seller) %></h5>
+      <h6 class="card-subtitle mb-2 text-muted">Description: <%= seller.description %></h6>
+
+    </div>
+  </div>
+<% end %>
+
+
