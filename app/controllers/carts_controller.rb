@@ -6,8 +6,15 @@ class CartsController < ApplicationController
     def add
         cart = current_cart
         item = Item.find(params[:item_id])
-        cart.add_item(item)
-        redirect_to cart_path(id: cart.id)
+
+        if cart.items.include?(item)
+            flash[:warning] = "This item is already in your cart."
+        else
+            cart.add_item(item)
+            flash[:success] = "Item added to cart."
+        end
+
+        redirect_to root_path
     end
 
     def remove
