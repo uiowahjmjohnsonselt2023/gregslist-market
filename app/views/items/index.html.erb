@@ -1,11 +1,9 @@
-<% @items.each do |item| %>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title"><%= item.name %></h5>
-      <h6 class="card-subtitle mb-2 text-muted">Description: <%= item.description %></h6>
-      <p class="card-text"> <%= item.category_names %> </p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div>
-  </div>
+<% if @q %>
+  <h2>Searching for "<%= @q %>" in <b>Items</b> | <%= link_to "Sellers", sellers_path(search: {q:@q}) %></h2>
 <% end %>
+
+<div class="row mb-5">
+  <div class="row col-10 offset-1">
+    <%= render partial: "items/item_list", locals: { items: @items } %>
+  </div>
+</div>

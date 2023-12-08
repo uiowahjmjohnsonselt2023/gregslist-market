@@ -1,0 +1,9 @@
+<% if @q %>
+  <h2>Searching for "<%= @q %>" in <%= link_to "Items", items_path(search: {q:@q}) %> | <b>Sellers</b></h2>
+<% end %>
+
+<div class="row mb-5">
+  <div class="row col-10 offset-1">
+    <%= render partial: "sellers/seller_list", locals: { sellers: @sellers } %>
+  </div>
+</div>

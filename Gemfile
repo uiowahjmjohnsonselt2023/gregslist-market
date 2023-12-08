@@ -9,12 +9,14 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap-will_paginate', '1.0.0'
 gem 'bun'
+gem 'faker'
 gem 'jbuilder'
 gem 'jquery-rails'
 gem 'jsbundling-rails'
 gem 'minitest'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7.0', '>= 7.0.8'
+gem 'ransack'
 gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'stringio', '3.0.8'
@@ -28,12 +30,12 @@ group :development, :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'debug', platforms: %i[mri windows]
+  gem 'parallel_tests'
   gem 'pry'
   gem 'pry-byebug'
   gem 'rspec'
   gem 'rspec-rails'
   gem 'sqlite3'
-  gem 'parallel_tests'
 end
 
 group :development do
@@ -44,8 +46,8 @@ group :test do
   gem 'capybara'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
-  gem 'simplecov', require: false
   gem 'shoulda-matchers', '~> 5.0'
+  gem 'simplecov', require: false
 end
 
 group :production do
