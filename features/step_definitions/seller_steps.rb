@@ -8,7 +8,7 @@ Given /the following stores exist/ do |sellers_table|
   end
 end
 
-Given("the following associations exist") do |association_table|
+Given("the following associations between user and seller exist") do |association_table|
   association_table.hashes.each do |row|
     user = User.find_by(id: row['user_id'])
     seller = Seller.find_by(id: row['seller_id'])
@@ -17,6 +17,7 @@ Given("the following associations exist") do |association_table|
 end
 
 When 'I want to access my seller account' do
+  puts('current_path=', current_path)
   click_link('Access Seller accounts')
 end
 
