@@ -21,6 +21,7 @@ module NavigationHelpers
 
     #when /^the store page$/ then "/sellers/#{@store_id}"
     when /^the login page$/ then '/login'
+    when /^the buyer edit page$/ then "/buyers/new?id=#{@user_id}"
     when /^the admin page$/ then '/admin'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
