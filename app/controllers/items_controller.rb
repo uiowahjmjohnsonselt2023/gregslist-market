@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
     @q = params[:search] && params[:search][:q]
     return unless @q && !@items.empty?
 
-    @items = @items.ransack(name: @q).result(distinct: true)
+    @items = @items.ransack(name_i_cont: @q).result(distinct: true)
   end
 
   def show
