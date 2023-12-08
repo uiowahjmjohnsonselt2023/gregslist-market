@@ -4,7 +4,8 @@ Given /the following users exist/ do |users_table|
       name: user['name'],
       username: user['username'],
       password: user['password'],
-      email: user['email']
+      email: user['email'],
+      activated: user['activated']
     )
   end
 end
