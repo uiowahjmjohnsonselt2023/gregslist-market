@@ -9,7 +9,9 @@ admin = User.create!(
   username: 'admin',
   email: 'admin@example.com',
   password_digest: BCrypt::Password.create('password'),
-  admin: true
+  admin: true,
+  activated: true,
+  activated_at: Time.zone.now
 )
 
 roy = User.create!(
@@ -17,7 +19,9 @@ roy = User.create!(
   username: 'roy',
   email: 'roy@example.com',
   password_digest: BCrypt::Password.create('password'),
-  admin: false
+  admin: false,
+  activated: true,
+  activated_at: Time.zone.now
 )
 
 admin_seller = Seller.create!(
@@ -36,6 +40,7 @@ roy_seller = Seller.create!(
 
 admin.seller << admin_seller
 roy.seller << roy_seller
+
 
 
 
@@ -61,7 +66,8 @@ Item.create!([
     seller_id: admin_seller.id,
     listing_date: Date.today,
     listed_price: 499.99,
-    categories: [Electronics]
+    categories: [Electronics],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'electronics.png'))
   },
   {
     name: 'Computer Desk',
@@ -69,7 +75,8 @@ Item.create!([
     seller_id: admin_seller.id,
     listing_date: Date.today,
     listed_price: 100.00,
-    categories: [Home]
+    categories: [Home],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'home.png'))
   },
   {
     name: 'Pepsi',
@@ -77,7 +84,8 @@ Item.create!([
     seller_id: admin_seller.id,
     listing_date: Date.today,
     listed_price: 1.00,
-    categories: [Food]
+    categories: [Food],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'food.png'))
   },
   {
     name: 'Backpack',
@@ -85,6 +93,163 @@ Item.create!([
     seller_id: admin_seller.id,
     listing_date: Date.today,
     listed_price: 53.55,
-    categories: [Office]
+    categories: [Office],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'office.png'))
+  },
+  {
+    name: 'Nike Air Max',
+    description: 'A pair of Nike Air Max',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 150.00,
+    categories: [Clothing],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'clothing.png'))
+  },
+  {
+    name: 'Lego Star Wars',
+    description: 'A Lego Star Wars set',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 100.00,
+    categories: [Toys],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'toy.png'))
+  },
+  {
+    name: 'Dog Food',
+    description: 'A bag of dog food',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 20.00,
+    categories: [Pets],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'pet.png'))
+  },
+  {
+    name: 'Basketball',
+    description: 'A basketball',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 20.00,
+    categories: [Sports],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'sports.png'))
+  },
+  {
+    name: 'Car Battery',
+    description: 'A car battery',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 100.00,
+    categories: [Automotive],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'car.png'))
+  }
+])
+
+Item.create!([
+  {
+    name: 'Face Mask',
+    description: 'A face mask',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 10.00,
+    categories: [Cosmetics],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'body.png'))
+  },
+  {
+    name: 'Gone with the Wind',
+    description: 'A book',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 10.00,
+    categories: [Books],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'books.png'))
+  },
+  {
+    name: '2009 Used Car', 
+    description: 'A used car',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 2999.99,
+    categories: [Automotive],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'car.png'))
+  },
+  {
+    name: 'T-Shirt',
+    description: 'A t-shirt',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 10.00,
+    categories: [Clothing],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'clothing.png'))
+  },
+  {
+    name: 'Wireless Mouse',
+    description: 'A wireless mouse',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 10.00,
+    categories: [Electronics],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'electronics.png'))
+  },
+  {
+    name: 'Dog Toy',
+    description: 'A dog toy',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 10.00,
+    categories: [Pets],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'pet.png'))
+  },
+  {
+    name: 'Pencil',
+    description: 'A pencil',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 2.99,
+    categories: [Office],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'office.png'))
+  },
+  {
+    name: 'A Whole Chicken',
+    description: 'A whole chicken',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 10.00,
+    categories: [Food],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'food.png'))
+  },
+  {
+    name: 'Sofa',
+    description: 'A sofa',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 100.00,
+    categories: [Home],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'home.png'))
+  }, 
+  {
+    name: 'Call of Duty Modern Warfare 2',
+    description: 'A video game',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 10.00,
+    categories: [Toys],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'toy.png'))
+  }, 
+  {
+    name: 'Vitamin C',
+    description: 'A bottle of vitamin C',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 10.00,
+    categories: [Health],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'wellness.png'))
+  }, 
+  {
+    name: "Time-traveler's Pocket Watch", 
+    description: 'A pocket watch that can travel through time',
+    seller_id: roy_seller.id,
+    listing_date: Date.today,
+    listed_price: 4.53,
+    categories: [Others],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'other.png'))
   }
 ])
