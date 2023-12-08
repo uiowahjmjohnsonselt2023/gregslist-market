@@ -13,9 +13,10 @@ class ItemsController < ApplicationController
              else
                Item.joins(seller: :users)
              end
-    return unless params[:search] && params[:search][:q]
+    @q = params[:search] && params[:search][:q]
+    return unless @q
 
-    @items = @items.ransack(name: params[:search][:q]).result(distinct: true)
+    @items = @items.ransack(name: @q).result(distinct: true)
   end
 
   def show

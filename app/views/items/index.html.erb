@@ -1,3 +1,7 @@
+<% if @q %>
+  <h2>Searching for "<%= @q %>" in <b>Items</b> | Sellers | Users</h2>
+<% end %>
+
 <% @items.each do |item| %>
   <div class="card" style="width: 18rem;">
     <div class="card-body">
