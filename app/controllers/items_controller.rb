@@ -8,11 +8,14 @@ class ItemsController < ApplicationController
   end
 
   def index
-    @items = if current_user && current_user.admin
+    @items = if current_user&.admin
                Item.all
              else
                Item.joins(seller: :users)
              end
+    return unless params[:search] && params[:search][:q]
+
+    @items = @items.ransack(name: params[:search][:q]).result(distinct: true)
   end
 
   def show
