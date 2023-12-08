@@ -3,7 +3,7 @@ class Cart < ApplicationRecord
     has_many :items, through: :cart_items
     has_one :purchase
 
-    #add items to the cart, unless it is already in that shit
+    #add items to the cart
     def add_item(item)
         cart_items.create(item_id: item.id) unless cart_items.find_by(item_id: item.id)
     end
