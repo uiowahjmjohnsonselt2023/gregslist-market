@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
   resources :users
   resources :account_activations, only: [:edit]
-  resources :password_resets, only: [:new, :create, :edit, :update]
+  resources :password_resets, only: %i[new create edit update]
 
   get 'select_seller' => 'sellers#select'
   post 'select_seller' => 'sellers#show'
@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   # Defines the route for the items page
   resources :items
+  put 'items' => 'items#index'
 
 
   # Defines the routes for reviews
@@ -53,5 +54,5 @@ Rails.application.routes.draw do
   end
 
   # Defines the routes for purchases
-  resources :purchases, only: [:new, :create]
+  resources :purchases, only: %i[new create]
 end

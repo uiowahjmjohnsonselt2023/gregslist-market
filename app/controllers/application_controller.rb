@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_cart, :current_seller
 
-  private 
+  private
 
   def current_seller
     @current_seller ||= Seller.find(session[:seller_id]) if session[:seller_id]
@@ -20,3 +20,4 @@ class ApplicationController < ActionController::Base
     end
   end
 end
+

@@ -44,11 +44,13 @@ class User < ActiveRecord::Base
   # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
     return false if remember_digest.nil? # if remember_digest is nil, then return false
+
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
   def authenticated_activation?(activation_token)
     return false if activation_digest.nil? # if remember_digest is nil, then return false
+
     BCrypt::Password.new(activation_digest).is_password?(activation_token)
   end
 
@@ -85,8 +87,12 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[email name username]
+  end
 
   private
+
   def downcase_email
     self.email = email.downcase
   end
@@ -96,5 +102,4 @@ class User < ActiveRecord::Base
     self.activation_token  = User.new_token
     self.activation_digest = User.digest(activation_token)
   end
-
 end
