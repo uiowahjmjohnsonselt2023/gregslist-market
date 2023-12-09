@@ -29,3 +29,10 @@ When("I complete the edit form") do
     user_id: @user_id
   )
 end
+
+When /^(?:|I )add "([^"]*)" sold by "([^"]*)" to my cart$/ do |item_name, seller_name|
+  @store_id=Seller.find_by(name:seller_name).id
+  the_item=Item.where(name:item_name,seller_id:@store_id).first
+  find("a[href='/items/#{the_item.id}'] ~ form.button_to button.btn-primary").click
+  # click_button "Add To Cart!"
+end
