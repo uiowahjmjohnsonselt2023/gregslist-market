@@ -49,4 +49,6 @@ jobs:
           DISABLE_SPRING: 1
         run: |
           bundle exec rails db:schema:load
+          bundle exec rails db:migrate
+          bundle exec rails db:seed
           bundle exec rspec --format progress
