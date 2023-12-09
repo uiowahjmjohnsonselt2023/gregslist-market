@@ -64,5 +64,9 @@ jobs:
         run: |
           bundle exec rake db:seed
       - name: run rspec tests
+        env:
+          RAILS_ENV: test
+          PGHOST: localhost
+          DISABLE_SPRING: 1
         run: |
           bundle exec rspec
