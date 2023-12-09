@@ -27,7 +27,8 @@
 <div class="card mr-4 mt-4" style="width: 38rem;">
   <div class="card-body">
     <%= image_tag(rails_blob_path(@item.image), alt: @item.name, class: 'card-img-top') if @item.image.attached? %>
-    <h5 class="card-title"><%= link_to @item.name, item_path(@item) %></h5>
+<!--    <h5 class="card-title"><%#= link_to @item.name, item_path(@item) %></h5>-->
+    <h5 class="card-title"><%= @item.name %></h5>
 
     <p class="card-text">Description: <%= @item.description %></p>
     <h6 class="card-subtitle mb-2">
