@@ -15,11 +15,20 @@ Then /(.*) users should exist/ do | n_seeds |
 end
 
 When /^(?:|I )log in with email "([^"]*)" and password "([^"]*)"$/  do |email, password|
+  @email=email.gsub(/@/, '%40')
   @user=User.find_by(email:email)
   @user_id=@user.id
   fill_in "Email", with: email
   fill_in "Password", with: password
   click_button "Log in"
+end
+
+When /^(?:|I )log in with email "([^"]*)" and forget my password$/  do |email|
+  click_link 'forgot password'
+  @user=User.find_by(email:email)
+  @user_id=@user.id
+  fill_in "Email", with: email
+  click_button "Submit"
 end
 
 When "I log out"  do
