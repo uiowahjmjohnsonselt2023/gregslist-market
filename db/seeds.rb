@@ -2,7 +2,6 @@
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 
-
 # db/seeds.rb
 admin = User.create!(
   name: 'Admin User',
@@ -15,7 +14,7 @@ admin = User.create!(
 )
 
 roy = User.create!(
-  name: 'Roy', 
+  name: 'Roy',
   username: 'roy',
   email: 'roy@example.com',
   password_digest: BCrypt::Password.create('password'),
@@ -24,16 +23,23 @@ roy = User.create!(
   activated_at: Time.zone.now
 )
 
+
+#admin_seller = Seller.create!(
+#  name: 'Admin Seller',
+#  description: 'This is the admin seller',
+#  address: '123 Admin Street',
+#)
+
+
 roy_seller = Seller.create!(
   name: 'Roy Seller',
   description: 'This is the roy seller',
   address: '123 Roy Street',
-  users: [roy]
 )
 
 
+#admin.seller << admin_seller
 roy.seller << roy_seller
-
 
 Electronics = Category.create!(name: 'Electronics')
 Cosmetics = Category.create!(name: 'Cosmetics and Body Care')
@@ -162,7 +168,7 @@ Item.create!([
   {
     name: 'Apple iPhone 12 Pro Max',
     description: 'The biggest iPhone you can buy',
-    seller_id: admin_seller.id,
+    seller_id: roy_seller.id,
     listing_date: Date.today,
     listed_price: 499.99,
     categories: [Electronics],
@@ -171,7 +177,7 @@ Item.create!([
   {
     name: 'Computer Desk',
     description: 'A desk for your computer',
-    seller_id: admin_seller.id,
+    seller_id: roy_seller.id,
     listing_date: Date.today,
     listed_price: 100.00,
     categories: [Home],
@@ -180,7 +186,7 @@ Item.create!([
   {
     name: 'Pepsi',
     description: 'A can of Pepsi',
-    seller_id: admin_seller.id,
+    seller_id: roy_seller.id,
     listing_date: Date.today,
     listed_price: 1.00,
     categories: [Food],
@@ -189,7 +195,7 @@ Item.create!([
   {
     name: 'Backpack',
     description: 'A backpack for your school supplies',
-    seller_id: admin_seller.id,
+    seller_id: roy_seller.id,
     listing_date: Date.today,
     listed_price: 53.55,
     categories: [Office],
@@ -198,7 +204,7 @@ Item.create!([
   {
     name: 'Nike Air Max',
     description: 'A pair of Nike Air Max',
-    seller_id: admin_seller.id,
+    seller_id: roy_seller.id,
     listing_date: Date.today,
     listed_price: 150.00,
     categories: [Clothing],
@@ -207,7 +213,7 @@ Item.create!([
   {
     name: 'Lego Star Wars',
     description: 'A Lego Star Wars set',
-    seller_id: admin_seller.id,
+    seller_id: roy_seller.id,
     listing_date: Date.today,
     listed_price: 100.00,
     categories: [Toys],
@@ -216,7 +222,7 @@ Item.create!([
   {
     name: 'Dog Food',
     description: 'A bag of dog food',
-    seller_id: admin_seller.id,
+    seller_id: roy_seller.id,
     listing_date: Date.today,
     listed_price: 20.00,
     categories: [Pets],
@@ -225,7 +231,7 @@ Item.create!([
   {
     name: 'Basketball',
     description: 'A basketball',
-    seller_id: admin_seller.id,
+    seller_id: roy_seller.id,
     listing_date: Date.today,
     listed_price: 20.00,
     categories: [Sports],
@@ -234,7 +240,7 @@ Item.create!([
   {
     name: 'Car Battery',
     description: 'A car battery',
-    seller_id: admin_seller.id,
+    seller_id: roy_seller.id,
     listing_date: Date.today,
     listed_price: 100.00,
     categories: [Automotive],

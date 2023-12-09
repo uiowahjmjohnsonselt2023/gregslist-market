@@ -1,8 +1,8 @@
-Feature: Add items into and remove items from my cart as a buyer
+Feature: Checkout my cart as a buyer
 
   As a buyer
-  So that I can check out for the items I want later
-  I want to add those items into my cart
+  So that I can buy the items
+  I want to checkout
 
   Background: users and items have been added to database
     Given the following stores exist
@@ -38,23 +38,17 @@ Feature: Add items into and remove items from my cart as a buyer
       | 1          | 1          |
       | 1          | 2          |
 
-  Scenario: See items on sale
-    Given I am on the homepage
-    Then I should see all the items
+    And the following associations between item and cart exist
+      | item_id    | cart_id  |
+      | 1          | 1        |
+      | 2          | 1        |
 
-  Scenario: Add an item into the cart
-    Given I am on the login page
-    And I log in with email "alice.sm@example.com" and password "secret"
-    And I am on the homepage
-    When I add "Sunglasses" sold by "Cindy 1st" to my cart
-    Then I should see "Item added to cart."
-    And "Sunglasses" should be in my cart
 
-  Scenario: Remove an item into the cart
+  Scenario: Checkout items in my cart
     Given I am on the login page
     When I log in with email "alice.sm@example.com" and password "secret"
     And I am on the homepage
     And I add "Sunglasses" sold by "Cindy 1st" to my cart
-    And I am on the cart page
-    And I remove "Sunglasses" sold by "Cindy 1st" from my cart
-    Then "Sunglasses" should not be in my cart
+    When I want to checkout
+    And I complete the checkout steps
+    Then I should see my orders in the history
