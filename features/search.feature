@@ -49,3 +49,15 @@ Feature: Search for an item
     When I search for "Sun"
     Then I should see 1 result in term of items
     And I should not see any result in term of sellers
+
+  Scenario: Search a seller with its full name
+    Given I am on the homepage
+    When I search for "Cindy 1st"
+    Then I should see 1 result in term of sellers
+    And I should not see any result in term of items
+
+  Scenario: Search a seller with its partial name
+    Given I am on the homepage
+    When I search for "Cindy"
+    Then I should see 2 result in term of sellers
+    And I should not see any result in term of items
