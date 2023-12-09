@@ -1,84 +1,3 @@
-<%# provide(:title, @user.name) %>
-
-<!--<div class="row">-->
-<!--  <aside class="col-md-4">-->
-<!--    <section class="user_info">-->
-      <%# if @user.avatar.attached? %>
-        <%#= image_tag @user.avatar, class: "img-fluid" %>
-      <%# else %>
-<!--        <img src="https://cdn.discordapp.com/attachments/1180250200695124121/1180328761586110504/65535_52706077934_9a3860e070_z_360_360_nofilter.png?ex=657d05d2&is=656a90d2&hm=ce72654fec5b27963229dd9d3ae63afd7c37af5484e2cf3ea4c3365c605056c6&" alt="" class="img-fluid">-->
-      <%# end %>
-<!--      <h1>-->
-        <%#= @user.name %>
-<!--      </h1>-->
-
-      <%# if current_user && current_user == @user %>
-<!--        <section class="action_sidebar">-->
-          <%#= link_to "Access Seller accounts", select_seller_path, class: "btn btn btn-primary" %>
-          <%#= link_to "Edit payment information", edit_buyer_path(@user.id), method: "edit", class: "btn btn btn-primary" %>
-<!--        </section>-->
-
-<!--        <b>Edit your profile:</b>-->
-<!--        <ul>-->
-<!--          <li><%#= link_to "Settings", edit_user_path(current_user) %></li>-->
-
-          <%# if current_user && (current_user == @user || current_user.admin?) %>
-<!--            <li>-->
-              <%#= form_for @user, url: delete_user_path, method: :put, data: { confirm: 'Are you sure?' } do |f| %>
-                <%#= f.hidden_field :id  %>
-                <%#= f.submit "Delete Account" %>
-              <%# end %>
-<!--            </li>-->
-          <%# end %>
-<!--        </ul>-->
-      <%# end %>
-<!--    </section>-->
-<!--  </aside>-->
-
-  <%# if current_user && current_user == @user %>
-<!--    <div class="col">-->
-<!--      <h2>Order History:</h2>-->
-
-<!--      <ul class="list-group">-->
-<!--        <li class="list-group-item d-flex justify-content-between align-items-center rounded-top">-->
-<!--          <strong>Total Orders : <%#= @purchase_history.count %></strong>-->
-<!--          <strong>Total Spent : <%#= number_to_currency(@purchase_history.sum{ |pur| pur.total_price }) %></strong>-->
-<!--        </li>-->
-        <%# @purchase_history.each do |single_purchase| %>
-<!--          <li class="list-group-item col-12">-->
-<!--            <div class="col-12">-->
-<!--              <div class="row col-12">-->
-<!--                <h5>Order Number : <%#= single_purchase.id %></h5>-->
-<!--                <h6 class="ml-3">Date : <%#= single_purchase.created_at.strftime("%m/%d/%Y") %></h6>-->
-<!--                <h6 class="ml-3">Cost : <%#= number_to_currency(single_purchase.total_price) %></h6>-->
-<!--                <h6 class="ml-3">Order is being processed ( EST : <%#= rand(1..10) %>  Days ) </h6>-->
-<!--              </div>-->
-              <%# single_purchase.cart.items.each do |item| %>
-<!--                <div class="row mb-2">-->
-<!--                  <div class="col-1">-->
-                    <%# if item.image.attached? %>
-                      <%#= image_tag item.image, class: "card-img-top img-fluid"%>
-                    <%# else %>
-<!--                      <img src="https://cdn.discordapp.com/attachments/1180250200695124121/1180328761586110504/65535_52706077934_9a3860e070_z_360_360_nofilter.png?ex=657d05d2&is=656a90d2&hm=ce72654fec5b27963229dd9d3ae63afd7c37af5484e2cf3ea4c3365c605056c6&" alt="" class="img-fluid">-->
-                    <%# end %>
-<!--                  </div>-->
-<!--                  <div class="col">-->
-<!--                    <h3><%#= link_to item.name, seller_path(item.seller.id)%></h3>-->
-<!--                    <h5><%#= number_to_currency(item.listed_price) %></h5>-->
-<!--                  </div>-->
-<!--                </div>-->
-              <%# end %>
-<!--            </div>-->
-<!--          </li>-->
-        <%# end %>
-<!--      </ul>-->
-<!--    </div>-->
-  <%# end %>
-<!--</div>-->
-<!--</div>-->
-
-
-
 <% provide(:title, @user.name) %>
 
 <div class="row">
@@ -91,18 +10,18 @@
       <% end %>
       <h1><%= @user.name %></h1>
 
-      <% if current_user && current_user == @user %>
-        <section class="action_sidebar mb-4">
+      <section class="action_sidebar mb-4">
+        <% if current_user && current_user == @user %>
           <%= link_to "Access Seller Accounts", select_seller_path, class: "btn btn-secondary btn-block mb-2", role: "button" %>
           <%= link_to "Edit Payment Information", edit_buyer_path(@user), method: "edit", class: "btn btn-secondary btn-block mb-2", role: "button" %>
           <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary btn-block mb-2", role: "button" %>
-          <% if current_user.admin? || current_user == @user %>
-            <%= form_for @user, url: delete_user_path(id: current_user.id), method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
-              <%= button_to 'Delete Account', delete_user_path(id: current_user.id), method: :delete, class: "btn btn-danger btn-block btn-sm mt-2"%>
-            <% end %>
+        <% end %>
+        <% if current_user.admin? || current_user == @user %>
+          <%= form_for @user, url: delete_user_path(id: current_user.id), method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
+            <%= button_to 'Delete Account', delete_user_path(id: current_user.id), method: :delete, class: "btn btn-danger btn-block btn-sm mt-2"%>
           <% end %>
-        </section>
-      <% end %>
+        <% end %>
+      </section>
     </section>
   </aside>
 
