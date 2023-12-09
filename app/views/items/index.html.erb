@@ -9,32 +9,18 @@
 <!--</div>-->
 
 
-<% if @item %>
+<% if @items.present? %>
   <div class="row mb-5">
-    <div class="row col-10 offset-1">
-      <%= render partial: "items/item_list", locals: { items: @item } %>
+    <div class="col-10 offset-1">
+      <h2>Results for "<%= @q %>"</h2>
+      <%= render partial: "items/item_list", locals: { items: @items } %>
     </div>
   </div>
 <% else %>
   <div class="row mb-5">
-    <div class="row col-10 offset-1">
+    <div class="col-10 offset-1">
       <h2>Sorry, no results for "<%= @q %>"</h2>
     </div>
   </div>
 <% end %>
 
-<%# if @q %>
-<!--  <h2>Results for "<%#= @q %>"</h2>-->
-
-<!--  <div class="row mb-5">-->
-<!--    <div class="row col-10 offset-1">-->
-      <%#= render partial: "items/item_list", locals: { items: @items } %>
-<!--    </div>-->
-<!--  </div>-->
-<%# else %>
-<!--  <div class="row mb-5">-->
-<!--    <div class="row col-10 offset-1">-->
-<!--      <h2>Sorry, no results for "<%#= @q %>"</h2>-->
-<!--    </div>-->
-<!--  </div>-->
-<%# end %>
