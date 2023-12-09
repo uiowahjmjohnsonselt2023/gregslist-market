@@ -26,7 +26,7 @@ module NavigationHelpers
     when /^the users list page$/ then '/users'
     when /^the reset password page$/ then "/password_resets/ceK0DoAvzR5b46jCVteL7g/edit?email=#{@email}"
     when /^the search result page$/ then "/items?search%5Bq%5D=#{@search_name}&commit=Search%21"
-
+    when /^the cart page$/ then "/carts/#{@user_id}"
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
