@@ -30,14 +30,27 @@ Then /(.*) products should exist/ do | n_seeds |
   expect(Item.count).to eq n_seeds.to_i
 end
 
-When /^(?:|I )am in (.+) as the store owner$/ do |store_name|
-  store=Seller.find_by(name:store_name)
-  @store_id=store.id
-  visit "/sellers/#{@store_id}"
+Given /^(?:|I )am in (.+) as the store owner after log in with email "([^"]*)" and password "([^"]*)"$/ do |store_name,email,password|
+  @store=Seller.find_by(name:store_name)
+  @store_id=@store.id
+  user_accounts = @store.users
+  first_user = user_accounts.first
+  @current_user=first_user
+  #login
+  @user_id=@current_user.id
+  visit path_to('the login page')
+  fill_in "Email", with: email
+  fill_in "Password", with: password
+  click_button "Log in"
+  #select seller
+  puts('current=',current_path)
+  click_link('Access Seller accounts')
+  select store_name, from: 'seller[id]'
+  click_button "Select"
 end
 
 When 'I want to add an item' do
-  click_link('Add Item')
+  click_link "Add Item"
 end
 
 When("I complete the product post form") do
@@ -92,6 +105,14 @@ end
 And /^(?:|I )should not see "([^"]*)" with "([^"]*)"$/ do |name, old_price|
   the_item=Item.find_by(name:name)
   expect(the_item.listed_price).not eq(old_price)
+end
+
+Then /I should see all the items/ do
+  items = Item.all
+  items.each do |item|
+    name = item.name
+    expect(page).to have_content(name)
+  end
 end
 
 

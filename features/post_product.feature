@@ -28,15 +28,24 @@ Feature: Seller post and update items
       | 3           | 2       |
       | 1           | 3       |
 
+    And the following users exist
+      | name    | username   | password | email                 | activated |
+      | Cindy   | cindy_doe  | password | cindy.doe@example.com | true      |
+      | Alice   | alice_sm   | secret   | alice.sm@example.com  | true      |
+
+    And the following associations between user and seller exist
+      | user_id    | seller_id  |
+      | 1          | 1          |
+      | 1          | 2          |
 
   Scenario: Post an item
-    Given I am in Cindy 1st as the store owner
+    Given I am in Cindy 1st as the store owner after log in with email "cindy.doe@example.com" and password "password"
     When I want to add an item
-    When I complete the product post form
+    And I complete the product post form
     Then I should see my product in my store
 
   Scenario: Update the price of a product from my store
-    Given I am in Cindy 1st as the store owner
+    Given I am in Cindy 1st as the store owner after log in with email "cindy.doe@example.com" and password "password"
     When I update the price of "Sunglasses" with "20.12"
     Then I should see "Item updated"
 #    And I should not see "Sunglasses" with "25.7"
