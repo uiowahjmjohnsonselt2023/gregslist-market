@@ -52,8 +52,9 @@ Feature: Add items into and remove items from my cart as a buyer
 
   Scenario: Remove an item into the cart
     Given I am on the login page
-    And I log in with email "alice.sm@example.com" and password "secret"
+    When I log in with email "alice.sm@example.com" and password "secret"
     And I am on the homepage
-    When I add "Sunglasses" sold by "Cindy 1st" to my cart
-    Then I should see "Item added to cart."
-    And "Sunglasses" should be in my cart
+    And I add "Sunglasses" sold by "Cindy 1st" to my cart
+    And I am on the cart page
+    And I remove "Sunglasses" sold by "Cindy 1st" from my cart
+    Then "Sunglasses" should not be in my cart

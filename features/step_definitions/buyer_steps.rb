@@ -32,7 +32,6 @@ end
 
 When /^(?:|I )add "([^"]*)" sold by "([^"]*)" to my cart$/ do |item_name, seller_name|
   @store_id=Seller.find_by(name:seller_name).id
-  # the_item=Item.where(name:item_name,seller_id:@store_id).first
   within('.card-body', text: item_name) do
     if has_selector?('h6.card-subtitle.mb-2.text-muted', text: seller_name)
       click_button "Add To Cart!"
@@ -40,7 +39,20 @@ When /^(?:|I )add "([^"]*)" sold by "([^"]*)" to my cart$/ do |item_name, seller
   end
 end
 
+When /^(?:|I )remove "([^"]*)" sold by "([^"]*)" from my cart$/ do |item_name, seller_name|
+  @store_id=Seller.find_by(name:seller_name).id
+
+  within('li', text: item_name) do
+    click_button 'Remove from Cart'
+
+  end
+end
+
 And /"([^"]*)" should be in my cart$/ do |item_name|
   visit path_to('the cart page')
   expect(page).to have_content(item_name)
+end
+
+And /"([^"]*)" should not be in my cart$/ do |item_name|
+  expect(page).not_to have_content(item_name)
 end
