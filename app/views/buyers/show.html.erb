@@ -1,0 +1,24 @@
+<% provide(@buyer.address, @buyer.payment_method) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="buyer_info">
+      <h1>
+        <%= @buyer.first_name %> <%@buyer.last_name %>
+      </h1>
+      <h3>
+        <%= @buyer.address %>
+      </h3>
+      <p>
+      <%= @buyer.payment_method %>
+      </p>
+
+      <%= form_tag(edit_buyer_path) do %>
+        <%= hidden_field(:id, @buyer.id) %>
+        <%= submit_tag("Edit buyer account") %>
+      <% end %>
+
+
+
+    </section>
+  </aside>
+</div>

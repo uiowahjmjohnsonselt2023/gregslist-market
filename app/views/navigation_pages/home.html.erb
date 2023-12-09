@@ -1,0 +1,18 @@
+<% provide(:title, "Home") %>
+
+<div class="center jumbotron text-center">
+  <h1 class="display-3 fw-bold text-primary">Gregslist Marketplace</h1>
+  <h2 class="mt-4">The Ultimate Shopping Experience</h2>
+
+  <% if logged_in? %>
+    <p class="lead mt-4">Welcome, <strong><%= current_user.name %>!</strong></p>
+  <% end %>
+</div>
+
+
+<div class="row mb-5">
+  <div class="row col-10 offset-1">
+    <%= render partial: "items/item_list", locals: { items: @items } %>
+  </div>
+</div>
+

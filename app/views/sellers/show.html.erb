@@ -1,0 +1,43 @@
+<% provide(:title, @seller.name) %>
+<% provide(@seller.address, @seller.description) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="seller_info">
+      <h1>
+        <%= @seller.name %>
+      </h1>
+      <h3>
+        <%= @seller.address %>
+      </h3>
+      <p>
+      <%= @seller.description %>
+      </p>
+
+      <% if current_user && @seller.users.include?(current_user) %>
+        <%= form_tag(edit_seller_path) do %>
+          <%= hidden_field(:id, @seller.id) %>
+          <%= submit_tag("Edit store account") %>
+        <% end %>
+      <% end %>
+
+      <%= link_to 'View Categories', categories_path(seller_id: @seller.id) %>
+
+      <br>
+      <% if current_user && @seller.users.include?(current_user) %>
+        <%= link_to 'Add Item', new_item_path(seller_id: @seller.id), class: 'button' %>
+      <% end %>
+
+      <% if current_user && !@seller.users.include?(current_user) && !current_user.admin %>
+        <%= link_to "Add Review", new_seller_review_path({:seller_id=>@seller.id}), method: :get %>
+      <% end %>
+
+      <h2>Items</h2>
+      <div class="row mb-5">
+        <div class="row col-10 offset-1">
+          <%= render partial: "items/item_list", locals: { items: @items } %>
+        </div>
+      </div>
+
+    </section>
+  </aside>
+</div>

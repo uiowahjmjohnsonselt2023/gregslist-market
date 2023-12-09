@@ -1,0 +1,26 @@
+<%# if @q %>
+<!--  <h2>Results for "<%#= @q %>" </h2>-->
+<%# end %>
+
+<!--<div class="row mb-5">-->
+<!--  <div class="row col-10 offset-1">-->
+    <%#= render partial: "items/item_list", locals: { items: @items } %>
+<!--  </div>-->
+<!--</div>-->
+
+
+<% if @items.present? %>
+  <div class="row mb-5">
+    <div class="col-10 offset-1">
+      <h2>Results for "<%= @q %>"</h2>
+      <%= render partial: "items/item_list", locals: { items: @items } %>
+    </div>
+  </div>
+<% else %>
+  <div class="row mb-5">
+    <div class="col-10 offset-1">
+      <h2>Sorry, no results for "<%= @q %>"</h2>
+    </div>
+  </div>
+<% end %>
+
