@@ -41,11 +41,37 @@ end
 
 When /^(?:|I )remove "([^"]*)" sold by "([^"]*)" from my cart$/ do |item_name, seller_name|
   @store_id=Seller.find_by(name:seller_name).id
-
   within('li', text: item_name) do
     click_button 'Remove from Cart'
 
   end
+end
+
+When 'I want to checkout' do
+  visit path_to('the cart page')
+  click_link 'Proceed to Checkout'
+end
+
+When("I complete the checkout steps") do
+  address="2224 King st"
+  city="NYC"
+  state="NY"
+  zip="64933"
+  card_number="1111222233334444"
+  expiration="3/18/2029"
+  cvv="027"
+  fill_in "adr", with: address
+  fill_in "city", with: city
+  fill_in "state", with: state
+  fill_in "zip", with: zip
+  fill_in "ccnum", with: card_number
+  fill_in "expmonth", with: expiration
+  fill_in "cvvnum", with: cvv
+  click_button "Check Out!"
+  Purchase.create(
+    user_id: @user_id,
+    total_price: @payment_method
+  )
 end
 
 And /"([^"]*)" should be in my cart$/ do |item_name|
