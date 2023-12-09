@@ -95,9 +95,9 @@ Then("I should see the field for {string}") do |field_name|
   expect(page).to have_field(field_name)
 end
 
-And /^(?:|I )delete the user whose username is "([^"]*)"$/ do |name|
-
-end
+# And /^(?:|I )delete the user whose username is "([^"]*)"$/ do |name|
+#
+# end
 
 And "I activate my account" do
   the_user=User.find_by(email:@email)
