@@ -12,8 +12,7 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   delete 'logout', to: 'sessions#destroy'
 
-  put 'delete_user', to: 'users#delete'
-  # get 'navigation_pages/contact'
+  delete '/delete_user', to: 'users#destroy', as: :delete_user
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   # delete 'logout'  => 'sessions#destroy'
