@@ -4,15 +4,19 @@
       <% if item.owned_by?(current_user) || (current_user && current_user.admin?) %>
         <%= link_to "Edit", edit_item_path(item) %>
       <% end %>
+      <%= link_to item_path(item) do %>
       <%= image_tag(rails_blob_path(item.image), alt: item.name, class: 'card-img-top') if item.image.attached? %>
+      <% end %>
+
       <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
 <!--      <h6 class="card-subtitle mb-2 text-muted">-->
         <%#= truncate(item.description, length: 30, separator: ' ', omission: ' ....') %>
 <!--      </h6>-->
-      <h6 class="card-subtitle mb-2 text-muted"> Seller: <%= link_to item.seller.name %> </h6>
       <h6 class="card-subtitle mb-2">
         Price: <span class="price-dark-green"><sup>$</sup><%= item.listed_price %></span>
       </h6>
+      <h6 class="card-subtitle mb-2 text-muted"> Seller: <%= link_to item.seller.name %> </h6>
+
       <h6 class="card-subtitle mb-2"> Categories: <%= item.category_names.join(", ") %> </h6>
       <%= button_to "Add To Cart!", cart_add_to_path(cart_id: current_cart.id, item_id: item.id), method: :post, class: "btn btn-primary" %>
     </div>
