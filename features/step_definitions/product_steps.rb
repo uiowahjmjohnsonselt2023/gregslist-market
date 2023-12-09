@@ -43,8 +43,7 @@ Given /^(?:|I )am in (.+) as the store owner after log in with email "([^"]*)" a
   fill_in "Password", with: password
   click_button "Log in"
   #select seller
-  puts('current=',current_path)
-  click_link('Access Seller accounts')
+  click_link('Access Seller Accounts')
   select store_name, from: 'seller[id]'
   click_button "Select"
 end
@@ -57,22 +56,18 @@ When("I complete the product post form") do
   @name="Camera"
   @price="22.99"
   @date="2023/11/13"
-  # @category="electronics"
   @description="Fujifilm Quicksnap 135 Flash 400 2pk"
 
   fill_in "Name", with: @name
   fill_in "Description", with: @description
   fill_in "item[listing_date]", with: @date
-  # fill_in "Listing date", with: @date
   fill_in "Listed price", with: @price
-  # fill_in "Category", with:@category
   click_button "Create Item"
   Item.create(
     name: @name,
     description:@description,
     listing_date: @date,
     listed_price: @price,
-    # category: @category,
     seller_id:@store_id
   )
 end
@@ -110,14 +105,12 @@ Then /I should see all the items/ do
   @items = Item.all
   @items.each do |item|
     name = item.name
-    save_and_open_page
     expect(page).to have_content(name)
   end
 end
 
 When /^(?:|I )search for "([^"]*)"$/ do |name|
   @search_name=name
-  save_and_open_page
   fill_in 'search[q]', with: @search_name
   click_button 'Search'
 end
