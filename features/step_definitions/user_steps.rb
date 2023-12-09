@@ -91,8 +91,6 @@ end
 
 Then 'I should see my name includes in the welcome message' do
   except_content="Welcome, "+@name+"!"
-  puts('except_content=',except_content)
-  puts('current_path=',current_path)
   expect(page).to have_content(except_content)
 end
 
@@ -124,3 +122,12 @@ And "I log in with the information" do
   click_button "Log in"
 end
 
+Then 'I should see my orders in the history' do
+  orders=Purchase.where(user_id:@user_id)
+  last_order=Purchase.where(user_id:@user_id).last
+  order_number=orders.count
+  order_total_price = sprintf('%.2f', last_order.total_price)
+
+  expect(page).to have_content("Total Orders: #{order_number}")
+  expect(page).to have_content("Total Spent: $#{order_total_price}")
+end

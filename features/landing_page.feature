@@ -6,4 +6,5 @@ Feature: Landing page
 
 Scenario: see the landing page with welcome messages
   When I am on the home page
-  Then I should see "Welcome to Gregslist Marketplace"
+  Then I should see "Gregslist Marketplace"
+  And I should see "The Ultimate Shopping Experience"
