@@ -55,3 +55,6 @@ jobs:
       - name: run seed
         run: |
           bundle exec rake db:seed
+      - name: run rspec tests
+        run: |
+          bundle exec rspec
