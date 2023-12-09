@@ -1,0 +1,9 @@
+{
+    "GROUP": "G008",
+    "ALL_SPRINTS": {
+        "SPRINT1_URL": "https://sleepy-badlands-60685-e4a7e0e94fe1.herokuapp.com/",
+        "SPRINT2_URL": "https://shrouded-spire-16463-4c293a75c151.herokuapp.com/",
+        "SPRINT3_URL": "http://blah.blee.boo/myapp",
+        "FINAL_URL": "http://blah.blee.boo/myapp"
+    }
+}

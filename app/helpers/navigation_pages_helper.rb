@@ -1,0 +1,2 @@
+module NavigationPagesHelper
+end
