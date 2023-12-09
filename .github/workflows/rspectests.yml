@@ -35,11 +35,11 @@ jobs:
           bundler-cache: true
       # Add or replace database setup steps here
       - name: Set up database schema
-        run: bin/rails db:schema:load
+        run: rake db:schema:load
       - name: Setup database migration
-        run: bin/rails db:migrate
+        run: rake db:migrate
       - name: Setup database seed
-        run: bin/rails db:seed
+        run: rake db:seed
       - name: run rails
         run: rails server
       # Add or replace test runners here
