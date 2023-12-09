@@ -36,3 +36,5 @@ jobs:
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: install gems
       run: bundle install
+    - name: debugging
+      run: ls -lh
