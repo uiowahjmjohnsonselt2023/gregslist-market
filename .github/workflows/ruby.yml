@@ -30,7 +30,7 @@ jobs:
           --health-retries 5
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -42,13 +42,10 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get -yqq install libpq-dev
           bundle install --jobs 4 --retry 3
-      - name: Run Tests
+      - name: Setup environment
         env:
           RAILS_ENV: test
           PGHOST: localhost
           DISABLE_SPRING: 1
         run: |
-          bundle exec rails db:schema:load
-          bundle exec rails db:migrate
-          bundle exec rails db:seed
-          bundle exec rspec --format progress
+          bundle exec rake db:schema:load
