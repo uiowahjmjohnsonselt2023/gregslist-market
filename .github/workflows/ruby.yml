@@ -50,9 +50,17 @@ jobs:
         run: |
           bundle exec rake db:schema:load
       - name: run migration
+        env:
+          RAILS_ENV: test
+          PGHOST: localhost
+          DISABLE_SPRING: 1
         run: |
           bundle exec rake db:migrate
       - name: run seed
+        env:
+          RAILS_ENV: test
+          PGHOST: localhost
+          DISABLE_SPRING: 1
         run: |
           bundle exec rake db:seed
       - name: run rspec tests
