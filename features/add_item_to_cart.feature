@@ -1,4 +1,4 @@
-Feature: Add items into my cart as a buyer
+Feature: Add items into and remove items from my cart as a buyer
 
   As a buyer
   So that I can check out for the items I want later
@@ -43,6 +43,14 @@ Feature: Add items into my cart as a buyer
     Then I should see all the items
 
   Scenario: Add an item into the cart
+    Given I am on the login page
+    And I log in with email "alice.sm@example.com" and password "secret"
+    And I am on the homepage
+    When I add "Sunglasses" sold by "Cindy 1st" to my cart
+    Then I should see "Item added to cart."
+    And "Sunglasses" should be in my cart
+
+  Scenario: Remove an item into the cart
     Given I am on the login page
     And I log in with email "alice.sm@example.com" and password "secret"
     And I am on the homepage
