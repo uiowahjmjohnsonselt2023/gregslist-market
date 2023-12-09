@@ -1,8 +1,8 @@
-Feature: Add items into and remove items from my cart as a buyer
+Feature: Search for an item
 
-  As a buyer
-  So that I can check out for the items I want later
-  I want to add those items into my cart
+  As a Guest
+  So that I can see if there is the special item I am interested in
+  I want to search for the special item
 
   Background: users and items have been added to database
     Given the following stores exist
@@ -38,22 +38,26 @@ Feature: Add items into and remove items from my cart as a buyer
       | 1          | 1          |
       | 1          | 2          |
 
-  Scenario: See items on sale
+  Scenario: Search an item with its full name
     Given I am on the homepage
-    Then I should see all the items
+    When I search for "Sunglasses"
+    Then I should see 1 result in term of items
+    And I should not see any result in term of sellers
 
-  Scenario: Add an item into the cart
-    Given I am on the login page
-    And I log in with email "alice.sm@example.com" and password "secret"
-    And I am on the homepage
-    When I add "Sunglasses" sold by "Cindy 1st" to my cart
-    Then I should see "Item added to cart."
-    And "Sunglasses" should be in my cart
+  Scenario: Search an item with its partial name
+    Given I am on the homepage
+    When I search for "Sun"
+    Then I should see 1 result in term of items
+    And I should not see any result in term of sellers
 
-  Scenario: Remove an item into the cart
-    Given I am on the login page
-    And I log in with email "alice.sm@example.com" and password "secret"
-    And I am on the homepage
-    When I add "Sunglasses" sold by "Cindy 1st" to my cart
-    Then I should see "Item added to cart."
-    And "Sunglasses" should be in my cart
+  Scenario: Search a seller with its full name
+    Given I am on the homepage
+    When I search for "Cindy 1st"
+    Then I should see 1 result in term of sellers
+    And I should not see any result in term of items
+
+  Scenario: Search a seller with its partial name
+    Given I am on the homepage
+    When I search for "Cindy"
+    Then I should see 2 result in term of sellers
+    And I should not see any result in term of items
