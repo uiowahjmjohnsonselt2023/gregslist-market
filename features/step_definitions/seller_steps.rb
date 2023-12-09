@@ -25,7 +25,6 @@ Then 'I should see all my existing seller accounts' do
   seller_accounts = user.seller
 
   seller_accounts.each do |seller|
-    puts('seller.name=',seller.name)
     expect(page).to have_content(seller.name)
   end
 
