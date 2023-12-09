@@ -17,9 +17,7 @@
           <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary btn-block mb-2", role: "button" %>
         <% end %>
         <% if current_user.admin? || current_user == @user %>
-          <%= form_for @user, url: delete_user_path(id: current_user.id), method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
-            <%= button_to 'Delete Account', delete_user_path(id: current_user.id), method: :delete, class: "btn btn-danger btn-block btn-sm mt-2"%>
-          <% end %>
+          <%= link_to "Delete Account", butter_user_path(id: current_user), class: "btn btn-danger btn-block btn-sm mt-2", role: "button" %>
         <% end %>
       </section>
     </section>
