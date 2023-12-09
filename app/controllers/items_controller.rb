@@ -37,6 +37,7 @@ class ItemsController < ApplicationController
     end
   end
 
+
   def show
     @item = Item.find(params[:id])
   end
@@ -65,6 +66,12 @@ class ItemsController < ApplicationController
       flash[:error] = 'Invalid new values'
     end
   end
+
+  # def destroy
+  #   @item = Item.find(params[:id])
+  #   @item.destroy
+  #   redirect_to seller_path(@item.seller_id)
+  # end
 
   private
 
