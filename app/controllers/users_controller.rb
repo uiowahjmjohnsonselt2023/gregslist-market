@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    user = User.find(params[:user][:id])
+    user = User.find(params[:id])
     if user.destroy
       flash[:success] = 'User deleted'
       redirect_to logout_path
@@ -64,6 +64,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
 
   private
 

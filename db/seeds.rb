@@ -24,13 +24,6 @@ roy = User.create!(
   activated_at: Time.zone.now
 )
 
-admin_seller = Seller.create!(
-  name: 'Admin Seller',
-  description: 'This is the admin seller',
-  address: '123 Admin Street',
-  users: [admin]
-)
-
 roy_seller = Seller.create!(
   name: 'Roy Seller',
   description: 'This is the roy seller',
@@ -38,11 +31,8 @@ roy_seller = Seller.create!(
   users: [roy]
 )
 
-admin.seller << admin_seller
+
 roy.seller << roy_seller
-
-
-
 
 
 Electronics = Category.create!(name: 'Electronics')
@@ -59,89 +49,6 @@ Sports = Category.create!(name: 'Sports and Outdoors')
 Automotive = Category.create!(name: 'Automotive')
 Others = Category.create!(name: 'Others')
 
-Item.create!([
-  {
-    name: 'Apple iPhone 12 Pro Max',
-    description: 'The biggest iPhone you can buy',
-    seller_id: admin_seller.id,
-    listing_date: Date.today,
-    listed_price: 499.99,
-    categories: [Electronics],
-    image: File.open(Rails.root.join('app', 'assets', 'images', 'electronics.png'))
-  },
-  {
-    name: 'Computer Desk',
-    description: 'A desk for your computer',
-    seller_id: admin_seller.id,
-    listing_date: Date.today,
-    listed_price: 100.00,
-    categories: [Home],
-    image: File.open(Rails.root.join('app', 'assets', 'images', 'home.png'))
-  },
-  {
-    name: 'Pepsi',
-    description: 'A can of Pepsi',
-    seller_id: admin_seller.id,
-    listing_date: Date.today,
-    listed_price: 1.00,
-    categories: [Food],
-    image: File.open(Rails.root.join('app', 'assets', 'images', 'food.png'))
-  },
-  {
-    name: 'Backpack',
-    description: 'A backpack for your school supplies',
-    seller_id: admin_seller.id,
-    listing_date: Date.today,
-    listed_price: 53.55,
-    categories: [Office],
-    image: File.open(Rails.root.join('app', 'assets', 'images', 'office.png'))
-  },
-  {
-    name: 'Nike Air Max',
-    description: 'A pair of Nike Air Max',
-    seller_id: admin_seller.id,
-    listing_date: Date.today,
-    listed_price: 150.00,
-    categories: [Clothing],
-    image: File.open(Rails.root.join('app', 'assets', 'images', 'clothing.png'))
-  },
-  {
-    name: 'Lego Star Wars',
-    description: 'A Lego Star Wars set',
-    seller_id: admin_seller.id,
-    listing_date: Date.today,
-    listed_price: 100.00,
-    categories: [Toys],
-    image: File.open(Rails.root.join('app', 'assets', 'images', 'toy.png'))
-  },
-  {
-    name: 'Dog Food',
-    description: 'A bag of dog food',
-    seller_id: admin_seller.id,
-    listing_date: Date.today,
-    listed_price: 20.00,
-    categories: [Pets],
-    image: File.open(Rails.root.join('app', 'assets', 'images', 'pet.png'))
-  },
-  {
-    name: 'Basketball',
-    description: 'A basketball',
-    seller_id: admin_seller.id,
-    listing_date: Date.today,
-    listed_price: 20.00,
-    categories: [Sports],
-    image: File.open(Rails.root.join('app', 'assets', 'images', 'sports.png'))
-  },
-  {
-    name: 'Car Battery',
-    description: 'A car battery',
-    seller_id: admin_seller.id,
-    listing_date: Date.today,
-    listed_price: 100.00,
-    categories: [Automotive],
-    image: File.open(Rails.root.join('app', 'assets', 'images', 'car.png'))
-  }
-])
 
 Item.create!([
   {
@@ -251,5 +158,86 @@ Item.create!([
     listed_price: 4.53,
     categories: [Others],
     image: File.open(Rails.root.join('app', 'assets', 'images', 'other.png'))
+  },
+  {
+    name: 'Apple iPhone 12 Pro Max',
+    description: 'The biggest iPhone you can buy',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 499.99,
+    categories: [Electronics],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'electronics.png'))
+  },
+  {
+    name: 'Computer Desk',
+    description: 'A desk for your computer',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 100.00,
+    categories: [Home],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'home.png'))
+  },
+  {
+    name: 'Pepsi',
+    description: 'A can of Pepsi',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 1.00,
+    categories: [Food],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'food.png'))
+  },
+  {
+    name: 'Backpack',
+    description: 'A backpack for your school supplies',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 53.55,
+    categories: [Office],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'office.png'))
+  },
+  {
+    name: 'Nike Air Max',
+    description: 'A pair of Nike Air Max',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 150.00,
+    categories: [Clothing],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'clothing.png'))
+  },
+  {
+    name: 'Lego Star Wars',
+    description: 'A Lego Star Wars set',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 100.00,
+    categories: [Toys],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'toy.png'))
+  },
+  {
+    name: 'Dog Food',
+    description: 'A bag of dog food',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 20.00,
+    categories: [Pets],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'pet.png'))
+  },
+  {
+    name: 'Basketball',
+    description: 'A basketball',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 20.00,
+    categories: [Sports],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'sports.png'))
+  },
+  {
+    name: 'Car Battery',
+    description: 'A car battery',
+    seller_id: admin_seller.id,
+    listing_date: Date.today,
+    listed_price: 100.00,
+    categories: [Automotive],
+    image: File.open(Rails.root.join('app', 'assets', 'images', 'car.png'))
   }
 ])
