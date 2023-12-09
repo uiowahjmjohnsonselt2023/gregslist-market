@@ -19,9 +19,13 @@ module NavigationHelpers
     when /^my profile page$/ then "/users/#{@user_id}"
     when /^select store page$/ then '/select_seller'
 
-    when /^the store page$/ then "/sellers/#{@store_id}"
+    #when /^the store page$/ then "/sellers/#{@store_id}"
     when /^the login page$/ then '/login'
-    when /^the admin page$/ then '/admin'
+    when /^the buyer edit page$/ then "/buyers/new?id=#{@user_id}"
+    when /^the admin page$/ then '/users/1'
+    when /^the users list page$/ then '/users'
+    when /^the reset password page$/ then "/password_resets/ceK0DoAvzR5b46jCVteL7g/edit?email=#{@email}"
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

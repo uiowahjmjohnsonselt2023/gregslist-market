@@ -4,7 +4,8 @@ Given /the following users exist/ do |users_table|
       name: user['name'],
       username: user['username'],
       password: user['password'],
-      email: user['email']
+      email: user['email'],
+      activated: user['activated']
     )
   end
 end
@@ -14,11 +15,20 @@ Then /(.*) users should exist/ do | n_seeds |
 end
 
 When /^(?:|I )log in with email "([^"]*)" and password "([^"]*)"$/  do |email, password|
+  @email=email.gsub(/@/, '%40')
   @user=User.find_by(email:email)
   @user_id=@user.id
   fill_in "Email", with: email
   fill_in "Password", with: password
   click_button "Log in"
+end
+
+When /^(?:|I )log in with email "([^"]*)" and forget my password$/  do |email|
+  click_link 'forgot password'
+  @user=User.find_by(email:email)
+  @user_id=@user.id
+  fill_in "Email", with: email
+  click_button "Submit"
 end
 
 When "I log out"  do
@@ -65,9 +75,9 @@ When("I complete the signup form") do
   )
 end
 
-And 'I want to apply as a seller' do
-  Seller
-end
+# And 'I want to apply as a seller' do
+#   Seller
+# end
 
 Then 'I should see my profile' do
   the_user=User.find_by(email:@email)
@@ -79,6 +89,13 @@ Then /^(?:|I )should see my name "([^"]*)"$/ do |name|
   expect(page).to have_content(name)
 end
 
+Then 'I should see my name includes in the welcome message' do
+  except_content="Welcome, "+@name+"!"
+  puts('except_content=',except_content)
+  puts('current_path=',current_path)
+  expect(page).to have_content(except_content)
+end
+
 Then("I should see my new address") do
   expect(page).to have_content(@new_address)
 end
@@ -87,6 +104,22 @@ Then("I should see the field for {string}") do |field_name|
   expect(page).to have_field(field_name)
 end
 
-And /^(?:|I )delete the user whose username is "([^"]*)"$/ do |name|
+# And /^(?:|I )delete the user whose username is "([^"]*)"$/ do |name|
+#
+# end
 
+And "I activate my account" do
+  the_user=User.find_by(email:@email)
+  the_user.activated=true
+  the_user.save!
+  visit path_to('the homepage')
+end
+
+And "I log in with the information" do
+  visit path_to('the login page')
+  @user=User.find_by(email:@email)
+  @user_id=@user.id
+  fill_in "Email", with: @email
+  fill_in "Password", with: @password
+  click_button "Log in"
 end

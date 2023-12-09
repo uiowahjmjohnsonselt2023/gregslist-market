@@ -8,15 +8,16 @@ Given /the following stores exist/ do |sellers_table|
   end
 end
 
-Given("the following associations exist") do |association_table|
+Given("the following associations between user and seller exist") do |association_table|
   association_table.hashes.each do |row|
     user = User.find_by(id: row['user_id'])
     seller = Seller.find_by(id: row['seller_id'])
-    seller.user << user
+    seller.users << user
   end
 end
 
 When 'I want to access my seller account' do
+  puts('current_path=', current_path)
   click_link('Access Seller accounts')
 end
 
@@ -44,6 +45,11 @@ When 'I complete the seller edit form' do
   fill_in "Description", with: description
   fill_in "Address", with: address
   click_button "Create store account"
+  Seller.create(
+    name: name,
+    description: description,
+    address: address
+  )
   @store=Seller.find_by(name:name)
   @store_id=@store.id
 end
@@ -53,6 +59,8 @@ When /^(?:|I )select the seller account with the name "([^"]*)"$/  do |name|
   click_button "Select"
   @store=Seller.find_by(name:name)
   @store_id=@store.id
-
 end
 
+Then 'I should be in my store' do
+  expect(current_path).to eq("/sellers/#{@store_id}")
+end
