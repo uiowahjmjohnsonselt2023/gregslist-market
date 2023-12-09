@@ -48,6 +48,6 @@ Feature: Seller post and update items
     Given I am in Cindy 1st as the store owner after log in with email "cindy.doe@example.com" and password "password"
     When I update the price of "Sunglasses" with "20.12"
     Then I should see "Item updated"
-#    And I should not see "Sunglasses" with "25.7"
+    And I should not see "Sunglasses" with "25.7"
 
 

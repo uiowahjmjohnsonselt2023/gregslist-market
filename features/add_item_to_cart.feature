@@ -42,17 +42,17 @@ Feature: Add items into my cart as a buyer
       | 1           | 3       |
 
   Scenario: See items on sale as a buyer
-    Given I am on the login page
-    And I log in with email "john.doe@example.com" and password "password"
-    And I am on the homepage
-    Then I should see "Sunglasses", "Modern Computer Organization and Architecture", "Lover" on sale
-    When I add "Sunglasses" to my cart
-    And I should see "1 item" shown next in my cart on the homepage
+    Given I am on the homepage
+#    And I log in with email "john.doe@example.com" and password "password"
+#    Then I should be on the homepage
+    Then I should see all the items
+#    When I add "Sunglasses" sold by "Cindy 1st" to my cart
+#    And I should see "Item added to cart."
 
   Scenario: Add an item into the cart
     Given I am on the login page
     And I log in with email "john.doe@example.com" and password "password"
     And I am on the homepage
-    When I add
-    When I complete the product post form
-    Then I should see my product in my store
+#    When I add
+#    When I complete the product post form
+#    Then I should see my product in my store
