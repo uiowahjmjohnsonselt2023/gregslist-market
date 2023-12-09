@@ -28,14 +28,12 @@ admin_seller = Seller.create!(
   name: 'Admin Seller',
   description: 'This is the admin seller',
   address: '123 Admin Street',
-  users: [admin]
 )
 
 roy_seller = Seller.create!(
   name: 'Roy Seller',
   description: 'This is the roy seller',
   address: '123 Roy Street',
-  users: [roy]
 )
 
 admin.seller << admin_seller
