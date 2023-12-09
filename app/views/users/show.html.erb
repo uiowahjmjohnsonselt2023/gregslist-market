@@ -78,6 +78,7 @@
 <!--</div>-->
 
 
+
 <% provide(:title, @user.name) %>
 
 <div class="row">
@@ -92,27 +93,19 @@
 
       <% if current_user && current_user == @user %>
         <section class="action_sidebar mb-4">
-          <%= link_to "Access Seller accounts", select_seller_path, class: "btn btn-primary mb-2", role: "button" %>
-          <%= link_to "Edit payment information", edit_buyer_path(@user), method: "edit", class: "btn btn-primary mb-2", role: "button" %>
-        </section>
-
-        <b>Edit your profile:</b>
-        <ul class="list-unstyled">
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-
+          <%= link_to "Access Seller Accounts", select_seller_path, class: "btn btn-secondary btn-block mb-2", role: "button" %>
+          <%= link_to "Edit Payment Information", edit_buyer_path(@user), method: "edit", class: "btn btn-secondary btn-block mb-2", role: "button" %>
+          <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary btn-block mb-2", role: "button" %>
           <% if current_user.admin? || current_user == @user %>
-            <li>
-              <%= form_for @user, url: delete_user_path, method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
-                <%= f.submit "Delete Account", class: "btn btn-danger btn-sm", data: { confirm: 'Are you sure?' } %>
-              <% end %>
-            </li>
+            <%= form_for @user, url: delete_user_path, method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
+              <%= f.submit "Delete Account", class: "btn btn-danger btn-block btn-sm mt-2", data: { confirm: 'Are you sure?' } %>
+            <% end %>
           <% end %>
-        </ul>
+        </section>
       <% end %>
     </section>
   </aside>
 
-  <!-- Order history -->
   <% if current_user && current_user == @user %>
     <div class="col">
       <h2>Order History</h2>
