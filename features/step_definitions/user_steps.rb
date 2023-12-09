@@ -32,7 +32,7 @@ When /^(?:|I )log in with email "([^"]*)" and forget my password$/  do |email|
 end
 
 When "I log out"  do
-  click_button "Log out"
+  click_link "Log out"
 end
 
 When /^(?:|I )am on (.+)$/ do |page_name|

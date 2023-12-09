@@ -12,7 +12,6 @@ module NavigationHelpers
   #
   def path_to(page_name)
     case page_name
-
     when /^the (gregslist )?home\s?page$/ then ''
     when /^the user signup page$/ then '/signup'
     #when /^my profile page$/ then '/users/1'
