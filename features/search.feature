@@ -4,7 +4,7 @@ Feature: Search for an item
   So that I can see if there is the special item I am interested in
   I want to search for the special item
 
-  Background: items have been added to database
+  Background: users and items have been added to database
     Given the following stores exist
       | name            | description  | address      |
       | Cindy 1st       | 1 store      | 100 road, IA |
