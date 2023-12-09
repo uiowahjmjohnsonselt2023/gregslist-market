@@ -119,7 +119,7 @@ When /^(?:|I )search for "([^"]*)"$/ do |name|
   @search_name=name
   save_and_open_page
   fill_in 'search[q]', with: @search_name
-  click_button 'Search!'
+  click_button 'Search'
 end
 
 Then /^(?:|I )should see (.*) result in term of items$/ do |n_seeds|
