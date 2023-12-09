@@ -5,3 +5,8 @@ When "I log in as an admin"  do
   fill_in "Password", with: 'password'
   click_button "Log in"
 end
+
+And /^(?:|I )delete the user whose username is "([^"]*)"$/  do |username|
+  click_button "Destroy"
+
+end
