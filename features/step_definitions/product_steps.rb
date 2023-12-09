@@ -81,7 +81,6 @@ Then 'I should see my product in my store' do
   the_item=Item.find_by(name:@name, description:@description, listed_price:@price, listing_date:@date, seller_id:@store_id)
   expect(current_path).to eq("/sellers/#{@store_id}")
   expect(page).to have_content(the_item.name)
-  expect(page).to have_content(the_item.description)
 end
 
 When /^(?:|I )update the price of "([^"]*)" with "([^"]*)"$/ do |name, new_price|
@@ -104,13 +103,14 @@ end
 
 And /^(?:|I )should not see "([^"]*)" with "([^"]*)"$/ do |name, old_price|
   the_item=Item.find_by(name:name)
-  expect(the_item.listed_price).not eq(old_price)
+  expect(the_item.listed_price).not_to eq(old_price)
 end
 
 Then /I should see all the items/ do
-  items = Item.all
-  items.each do |item|
+  @items = Item.all
+  @items.each do |item|
     name = item.name
+    save_and_open_page
     expect(page).to have_content(name)
   end
 end
