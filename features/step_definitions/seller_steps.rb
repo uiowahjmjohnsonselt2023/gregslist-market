@@ -17,13 +17,11 @@ Given("the following associations between user and seller exist") do |associatio
 end
 
 When 'I want to access my seller account' do
-  puts('current_path=', current_path)
-  click_link('Access Seller accounts')
+  click_link('Access Seller Accounts')
 end
 
 Then 'I should see all my existing seller accounts' do
   user = @user
-  puts('user=',user.name)
   seller_accounts = user.seller
 
   seller_accounts.each do |seller|
