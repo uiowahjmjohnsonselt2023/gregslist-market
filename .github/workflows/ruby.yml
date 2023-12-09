@@ -42,10 +42,16 @@ jobs:
         run: |
           sudo apt-get update && sudo apt-get -yqq install libpq-dev
           bundle install --jobs 4 --retry 3
-      - name: Setup environment
+      - name: Setup schema
         env:
           RAILS_ENV: test
           PGHOST: localhost
           DISABLE_SPRING: 1
         run: |
           bundle exec rake db:schema:load
+      - name: run migration
+        run: |
+          bundle exec rake db:migrate
+      - name: run seed
+        run: |
+          bundle exec rake db:seed
