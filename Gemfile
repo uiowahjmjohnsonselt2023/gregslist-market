@@ -49,6 +49,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
+  gem 'pg'
 end
 
 group :production do
