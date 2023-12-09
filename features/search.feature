@@ -1,10 +1,10 @@
-Feature: Seller post and update items
+Feature: Search for an item
 
-  As a Seller
-  So that I can make money
-  I want to post an item for sale under a category and include its price, description and images
+  As a Guest
+  So that I can see if there is the special item I am interested in
+  I want to search for the special item
 
-  Background: items have been added to database
+  Background: users and items have been added to database
     Given the following stores exist
       | name            | description  | address      |
       | Cindy 1st       | 1 store      | 100 road, IA |
@@ -38,16 +38,26 @@ Feature: Seller post and update items
       | 1          | 1          |
       | 1          | 2          |
 
-  Scenario: Post an item
-    Given I am in Cindy 1st as the store owner after log in with email "cindy.doe@example.com" and password "password"
-    When I want to add an item
-    And I complete the product post form
-    Then I should see my product in my store
+  Scenario: Search an item with its full name
+    Given I am on the homepage
+    When I search for "Sunglasses"
+    Then I should see 1 result in term of items
+    And I should not see any result in term of sellers
 
-  Scenario: Update the price of a product from my store
-    Given I am in Cindy 1st as the store owner after log in with email "cindy.doe@example.com" and password "password"
-    When I update the price of "Sunglasses" with "20.12"
-    Then I should see "Item updated"
-    And I should not see "Sunglasses" with "25.7"
+  Scenario: Search an item with its partial name
+    Given I am on the homepage
+    When I search for "Sun"
+    Then I should see 1 result in term of items
+    And I should not see any result in term of sellers
 
+  Scenario: Search a seller with its full name
+    Given I am on the homepage
+    When I search for "Cindy 1st"
+    Then I should see 1 result in term of sellers
+    And I should not see any result in term of items
 
+  Scenario: Search a seller with its partial name
+    Given I am on the homepage
+    When I search for "Cindy"
+    Then I should see 2 result in term of sellers
+    And I should not see any result in term of items

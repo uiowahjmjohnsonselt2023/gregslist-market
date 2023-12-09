@@ -1,10 +1,10 @@
-Feature: Seller post and update items
+Feature: Add items into and remove items from my cart as a buyer
 
-  As a Seller
-  So that I can make money
-  I want to post an item for sale under a category and include its price, description and images
+  As a buyer
+  So that I can check out for the items I want later
+  I want to add those items into my cart
 
-  Background: items have been added to database
+  Background: users and items have been added to database
     Given the following stores exist
       | name            | description  | address      |
       | Cindy 1st       | 1 store      | 100 road, IA |
@@ -38,16 +38,22 @@ Feature: Seller post and update items
       | 1          | 1          |
       | 1          | 2          |
 
-  Scenario: Post an item
-    Given I am in Cindy 1st as the store owner after log in with email "cindy.doe@example.com" and password "password"
-    When I want to add an item
-    And I complete the product post form
-    Then I should see my product in my store
+  Scenario: See items on sale
+    Given I am on the homepage
+    Then I should see all the items
 
-  Scenario: Update the price of a product from my store
-    Given I am in Cindy 1st as the store owner after log in with email "cindy.doe@example.com" and password "password"
-    When I update the price of "Sunglasses" with "20.12"
-    Then I should see "Item updated"
-    And I should not see "Sunglasses" with "25.7"
+  Scenario: Add an item into the cart
+    Given I am on the login page
+    And I log in with email "alice.sm@example.com" and password "secret"
+    And I am on the homepage
+    When I add "Sunglasses" sold by "Cindy 1st" to my cart
+    Then I should see "Item added to cart."
+    And "Sunglasses" should be in my cart
 
-
+  Scenario: Remove an item into the cart
+    Given I am on the login page
+    And I log in with email "alice.sm@example.com" and password "secret"
+    And I am on the homepage
+    When I add "Sunglasses" sold by "Cindy 1st" to my cart
+    Then I should see "Item added to cart."
+    And "Sunglasses" should be in my cart
