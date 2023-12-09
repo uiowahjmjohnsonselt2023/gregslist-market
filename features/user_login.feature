@@ -6,9 +6,9 @@ Feature: User login and logout
 
   Background: users have been added to database
     Given the following users exist
-    | name    | username   | password | email                |
-    | John    | john_doe   | password | john.doe@example.com |
-    | Alice   | alice_sm   | secret   | alice.sm@example.com |
+    | name    | username   | password | email                | activated |
+    | John    | john_doe   | password | john.doe@example.com | true      |
+    | Alice   | alice_sm   | secret   | alice.sm@example.com | true      |
 
   Scenario: Login as John
     Given I am on the login page

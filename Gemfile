@@ -36,6 +36,9 @@ group :development, :test do
   gem 'rspec'
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'launchy'
 end
 
 group :development do
@@ -43,9 +46,7 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
   gem 'rails-controller-testing'
-  gem 'selenium-webdriver'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
 end

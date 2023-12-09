@@ -40,7 +40,7 @@
       <label class="mt-3">Expiration</label>
       <input type="text" id="expmonth" name="expmonth" placeholder="3/12/2025">
       <label class="mt-3">CVV</label>
-      <input type="text" id="expmonth" name="expmonth" placeholder="012">
+      <input type="text" id="cvvnum" name="cvvnum" placeholder="012">
     </div>
   </div>
 
@@ -63,7 +63,7 @@
       <li class="list-group-item d-flex justify-content-between align-items-center">
         <strong>Total Cost : <%= number_to_currency(@cart.items.sum { |item| item.listed_price }) %></strong>
         <%#= button_to "Check Out!", purchases_path, method: :post, class: "btn btn-info" %>
-        <%= button_to "Check Out!", purchases_path, method: :post, class: "btn btn-info", id: "checkoutButton", disabled: true %>
+        <%= button_to "Check Out!", purchases_path, method: :post, class: "btn btn-info", id: "checkoutButton", disabled: false %>
       </li>
     </ul>
   </div>

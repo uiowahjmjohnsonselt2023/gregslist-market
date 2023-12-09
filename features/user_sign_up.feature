@@ -14,5 +14,7 @@ Feature: Sign up as a new user
   Scenario: be able to register
     Given I am on the user signup page
     When I complete the signup form
+    And I activate my account
+    And I log in with the information
     Then I should see my profile
 
