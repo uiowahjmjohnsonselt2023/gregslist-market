@@ -123,3 +123,4 @@ And "I log in with the information" do
   fill_in "Password", with: @password
   click_button "Log in"
 end
+

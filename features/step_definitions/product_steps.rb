@@ -115,4 +115,31 @@ Then /I should see all the items/ do
   end
 end
 
+When /^(?:|I )search for "([^"]*)"$/ do |name|
+  @search_name=name
+  save_and_open_page
+  fill_in 'search[q]', with: @search_name
+  click_button 'Search!'
+end
 
+Then /^(?:|I )should see (.*) result in term of items$/ do |n_seeds|
+  visit path_to('the search result page')
+  items=Item.where("name LIKE ?", "%#{@search_name}%")
+  expect(items.count).to eq n_seeds.to_i
+end
+
+Then /^(?:|I )should see (.*) result in term of sellers$/ do |n_seeds|
+  visit path_to('the search result page')
+  sellers=Seller.where("name LIKE ?", "%#{@search_name}%")
+  expect(sellers.count).to eq n_seeds.to_i
+end
+
+Then 'I should not see any result in term of items' do
+  items=Item.where("name LIKE ?", "%#{@search_name}%")
+  expect(items.count).to eq(0)
+end
+
+Then 'I should not see any result in term of sellers' do
+  sellers=Seller.where("name LIKE ?", "%#{@search_name}%")
+  expect(sellers.count).to eq(0)
+end
