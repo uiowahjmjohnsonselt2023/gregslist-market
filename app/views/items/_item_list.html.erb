@@ -1,25 +1,90 @@
-<% items.each do |item| %>
-  <div class="card mr-4 mt-4" style="width: 18rem;">
-    <div class="card-body">
-      <% if item.owned_by?(current_user) || (current_user && current_user.admin?) %>
-        <%= link_to "Edit", edit_item_path(item), class: "btn btn-primary" %>
-        <%= link_to "Delete", butter_item_path(id: item.id), class: "float-right btn btn-danger" %>
-      <% end %>
-      <%= link_to item_path(item) do %>
-        <%= image_tag(rails_blob_path(item.image), alt: item.name, class: 'card-img-top') if item.image.attached? %>
-      <% end %>
+<%# items.each do |item| %>
+<!--  <div class="card mr-4 mt-4" style="width: 18rem;">-->
+<!--    <div class="card-body">-->
+      <%# if item.owned_by?(current_user) || (current_user && current_user.admin?) %>
+        <%#= link_to "Edit", edit_item_path(item), class: "btn btn-primary" %>
+        <%#= link_to "Delete", butter_item_path(id: item.id), class: "float-right btn btn-danger" %>
+      <%# end %>
+      <%#= link_to item_path(item) do %>
+        <%#= image_tag(rails_blob_path(item.image), alt: item.name, class: 'card-img-top') if item.image.attached? %>
+      <%# end %>
 
-      <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
-      <h6 class="card-subtitle mb-2">
-        Price: <span class="price-dark-green"><sup>$</sup><%= item.listed_price %></span>
-      </h6>
-      <h6 class="card-subtitle mb-2 text-muted"> Seller: <%= link_to item.seller.name, seller_path(item.seller) %> </h6>
-      <h6 class="card-subtitle mb-2"> Categories: <%= item.category.name %> </h6>
+<!--      <h5 class="card-title"><%#= link_to item.name, item_path(item) %></h5>-->
+<!--      <h6 class="card-subtitle mb-2">-->
+<!--        Price: <span class="price-dark-green"><sup>$</sup><%#= item.listed_price %></span>-->
+<!--      </h6>-->
+<!--      <h6 class="card-subtitle mb-2 text-muted"> Seller: <%#= link_to item.seller.name, seller_path(item.seller) %> </h6>-->
+<!--      <h6 class="card-subtitle mb-2"> Categories: <%#= item.category.name %> </h6>-->
 
-      <% unless logged_in? && current_user.admin? %>
-        <%= button_to "Add To Cart!", cart_add_to_path(cart_id: current_cart.id, item_id: item.id), method: :post, class: "btn btn-primary" %>
-      <% end %>
-    </div>
+      <%# unless logged_in? && current_user.admin? %>
+        <%#= button_to "Add To Cart!", cart_add_to_path(cart_id: current_cart.id, item_id: item.id), method: :post, class: "btn btn-primary" %>
+      <%# end %>
+<!--    </div>-->
+<!--  </div>-->
+<%# end %>
+
+<!--<div class="classname">-->
+<!--  <div class="row">-->
+    <%# items.each do |item| %>
+<!--      <div class="col-md-3">-->
+<!--        <div class="card mb-4">-->
+<!--          <div class="card-body">-->
+            <%# if item.owned_by?(current_user) || (current_user && current_user.admin?) %>
+            <%#= link_to "Edit", edit_item_path(item), class: "btn btn-primary" %>
+            <%#= link_to "Delete", butter_item_path(id: item.id), class: "float-right btn btn-danger" %>
+            <%# end %>
+            <%#= link_to item_path(item) do %>
+              <%#= image_tag(rails_blob_path(item.image), alt: item.name, class: 'card-img-top') if item.image.attached? %>
+            <%# end %>
+
+<!--            <h5 class="card-title"><%#= link_to item.name, item_path(item) %></h5>-->
+<!--            <h6 class="card-subtitle mb-2">-->
+<!--              Price: <span class="price-dark-green"><sup>$</sup><%#= item.listed_price %></span>-->
+<!--            </h6>-->
+<!--            <h6 class="card-subtitle mb-2 text-muted"> Seller: <%#= link_to item.seller.name, seller_path(item.seller) %> </h6>-->
+<!--            <h6 class="card-subtitle mb-2"> Categories: <%#= item.category.name %> </h6>-->
+
+            <%# unless logged_in? && current_user.admin? %>
+              <%#= button_to "Add To Cart!", cart_add_to_path(cart_id: current_cart.id, item_id: item.id), method: :post, class: "btn btn-primary" %>
+            <%# end %>
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+    <%# end %>
+<!--  </div>-->
+<!--</div>-->
+
+
+<div class="classname">
+  <div class="row">
+    <% items.each do |item| %>
+      <div class="col-md-3">
+        <div class="card mb-4">
+          <div class="card-body">
+            <% if item.owned_by?(current_user) || (current_user && current_user.admin?) %>
+              <%= link_to "Edit", edit_item_path(item), class: "btn btn-primary" %>
+              <%= link_to "Delete", butter_item_path(id: item.id), class: "float-right btn btn-danger" %>
+            <% end %>
+
+            <div class="card-img-container">
+              <%= link_to item_path(item) do %>
+                <%= image_tag(rails_blob_path(item.image), alt: item.name, class: 'card-img-top') if item.image.attached? %>
+              <% end %>
+            </div>
+
+            <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
+            <h6 class="card-subtitle mb-2">
+              Price: <span class="price-dark-green"><sup>$</sup><%= item.listed_price %></span>
+            </h6>
+            <h6 class="card-subtitle mb-2 text-muted"> Seller: <%= link_to item.seller.name, seller_path(item.seller) %> </h6>
+            <h6 class="card-subtitle mb-2"> Categories: <%= item.category.name %> </h6>
+
+            <% unless logged_in? && current_user.admin? %>
+              <%= button_to "Add To Cart!", cart_add_to_path(cart_id: current_cart.id, item_id: item.id), method: :post, class: "btn btn-primary" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
   </div>
-<% end %>
-
+</div>
