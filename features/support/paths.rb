@@ -23,7 +23,9 @@ module NavigationHelpers
     when /^the buyer edit page$/ then "/buyers/new?id=#{@user_id}"
     when /^the admin page$/ then '/users/1'
     when /^the users list page$/ then '/users'
-    when /^the reset password page$/ then "/password_resets/ceK0DoAvzR5b46jCVteL7g/edit?email=#{@email}"
+    when /^the reset password page$/ then password_reset_path(@user_id)
+
+    # when /^the reset password page$/ then "/password_resets/ceK0DoAvzR5b46jCVteL7g/edit?email=#{@email}"
     when /^the search result page$/ then "/items?search%5Bq%5D=#{@search_name}&commit=Search%21"
     when /^the cart page$/ then "/carts/#{@user_id}"
     # Add more mappings here.
