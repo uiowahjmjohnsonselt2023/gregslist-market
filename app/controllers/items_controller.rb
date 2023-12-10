@@ -45,6 +45,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  def butter
+    item = Item.find(params[:id])
+    item.image.purge_later
+    if item.destroy
+      flash[:success] = 'Item deleted'
+      redirect_to items_path
+    else
+      flash[:error] = 'failed to delete item'
+      redirect_to item_path(params[:id])
+    end
+  end
+
   def update
     @item = Item.find(params[:id])
     if @item.update({ name: params[:item][:name], description: params[:item][:description],
@@ -55,12 +67,6 @@ class ItemsController < ApplicationController
       flash[:error] = 'Invalid new values'
     end
   end
-
-  # def destroy
-  #   @item = Item.find(params[:id])
-  #   @item.destroy
-  #   redirect_to seller_path(@item.seller_id)
-  # end
 
   private
 
