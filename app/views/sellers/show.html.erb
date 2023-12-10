@@ -28,7 +28,7 @@
       <% end %>
 
       <% if current_user && !@seller.users.include?(current_user) && !current_user.admin && current_user.sellers_purchased_from.include?(@seller) %>
-        <%= link_to "Add Review", new_seller_review_path({:seller_id=>@seller.id}), class: "btn btn-primary btn-block mb-2" %>
+        <%= link_to "Add Review", create_or_edit_seller_review_path({:seller_id=>@seller.id}), class: "btn btn-primary btn-block mb-2" %>
       <% end %>
 
     </section>

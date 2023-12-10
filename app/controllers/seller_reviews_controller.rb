@@ -9,6 +9,17 @@ class SellerReviewsController < ApplicationController
     @seller_id = params[:seller_id]
   end
 
+  def create_or_edit
+    @user = current_user
+    @seller_id = params[:seller_id]
+    @existing_review = SellerReview.where(seller_id: @seller_id, user_id: @user_id)
+    if @existing_review.blank?
+      redirect_to new_seller_review_path, seller_id: params[:seller_id]
+    else
+      redirect_to edit_seller_review_path, seller_id: @existing_review.id
+    end
+  end
+
   def edit
     @review = SellerReview.find(params[:id].keys[0])
   end
@@ -29,7 +40,7 @@ class SellerReviewsController < ApplicationController
       puts 'SAVED'
     else
       puts 'NEW'
-      render 'new'
+      render 'new', seller_id: @review.seller_id
     end
   end
 

@@ -39,7 +39,8 @@ class User < ActiveRecord::Base
   end
 
   def sellers_purchased_from
-    Seller.joins(items: { carts: { purchase: :user } }).where(items: { carts: { purchase: { users: { email: } } } })
+    Seller.all
+    # Seller.joins(items: { carts: { purchase: :user } }).where(items: { carts: { purchase: { users: { email: } } } })
   end
 
   def remember
