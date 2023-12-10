@@ -3,6 +3,7 @@
     <div class="card-body">
       <% if item.owned_by?(current_user) || (current_user && current_user.admin?) %>
         <%= link_to "Edit", edit_item_path(item), class: "btn btn-primary" %>
+        <%= link_to "Delete", butter_item_path(item), class: "float-right btn btn-primary" %>
       <% end %>
       <%= link_to item_path(item) do %>
         <%= image_tag(rails_blob_path(item.image), alt: item.name, class: 'card-img-top') if item.image.attached? %>
