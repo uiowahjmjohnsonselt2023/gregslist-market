@@ -6,7 +6,8 @@ Rails.application.configure do
   # Code is not reloaded between requests.
   config.enable_reloading = false
 
-  # Eager load code on boot. This eager loads most of Rails and
+  config.action_mailer.default_url_options = { :host => "calm-brushlands-99710-3aef3fbd0217.herokuapp.com"}
+    # Eager load code on boot. This eager loads most of Rails and
   # your application in memory, allowing both threaded web servers
   # and those relying on copy on write to perform better.
   # Rake tasks automatically ignore this option for performance.
@@ -37,7 +38,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = "X-Accel-Redirect" # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
@@ -86,7 +87,22 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+  config.action_mailer.delivery_method = :smtp
+  mailertogo_host     = ENV.fetch("MAILERTOGO_SMTP_HOST")
+  mailertogo_port     = ENV.fetch("MAILERTOGO_SMTP_PORT", 587)
+  mailertogo_user     = ENV.fetch("MAILERTOGO_SMTP_USER")
+  mailertogo_password = ENV.fetch("MAILERTOGO_SMTP_PASSWORD")
+  mailertogo_domain   = ENV.fetch("MAILERTOGO_DOMAIN", "mail.ssankey.com")
 
+  config.action_mailer.smtp_settings = {
+    :address              => mailertogo_host,
+    :port                 => mailertogo_port,
+    :user_name            => mailertogo_user,
+    :password             => mailertogo_password,
+    :domain               => mailertogo_domain,
+    :authentication       => :plain,
+    :enable_starttls_auto => true,
+  }
   # Enable DNS rebinding protection and other `Host` header attacks.
   # config.hosts = [
   #   "example.com",     # Allow requests from example.com
