@@ -12,19 +12,15 @@ Rails.application.routes.draw do
   get 'signup' => 'users#new'
   delete 'logout', to: 'sessions#destroy'
 
-
-  #put 'delete_user', to: 'users#delete'
-  put 'delete_user', to: 'users#delete'
-  # delete 'delete_user', to: 'users#destroy', as: :delete_user
-  # get 'navigation_pages/contact'
-
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
-  # delete 'logout'  => 'sessions#destroy'
   get 'logout' => 'sessions#destroy'
-  #delete 'delete_user' => 'users#delete'
+
   resources :users
+  get 'butter_user' => 'users#butter'
+
   resources :account_activations, only: [:edit]
+
   resources :password_resets, only: %i[new create edit update]
 
   get 'select_seller' => 'sellers#select'
@@ -37,8 +33,6 @@ Rails.application.routes.draw do
   resources :buyers
 
   # Defines the root path route ("/")
-  # root "posts#index"
-  # root "home#index"
   root 'navigation_pages#home'
 
   # Defines the route for the categories page
@@ -47,7 +41,7 @@ Rails.application.routes.draw do
   # Defines the route for the items page
   resources :items
   put 'items' => 'items#index'
-
+  get 'butter_item' => 'items#butter'
 
   # Defines the routes for reviews
   resources :seller_reviews

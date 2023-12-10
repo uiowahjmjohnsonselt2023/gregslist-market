@@ -2,20 +2,16 @@
   <div class="card mr-4 mt-4" style="width: 18rem;">
     <div class="card-body">
       <% if item.owned_by?(current_user) || (current_user && current_user.admin?) %>
-        <%= link_to "Edit", edit_item_path(item) %>
+        <%= link_to "Edit", edit_item_path(item), class: "btn btn-primary" %>
       <% end %>
       <%= link_to item_path(item) do %>
       <%= image_tag(rails_blob_path(item.image), alt: item.name, class: 'card-img-top') if item.image.attached? %>
       <% end %>
 
       <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
-<!--      <h6 class="card-subtitle mb-2 text-muted">-->
-        <%#= truncate(item.description, length: 30, separator: ' ', omission: ' ....') %>
-<!--      </h6>-->
       <h6 class="card-subtitle mb-2">
         Price: <span class="price-dark-green"><sup>$</sup><%= item.listed_price %></span>
       </h6>
-<!--      <h6 class="card-subtitle mb-2 text-muted"> Seller: <%#= link_to item.seller.name %> </h6>-->
       <h6 class="card-subtitle mb-2 text-muted"> Seller: <%= link_to item.seller.name, seller_path(item.seller) %> </h6>
       <h6 class="card-subtitle mb-2"> Categories: <%= item.category_names.join(", ") %> </h6>
 
