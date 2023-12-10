@@ -5,7 +5,7 @@
         <%= link_to "Edit", edit_item_path(item), class: "btn btn-primary" %>
       <% end %>
       <%= link_to item_path(item) do %>
-      <%= image_tag(rails_blob_path(item.image), alt: item.name, class: 'card-img-top') if item.image.attached? %>
+        <%= image_tag(rails_blob_path(item.image), alt: item.name, class: 'card-img-top') if item.image.attached? %>
       <% end %>
 
       <h5 class="card-title"><%= link_to item.name, item_path(item) %></h5>
