@@ -24,7 +24,15 @@ class ItemsController < ApplicationController
     @q = params[:search] && params[:search][:q]
     return unless @q && !@items.empty?
 
-    @items = @items.ransack(name_i_cont: @q).result(distinct: true)
+    @q = params[:search] && params[:search][:q]
+    
+    if (@q.nil? || @q.empty? ) && !current_user&.admin
+      flash[:warning] = 'Please enter a search term'
+      redirect_to root_path
+    else
+      # return unless @q && !@items.empty?
+      @items = @items.ransack(name_i_cont: @q).result(distinct: true)
+    end
   end
 
   def show

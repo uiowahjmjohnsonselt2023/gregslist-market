@@ -1,4 +1,4 @@
-Feature: User login and logout
+Feature: User login
 
   As a User
   So that I can confirm that I log in as myself
@@ -6,9 +6,9 @@ Feature: User login and logout
 
   Background: users have been added to database
     Given the following users exist
-    | name    | username   | password | email                | activated |
-    | John    | john_doe   | password | john.doe@example.com | true      |
-    | Alice   | alice_sm   | secret   | alice.sm@example.com | true      |
+      | name    | username   | password | email                | activated |
+      | John    | john_doe   | password | john.doe@example.com | true      |
+      | Alice   | alice_sm   | secret   | alice.sm@example.com | true      |
 
   Scenario: Login as John
     Given I am on the login page
