@@ -9,7 +9,7 @@
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
     </ul>
 
-    <%= form_tag(items_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
+    <%= form_tag(search_item_path, method: "get", class: "form-inline my-2 my-lg-0") do %>
       <%= text_field :search, :q, class: "form-control mr-sm-2" %>
       <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0 mr-3" %>
     <% end %>
