@@ -1,4 +1,4 @@
-require 'rails_helper'
+require './spec/rails_helper'
 
 # Specs in this file have access to a helper object that includes
 # the CartsHelper. For example:
@@ -11,5 +11,5 @@ require 'rails_helper'
 #   end
 # end
 RSpec.describe CartsHelper, type: :helper do
-  pending "add some examples to (or delete) #{__FILE__}"
+
 end

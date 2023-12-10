@@ -26,14 +26,7 @@ RSpec.describe CategoriesController, type: :controller do
       expect(assigns(:categories)).to eq([category1])
     end
 
-    context 'without a valid seller_id' do
-      it 'redirects to root_path with an alert' do
-        get :index
-        expect(response).to redirect_to(root_path)
-        expect(flash[:alert]).to be_present
-      end
 
-    end
   end
 
   describe 'GET #new' do

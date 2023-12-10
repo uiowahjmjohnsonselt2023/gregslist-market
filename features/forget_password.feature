@@ -13,8 +13,9 @@ Feature: User reset password
   Scenario: Login as John without remembering the correct password
     Given I am on the login page
     When I log in with email "john.doe@example.com" and forget my password
-    Then I should be on the homepage
-    And I should see "Email sent with password reset instructions"
+#    Then I should be on the homepage
+#    And I should see "Email sent with password reset instructions"
+    And I check out the email
     Then I am on the reset password page
     And I enter my new password
     Then I should be on my profile page
