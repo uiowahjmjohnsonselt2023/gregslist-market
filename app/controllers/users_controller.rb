@@ -33,25 +33,25 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       @user.send_activation_email # defined in app/models/user.rb
-      flash[:info] = "Please check your email to activate your account."
+      flash[:info] = 'Please check your email to activate your account.'
       redirect_to root_url
     else
       render 'new'
     end
   end
 
-
   def edit
     @user = User.find(params[:id])
   end
 
-  def destroy
-    user = User.find(params[:user][:id])
+  def butter
+    user = User.find(params[:id])
     if user.destroy
       flash[:success] = 'User deleted'
       redirect_to logout_path
     else
       flash[:error] = 'failed to delete user'
+      redirect_to show_user_path(params[:id])
     end
   end
 
@@ -64,6 +64,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
 
   private
 

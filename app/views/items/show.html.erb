@@ -1,42 +1,24 @@
-<%# provide(:title, @item.name) %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info mb-4">
+      <%= image_tag(rails_blob_path(@item.image), alt: @item.name, class: 'img-fluid rounded-circle mb-3') if @item.image.attached? %>
 
-<!--<div class="row">-->
-<!--  <aside class="col-md-4">-->
-<!--    <section class="item_info">-->
-<!--      <h1>-->
-        <%#= @item.name %>
-<!--      </h1>-->
-<!--      <p> <%#= @item.description %> </p>-->
-<!--    </section>-->
-<!--  </aside>-->
-<!--</div>-->
+      <section class="action_sidebar mb-4">
+        <% if current_user && !(@item.owned_by? current_user) %>
+          <%= button_to "Add To Cart!", cart_add_to_path(cart_id: current_cart.id, item_id: @item.id), method: :post, class: "btn btn-primary" %>
+        <% end %>
+        <% if current_user && (@item.owned_by? current_user || current_user.admin) %>
+          <%= button_to "Edit", edit_item_path(@item), class: "btn btn-secondary btn-block mb-2" %>
+          <%= button_to "Delete", butter_item_path(@item), class: "btn btn-secondary btn-block mb-2" %>
+        <% end %>
+      </section>
+  </aside>
 
-
-<!--<h1><%#= @item.name %></h1>-->
-<%#if !@item.category_names.blank?%>
-<!--  <h3>Category:</h3>-->
-<!--  <ul>-->
-    <%# @item.category_names.each do |cat| %>
-<!--      <li> <%#= cat %> </li>-->
-    <%#end%>
-<!--  </ul>-->
-<%#end%>
-<!--<h3>Description: <%#= @item.description %> </h3>-->
-
-
-<div class="card mr-4 mt-4" style="width: 38rem;">
-  <div class="card-body">
-    <%= image_tag(rails_blob_path(@item.image), alt: @item.name, class: 'card-img-top') if @item.image.attached? %>
-<!--    <h5 class="card-title"><%#= link_to @item.name, item_path(@item) %></h5>-->
-    <h5 class="card-title"><%= @item.name %></h5>
-
-    <p class="card-text">Description: <%= @item.description %></p>
-    <h6 class="card-subtitle mb-2">
-      Price: <span class="price-dark-green"><sup>$</sup><%= @item.listed_price %></span>
-    </h6>
+  <div class="col">
+    <h1><%= @item.name %></h1>
+    Price: <span class="price-dark-green"><sup>$</sup><%= @item.listed_price %></span>
+    <p><%= @item.description %></p>
     <h6 class="card-subtitle mb-2 text-muted"> Seller: <%= link_to @item.seller.name, seller_path(@item.seller) %> </h6>
     <h6 class="card-subtitle mb-2"> Categories: <%= @item.category_names.join(", ") %> </h6>
-    <%= button_to "Add To Cart!", cart_add_to_path(cart_id: current_cart.id, item_id: @item.id), method: :post, class: "btn btn-primary" %>
   </div>
 </div>
-
