@@ -33,7 +33,6 @@
       <%  end  %>
 
       <h1><%= @user.name %></h1>
-
                       <section class="action_sidebar mb-4">
                         <%  if current_user && current_user == @user %>
                         <%=  link_to "Access Seller Accounts", select_seller_path, class: "btn btn-secondary btn-block mb-2", role: "button"  %>
@@ -44,6 +43,7 @@
                         <%=  link_to "Delete Account", butter_user_path(id: current_user), class: "btn btn-danger btn-block btn-sm mt-2", role: "button" %>
                         <%  end %>
                       </section>
+
     </section>
   </aside>
 
@@ -87,5 +87,5 @@
   </div>
   <%  end  %>
 </div>
-
 <%  end %>
+

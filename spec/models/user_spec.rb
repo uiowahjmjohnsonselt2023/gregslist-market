@@ -55,4 +55,57 @@ RSpec.describe User, type: :model do
       expect(user.remember_digest).to be_nil
     end
   end
+
+  describe '#authenticated_activation?' do
+    let(:user) { User.new }
+    context 'when activation_digest is nil' do
+      it 'returns false' do
+        user.activation_digest = nil
+        activation_token = 'some_activation_token'
+        expect(user.authenticated_activation?(activation_token)).to be_falsey
+      end
+    end
+
+    context 'when activation_digest is present' do
+      let(:activation_token) { 'some_activation_token' }
+      it 'returns true for a valid activation token' do
+        user.activation_digest = BCrypt::Password.create(activation_token)
+        expect(user.authenticated_activation?(activation_token)).to be_truthy
+      end
+
+      it 'returns false for an invalid activation token' do
+        user.activation_digest = BCrypt::Password.create('some_other_token')
+        expect(user.authenticated_activation?(activation_token)).to be_falsey
+      end
+    end
+  end
+
+  describe '#authenticated_reset?' do
+    let(:user) { User.new }
+    context 'when reset_digest is nil' do
+      it 'returns false' do
+        user.reset_digest = nil
+        reset_token = 'some_reset_token'
+        expect(user.authenticated_reset?(reset_token)).to be_falsey
+      end
+    end
+
+    context 'when reset_digest is present' do
+      let(:reset_token) { 'some_reset_token' }
+      it 'returns true for a valid reset token' do
+        user.reset_digest = BCrypt::Password.create(reset_token)
+        expect(user.authenticated_reset?(reset_token)).to be_truthy
+      end
+
+      it 'returns false for an invalid reset token' do
+        user.reset_digest = BCrypt::Password.create('some_other_token')
+        expect(user.authenticated_reset?(reset_token)).to be_falsey
+      end
+    end
+  end
+
+
+
+
+
 end
