@@ -46,9 +46,7 @@ Rails.application.routes.draw do
   get 'search_item' => 'items#search'
   get 'butter_item' => 'items#butter'
 
-  # Defines the routes for reviews
   resources :seller_reviews
-  resources :item_reviews
 
   # Defines the routes for cart
   resources :carts, only: [:show] do
