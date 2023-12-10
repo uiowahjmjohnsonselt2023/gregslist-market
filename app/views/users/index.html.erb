@@ -14,7 +14,7 @@
       Name: <%= link_to user.name, user %>
       | Username: <%= link_to user.username, user %>
       <% if current_user.admin?%>
-        | <%= link_to "Delete User", delete_user_path(id: user.id), method: :delete, data: { confirm: "Are you sure?" }, class: "text-danger" %>
+        | <%= link_to "Delete User", butter_user_path(id: user.id), method: :delete, data: { confirm: "Are you sure?" }, class: "text-danger" %>
       <% end %>
     </li>
   <% end %>
