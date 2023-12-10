@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   has_and_belongs_to_many :seller
+  has_many :purchases
+  has_many :carts, through: :purchases
   has_one :buyer
   attr_accessor :remember_token, :activation_token, :reset_token
 
@@ -36,6 +38,10 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
 
+  def sellers_purchased_from
+    Seller.joins(items: { carts: { purchase: :user } }).where(items: { carts: { purchase: { users: { email: } } } })
+  end
+
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
@@ -56,6 +62,7 @@ class User < ActiveRecord::Base
 
   def authenticated_reset?(reset_token)
     return false if reset_digest.nil? # if remember_digest is nil, then return false
+
     BCrypt::Password.new(reset_digest).is_password?(reset_token)
   end
 
