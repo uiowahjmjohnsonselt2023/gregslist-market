@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_12_05_193310) do
+ActiveRecord::Schema[7.1].define(version: 2023_12_10_034831) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -87,6 +87,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_193310) do
     t.decimal "listed_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
@@ -148,6 +150,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_12_05_193310) do
   add_foreign_key "cart_items", "items"
   add_foreign_key "item_categories", "categories"
   add_foreign_key "item_categories", "items"
+  add_foreign_key "items", "categories"
   add_foreign_key "items", "sellers"
   add_foreign_key "purchases", "carts"
   add_foreign_key "purchases", "users"

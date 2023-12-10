@@ -1,24 +1,51 @@
+<!--<div class="row">-->
+<!--  <aside class="col-md-4">-->
+<!--    <section class="user_info mb-4">-->
+      <%#= image_tag(rails_blob_path(@item.image), alt: @item.name, class: 'img-fluid rounded-circle mb-3') if @item.image.attached? %>
+
+<!--      <section class="action_sidebar mb-4">-->
+        <%# if current_user && !(@item.owned_by? current_user) %>
+          <%#= button_to "Add To Cart!", cart_add_to_path(cart_id: current_cart.id, item_id: @item.id), method: :post, class: "btn btn-primary" %>
+        <%# end %>
+        <%# if current_user && (@item.owned_by? current_user || current_user.admin) %>
+          <%#= button_to "Edit", edit_item_path(@item), class: "btn btn-secondary btn-block mb-2" %>
+          <%#= button_to "Delete", butter_item_path(@item), class: "btn btn-secondary btn-block mb-2" %>
+        <%# end %>
+<!--      </section>-->
+<!--  </aside>-->
+
+<!--  <div class="col">-->
+<!--    <h1><%#= @item.name %></h1>-->
+<!--    Price: <span class="price-dark-green"><sup>$</sup><%#= @item.listed_price %></span>-->
+<!--    <p><%#= @item.description %></p>-->
+<!--    <h6 class="card-subtitle mb-2 text-muted"> Seller: <%#= link_to @item.seller.name, seller_path(@item.seller) %> </h6>-->
+<!--    <h6 class="card-subtitle mb-2"> Categories: <%#= @item.category_names.join(", ") %> </h6>-->
+<!--  </div>-->
+<!--</div>-->
+
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info mb-4">
       <%= image_tag(rails_blob_path(@item.image), alt: @item.name, class: 'img-fluid rounded-circle mb-3') if @item.image.attached? %>
 
       <section class="action_sidebar mb-4">
-        <% if current_user && !(@item.owned_by? current_user) %>
+        <% if current_user && !(@item.owned_by?(current_user)) %>
           <%= button_to "Add To Cart!", cart_add_to_path(cart_id: current_cart.id, item_id: @item.id), method: :post, class: "btn btn-primary" %>
         <% end %>
-        <% if current_user && (@item.owned_by? current_user || current_user.admin) %>
+        <% if current_user && (@item.owned_by?(current_user) || current_user.admin?) %>
           <%= button_to "Edit", edit_item_path(@item), class: "btn btn-secondary btn-block mb-2" %>
           <%= button_to "Delete", butter_item_path(@item), class: "btn btn-secondary btn-block mb-2" %>
         <% end %>
       </section>
+    </section>
   </aside>
 
-  <div class="col">
+  <div class="col-md-8">
     <h1><%= @item.name %></h1>
     Price: <span class="price-dark-green"><sup>$</sup><%= @item.listed_price %></span>
     <p><%= @item.description %></p>
     <h6 class="card-subtitle mb-2 text-muted"> Seller: <%= link_to @item.seller.name, seller_path(@item.seller) %> </h6>
-    <h6 class="card-subtitle mb-2"> Categories: <%= @item.category_names.join(", ") %> </h6>
+<!--    <h6 class="card-subtitle mb-2"> Categories: <%#= @item.category_names.join(", ") %> </h6>-->
+    <h6 class="card-subtitle mb-2"> Categories: <%= @item.category.name %> </h6>
   </div>
 </div>

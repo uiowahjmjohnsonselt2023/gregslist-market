@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'edit_seller' => 'sellers#edit'
   post 'edit_seller' => 'sellers#edit'
   get 'new_seller' => 'sellers#new'
+  get 'search_seller' => 'sellers#search'
   resources :sellers
 
   resources :buyers
@@ -42,9 +43,9 @@ Rails.application.routes.draw do
   # Defines the route for the items page
   resources :items
   put 'items' => 'items#index'
+  get 'search_item' => 'items#search'
   get 'butter_item' => 'items#butter'
 
-  # Defines the routes for reviews
   resources :seller_reviews
 
   # Defines the routes for cart
