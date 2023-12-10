@@ -45,7 +45,7 @@ footer ul li {
 }
 
 .classname{
-  max-height: 400px;
+  max-height: 1200px;
   overflow-y: auto;
 }
 
@@ -64,6 +64,11 @@ footer ul li {
 }
 
 .message-container {
-  max-width: 600px; /* Adjust this value to your desired width */
-  margin: 0 auto; /* Center the container horizontally */
+  max-width: 900px;
+  margin: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
+
