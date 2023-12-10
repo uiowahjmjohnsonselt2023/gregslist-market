@@ -36,7 +36,8 @@ class UsersController < ApplicationController
     user = User.find(params[:id])
     if user.destroy
       flash[:success] = 'User deleted'
-      redirect_to logout_path
+      redirect_to logout_path if current_user == user
+      redirect_to users_path
     else
       flash[:error] = 'failed to delete user'
       redirect_to show_user_path(params[:id])
