@@ -25,10 +25,16 @@ end
 
 When /^(?:|I )log in with email "([^"]*)" and forget my password$/  do |email|
   click_link 'forgot password'
+  puts('current=',current_path)
   @user=User.find_by(email:email)
   @user_id=@user.id
+  puts('user=',@user_id)
+  User.all.each do |user|
+    puts "Email: #{user.email}"
+  end
   fill_in "Email", with: email
   click_button "Submit"
+  expect(page).to have_content('Email address not found')
 end
 
 When "I log out"  do
@@ -75,9 +81,11 @@ When("I complete the signup form") do
   )
 end
 
-# And 'I want to apply as a seller' do
-#   Seller
-# end
+And 'I check out the email' do
+  save_and_open_page
+  click_link("Reset password")
+
+end
 
 Then 'I should see my profile' do
   the_user=User.find_by(email:@email)
@@ -130,4 +138,8 @@ Then 'I should see my orders in the history' do
 
   expect(page).to have_content("Total Orders: #{order_number}")
   expect(page).to have_content("Total Spent: $#{order_total_price}")
+end
+
+And 'I delete my account' do
+  User.destroy(id:@user_id)
 end
