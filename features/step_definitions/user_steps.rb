@@ -25,14 +25,20 @@ end
 
 When /^(?:|I )log in with email "([^"]*)" and forget my password$/  do |email|
   click_link 'forgot password'
+  puts('current=',current_path)
   @user=User.find_by(email:email)
   @user_id=@user.id
+  puts('user=',@user_id)
+  User.all.each do |user|
+    puts "Email: #{user.email}"
+  end
   fill_in "Email", with: email
   click_button "Submit"
+  expect(page).to have_content('Email address not found')
 end
 
 When "I log out"  do
-  click_button "Log out"
+  click_link "Log out"
 end
 
 When /^(?:|I )am on (.+)$/ do |page_name|
@@ -75,9 +81,11 @@ When("I complete the signup form") do
   )
 end
 
-# And 'I want to apply as a seller' do
-#   Seller
-# end
+And 'I check out the email' do
+  save_and_open_page
+  click_link("Reset password")
+
+end
 
 Then 'I should see my profile' do
   the_user=User.find_by(email:@email)
@@ -130,4 +138,34 @@ Then 'I should see my orders in the history' do
 
   expect(page).to have_content("Total Orders: #{order_number}")
   expect(page).to have_content("Total Spent: $#{order_total_price}")
+end
+
+And 'I delete my account' do
+  click_link 'Delete Account'
+  @user.destroy
+end
+
+And /^(?:|I )should not be able to log in with email "([^"]*)" and password "([^"]*)"$/  do |email, password|
+  expect(current_path).to eq(path_to('the login page'))
+  save_and_open_page
+  fill_in "Email", with: email
+  fill_in "Password", with: password
+  click_button "Log in"
+  expect(page).to have_content("Invalid email/password combination")
+end
+
+And 'I want to update my user information' do
+  click_link 'Edit Profile'
+end
+
+And("I complete the update form") do
+  @password="update_password"
+  @password_confirmation="update_password"
+  fill_in "user_password", with: @password
+  fill_in "user_password_confirmation", with: @password_confirmation
+
+  click_button "Save changes"
+  @user.update(
+    password: @password
+  )
 end

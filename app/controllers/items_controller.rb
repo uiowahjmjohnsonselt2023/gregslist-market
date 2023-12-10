@@ -27,8 +27,10 @@ class ItemsController < ApplicationController
              else
                Item.joins(seller: :users)
              end
+
     @q = params[:search] && params[:search][:q]
-    if @q.empty?
+    
+    if (@q.nil? || @q.empty? ) && !current_user&.admin
       flash[:warning] = 'Please enter a search term'
       redirect_to root_path
     else
@@ -36,6 +38,7 @@ class ItemsController < ApplicationController
       @items = @items.ransack(name_i_cont: @q).result(distinct: true)
     end
   end
+
 
   def show
     @item = Item.find(params[:id])
@@ -65,6 +68,12 @@ class ItemsController < ApplicationController
       flash[:error] = 'Invalid new values'
     end
   end
+
+  # def destroy
+  #   @item = Item.find(params[:id])
+  #   @item.destroy
+  #   redirect_to seller_path(@item.seller_id)
+  # end
 
   private
 

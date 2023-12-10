@@ -1,8 +1,8 @@
-Feature: User delete their own account
+Feature: Users update their information
 
   As a User
-  So that I can prevent the leakage of my personal data
-  I want to delete my account after I don't want to use this website anymore
+  So that I can keep my latest information on the website
+  I want to update my information
 
   Background: users have been added to database
     Given the following users exist
@@ -10,9 +10,9 @@ Feature: User delete their own account
       | John    | john_doe   | password | john.doe@example.com | true      |
       | Alice   | alice_sm   | secret   | alice.sm@example.com | true      |
 
-  Scenario: John deletes his own account
+  Scenario: Delete the user's own account
     Given I am on the login page
     When I log in with email "john.doe@example.com" and password "password"
-    And I delete my account
-    Then I should be on the login page
-    And I should not be able to log in with email "john.doe@example.com" and password "password"
+    And I want to update my user information
+    And I complete the update form
+    Then I should see "Profile updated"

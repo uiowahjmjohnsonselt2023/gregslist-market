@@ -4,20 +4,14 @@ Rails.application.configure do
   # Configure 'rails notes' to inspect Cucumber files
   config.annotations.register_directories('features')
   config.annotations.register_extensions('feature') { |tag| /#\s*(#{tag}):?\s*(.*)$/ }
-
+  config.action_mailer.logger = ActiveSupport::Logger.new("log/mailer.log")
   # config.action_mailer.raise_delivery_errors = true
   # config.action_mailer.delivery_method = :test
   # host = 'localhost:3000'
   # config.action_mailer.default_url_options = { host: host, protocol: 'https' }
 
   config.action_mailer.default_url_options = { protocol: 'http', host: 'localhost:3000' }
-  # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #  address:              'smtp.gmail.com',
-  # port:                 587,
-  # domain:               'example.com',
-  # user_name:            '<username>',
-  #
+  config.action_mailer.delivery_method = :smtp
 
   # config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => 1025 }
@@ -97,7 +91,7 @@ Rails.application.configure do
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Add the following for mail catcher for testing if neccessary
-  config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
   # and install gem install mailcatcher, go to 127.0.0.1:1080 to see the mail catcher
 

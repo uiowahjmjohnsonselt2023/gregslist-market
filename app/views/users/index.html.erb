@@ -6,13 +6,20 @@
 <ul class="users">
   <% @users.each do |user| %>
     <li>
-      <%= gravatar_for(user) %>
-      Name: <%= link_to user.name, user %> | Username: <%= link_to user.username, user %>
-      <% if current_user == @user || current_user.admin?%>
-        | <%= button_to "Destroy", user, method: :delete, data: {confirm: "Are you sure?"} %>
+      <% if user.avatar.attached? %>
+        <%= image_tag user.avatar, class: "img-fluid mb-3", alt: "User Avatar" %>
+      <% else %>
+        <%= image_tag "https://cdn.discordapp.com/attachments/1180250200695124121/1180328761586110504/65535_52706077934_9a3860e070_z_360_360_nofilter.png", class: "img-fluid mb-3", alt: "Default Avatar" %>
+      <% end %>
+      Name: <%= link_to user.name, user %>
+      | Username: <%= link_to user.username, user %>
+      <% if current_user.admin?%>
+        | <%= link_to "Delete User", butter_user_path(id: user.id), method: :delete, data: { confirm: "Are you sure?" }, class: "text-danger" %>
       <% end %>
     </li>
   <% end %>
 </ul>
 
 <%= will_paginate %>
+
+

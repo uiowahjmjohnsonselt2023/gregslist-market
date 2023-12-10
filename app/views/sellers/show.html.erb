@@ -31,13 +31,12 @@
         <%= link_to "Add Review", new_seller_review_path({:seller_id=>@seller.id}), method: :get %>
       <% end %>
 
-      <h2>Items</h2>
-      <div class="row mb-5">
-        <div class="row col-10 offset-1">
-          <%= render partial: "items/item_list", locals: { items: @items } %>
-        </div>
-      </div>
-
     </section>
   </aside>
+</div>
+<h2>Items</h2>
+<div class="row mb-5">
+  <div class="row col-10 offset-1">
+    <%= render partial: "items/item_list", locals: { items: @items } %>
+  </div>
 </div>
