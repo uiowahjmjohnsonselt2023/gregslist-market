@@ -45,7 +45,8 @@ Rails.application.routes.draw do
   # Defines the route for the items page
   resources :items
   put 'items' => 'items#index'
-
+  # get '/items/result', to: 'items#result', as: 'items_result'
+  get 'items/result' => 'items#result'
 
   # Defines the routes for reviews
   resources :seller_reviews

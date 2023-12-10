@@ -37,6 +37,14 @@ class ItemsController < ApplicationController
     end
   end
 
+  def result
+    @result = Item.find(params[:id])
+  end
+
+  # def result
+  #   @item = Item.find(params[:id])
+  # end
+
 
   def show
     @item = Item.find(params[:id])

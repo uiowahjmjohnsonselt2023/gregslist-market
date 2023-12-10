@@ -163,7 +163,7 @@
         <% if current_user && current_user == @user %>
           <section class="action_sidebar mb-4">
             <%= link_to "Manage User Accounts", users_path, class: "btn btn-secondary btn-block mb-2", role: "button" %>
-            <%= link_to "Manage Items", items_path, method: "edit", class: "btn btn-secondary btn-block mb-2", role: "button" %>
+            <%= link_to "Manage Items", items_result_path, class: "btn btn-secondary btn-block mb-2", role: "button" %>
             <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary btn-block mb-2", role: "button" %>
             <% if current_user.admin? || current_user == @user %>
               <%= form_for @user, url: delete_user_path, method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
