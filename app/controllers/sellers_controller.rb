@@ -14,6 +14,14 @@ class SellersController < ApplicationController
                else
                  Seller.joins(:users)
                end
+  end
+
+  def search
+    @sellers = if current_user&.admin
+                 Seller.all
+               else
+                 Seller.joins(:users)
+               end
     @q = params[:search] && params[:search][:q]
     return unless @q && !@sellers.empty?
 
@@ -35,7 +43,6 @@ class SellersController < ApplicationController
 
   def create
     @seller = Seller.new(seller_params)
-    # @seller.users << current_user
     current_user.seller << @seller
     if @seller.save
       redirect_to @seller
@@ -49,6 +56,10 @@ class SellersController < ApplicationController
   def select
     @valid_sellers = current_user.seller
     render 'select'
+  end
+
+  def selection_redirect
+    redirect_to(seller_path(id: params[:id] || params[:seller][:id]))
   end
 
   private

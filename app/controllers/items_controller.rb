@@ -7,44 +7,25 @@ class ItemsController < ApplicationController
     @item.seller_id = session[:seller_id]
   end
 
-  # def index
-  #   @items = if current_user&.admin
-  #              Item.all
-  #            else
-  #              Item.joins(seller: :users)
-  #            end
-  #   @q = params[:search] && params[:search][:q]
-  #
-  #   return unless @q && !@items.empty?
-  #
-  #   @items = @items.ransack(name_i_cont: @q).result(distinct: true)
-  #
-  # end
-
   def index
     @items = if current_user&.admin
                Item.all
              else
                Item.joins(seller: :users)
              end
+  end
+
+  def search
+    @items = if current_user&.admin
+               Item.all
+             else
+               Item.joins(seller: :users)
+             end
     @q = params[:search] && params[:search][:q]
-    if @q.empty?
-      flash[:warning] = 'Please enter a search term'
-      redirect_to root_path
-    else
-      # return unless @q && !@items.empty?
-      @items = @items.ransack(name_i_cont: @q).result(distinct: true)
-    end
+    return unless @q && !@items.empty?
+
+    @items = @items.ransack(name_i_cont: @q).result(distinct: true)
   end
-
-  def result
-    @result = Item.find(params[:id])
-  end
-
-  # def result
-  #   @item = Item.find(params[:id])
-  # end
-
 
   def show
     @item = Item.find(params[:id])
