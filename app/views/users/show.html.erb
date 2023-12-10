@@ -14,7 +14,7 @@
                   <%  if current_user && current_user == @user %>
           <section class="action_sidebar mb-4">
             <%=  link_to "Manage User Accounts", users_path, class: "btn btn-secondary btn-block mb-2", role: "button"  %>
-            <%= link_to "Manage Items", "#items_result_path", class: "btn btn-secondary btn-block mb-2", role: "button" %>
+            <%= link_to "Manage Items", items_path, class: "btn btn-secondary btn-block mb-2", role: "button" %>
             <%=  link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary btn-block mb-2", role: "button" %>
             <%#=  link_to "Delete Account", butter_user_path(id: current_user), class: "btn btn-danger btn-block btn-sm mt-2", role: "button" %>
           </section>
