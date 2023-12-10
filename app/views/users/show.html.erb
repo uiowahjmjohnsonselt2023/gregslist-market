@@ -16,8 +16,8 @@
           <%= link_to "Edit Payment Information", edit_buyer_path(@user), method: "edit", class: "btn btn-secondary btn-block mb-2", role: "button" %>
           <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary btn-block mb-2", role: "button" %>
         <% end %>
-        <% if current_user.admin? || current_user == @user %>
-          <%= link_to "Delete Account", butter_user_path(id: current_user), class: "btn btn-danger btn-block btn-sm mt-2", role: "button" %>
+        <% if ((current_user.admin? && current_user != @user) || (!current_user.admin? && current_user==@user)) %>
+          <%= link_to "Delete Account", butter_user_path(id: @user), class: "btn btn-danger btn-block btn-sm mt-2", role: "button" %>
         <% end %>
       </section>
     </section>
