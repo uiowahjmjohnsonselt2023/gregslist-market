@@ -141,5 +141,16 @@ Then 'I should see my orders in the history' do
 end
 
 And 'I delete my account' do
-  User.destroy(id:@user_id)
+  click_link 'Delete Account'
+  @user.destroy
+end
+
+And /^(?:|I )should not be able to log in with email "([^"]*)" and password "([^"]*)"$/  do |email, password|
+  expect(current_path).to eq(path_to('the login page'))
+  save_and_open_page
+  fill_in "Email", with: email
+  fill_in "Password", with: password
+  click_button "Log in"
+  expect(page).to have_content("Invalid email/password combination")
+
 end

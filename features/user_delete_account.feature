@@ -13,4 +13,6 @@ Feature: User delete their own account
   Scenario: John deletes his own account
     Given I am on the login page
     When I log in with email "john.doe@example.com" and password "password"
-    Then I should be on my profile page
+    And I delete my account
+    Then I should be on the login page
+    And I should not be able to log in with email "john.doe@example.com" and password "password"
