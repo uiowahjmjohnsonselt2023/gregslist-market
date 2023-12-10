@@ -51,6 +51,10 @@ class SellersController < ApplicationController
     render 'select'
   end
 
+  def selection_redirect
+    redirect_to(seller_path(id: params[:id] || params[:seller][:id]))
+  end
+
   private
 
   def seller_params
