@@ -41,10 +41,11 @@ Rails.application.routes.draw do
 
   # Defines the route for the items page
   resources :items
-  put 'items' => 'items#index'
+  post 'items' => 'items#index'
   get 'butter_item' => 'items#butter'
 
   # Defines the routes for reviews
+  post 'edit_seller_review' => 'seller_reviews#edit'
   resources :seller_reviews
 
   # Defines the routes for cart
