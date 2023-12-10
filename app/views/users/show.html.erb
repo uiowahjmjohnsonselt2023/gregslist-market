@@ -1,5 +1,5 @@
 <% provide(:title, @user.name) %>
-
+<% if !current_user.admin?%>
 <div class="row">
   <aside class="col-md-4">
     <section class="user_info mb-4">
@@ -8,6 +8,7 @@
       <% else %>
         <%= image_tag "https://cdn.discordapp.com/attachments/1180250200695124121/1180328761586110504/65535_52706077934_9a3860e070_z_360_360_nofilter.png", class: "img-fluid rounded-circle mb-3", alt: "Default Avatar" %>
       <% end %>
+
       <h1><%= @user.name %></h1>
 
       <section class="action_sidebar mb-4">
@@ -63,3 +64,32 @@
     </div>
   <% end %>
 </div>
+
+<% else %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info mb-4">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar, class: "img-fluid rounded-circle mb-3", alt: "User Avatar" %>
+        <% else %>
+          <%= image_tag "https://cdn.discordapp.com/attachments/1180250200695124121/1180328761586110504/65535_52706077934_9a3860e070_z_360_360_nofilter.png", class: "img-fluid rounded-circle mb-3", alt: "Default Avatar" %>
+        <% end %>
+
+        <h1><%= @user.name %></h1>
+
+        <% if current_user && current_user == @user %>
+          <section class="action_sidebar mb-4">
+            <%= link_to "Manage User Accounts", users_path, class: "btn btn-secondary btn-block mb-2", role: "button" %>
+            <%= link_to "Manage Items", items_path, method: "edit", class: "btn btn-secondary btn-block mb-2", role: "button" %>
+            <%= link_to "Edit Profile", edit_user_path(current_user), class: "btn btn-primary btn-block mb-2", role: "button" %>
+            <% if current_user.admin? || current_user == @user %>
+              <%= form_for @user, url: delete_user_path, method: :delete, data: { confirm: 'Are you sure?' } do |f| %>
+                <%= f.submit "Delete Account", class: "btn btn-danger btn-block btn-sm mt-2", data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            <% end %>
+          </section>
+        <% end %>
+      </section>
+    </aside>
+    </div>
+<% end %>

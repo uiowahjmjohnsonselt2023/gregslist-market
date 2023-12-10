@@ -14,12 +14,15 @@
       <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0 mr-3" %>
     <% end %>
 
+
     <% if logged_in? %>
       <%= link_to "Account", user_path(current_user), class: "mr-3" %>
-      <%= link_to cart_path(current_cart), class: "ml-2 mr-2 nav-link text-black" do %>
-        <i class="fa fa-shopping-cart"></i>
-        (<%= pluralize(current_cart.items.count, 'item') %>)
-      <% end %>
+      <% unless current_user.admin? %>
+    <%=  link_to cart_path(current_cart), class: "ml-2 mr-2 nav-link text-black" do  %>
+    <i class="fa fa-shopping-cart"></i>
+    (<%=  pluralize(current_cart.items.count, 'item')  %>)
+    <%  end  %>
+    <%  end %>
       <%= link_to "Log out", logout_path, class: "mr-2 ml-2 nav-link text-black"%>
     <% else %>
       <%= link_to "Sign up", signup_path, class: "mr-2 nav-link text-black"%>
