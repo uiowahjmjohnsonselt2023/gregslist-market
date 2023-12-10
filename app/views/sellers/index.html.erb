@@ -5,5 +5,8 @@
 <div class="row mb-5">
   <div class="row col-10 offset-1">
     <%= render partial: "sellers/seller_list", locals: { sellers: @sellers } %>
+    <% if !@sellers.present? %>
+      <h2>Sorry, no sellers found</h2>
+    <% end %>
   </div>
 </div>
