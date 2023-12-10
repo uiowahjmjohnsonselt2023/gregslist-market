@@ -24,7 +24,8 @@ Rails.application.routes.draw do
   resources :password_resets, only: %i[new create edit update]
 
   get 'select_seller' => 'sellers#select'
-  post 'select_seller' => 'sellers#show'
+  # post 'select_seller' => 'sellers#show'
+  post 'select_seller' => 'sellers#selection_redirect'
   get 'edit_seller' => 'sellers#edit'
   post 'edit_seller' => 'sellers#edit'
   get 'new_seller' => 'sellers#new'
