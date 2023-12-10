@@ -243,33 +243,33 @@
             <subtasks>
               <RakeTaskImpl id="ingress">
                 <subtasks>
-                  <RakeTaskImpl description="Relay an inbound email from Exim to Action Mailbox (URL and INGRESS_PASSWORD required)" fullCommand="action_mailbox:ingress:exim" id="exim" />
-                  <RakeTaskImpl description="Relay an inbound email from Postfix to Action Mailbox (URL and INGRESS_PASSWORD required)" fullCommand="action_mailbox:ingress:postfix" id="postfix" />
-                  <RakeTaskImpl description="Relay an inbound email from Qmail to Action Mailbox (URL and INGRESS_PASSWORD required)" fullCommand="action_mailbox:ingress:qmail" id="qmail" />
                   <RakeTaskImpl description="" fullCommand="action_mailbox:ingress:environment" id="environment" />
+                  <RakeTaskImpl description="" fullCommand="action_mailbox:ingress:exim" id="exim" />
+                  <RakeTaskImpl description="" fullCommand="action_mailbox:ingress:postfix" id="postfix" />
+                  <RakeTaskImpl description="" fullCommand="action_mailbox:ingress:qmail" id="qmail" />
                 </subtasks>
               </RakeTaskImpl>
-              <RakeTaskImpl description="Install Action Mailbox and its dependencies" fullCommand="action_mailbox:install" id="install" />
+              <RakeTaskImpl description="" fullCommand="action_mailbox:install" id="install" />
               <RakeTaskImpl id="install">
                 <subtasks>
-                  <RakeTaskImpl description="Copy migrations from action_mailbox to application" fullCommand="action_mailbox:install:migrations" id="migrations" />
+                  <RakeTaskImpl description="" fullCommand="action_mailbox:install:migrations" id="migrations" />
                 </subtasks>
               </RakeTaskImpl>
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="action_text">
             <subtasks>
-              <RakeTaskImpl description="Copy over the migration, stylesheet, and JavaScript files" fullCommand="action_text:install" id="install" />
+              <RakeTaskImpl description="" fullCommand="action_text:install" id="install" />
               <RakeTaskImpl id="install">
                 <subtasks>
-                  <RakeTaskImpl description="Copy migrations from action_text to application" fullCommand="action_text:install:migrations" id="migrations" />
+                  <RakeTaskImpl description="" fullCommand="action_text:install:migrations" id="migrations" />
                 </subtasks>
               </RakeTaskImpl>
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="active_storage">
             <subtasks>
-              <RakeTaskImpl description="Copy over the migration needed to the application" fullCommand="active_storage:install" id="install" />
+              <RakeTaskImpl description="" fullCommand="active_storage:install" id="install" />
               <RakeTaskImpl id="install">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="active_storage:install:migrations" id="migrations" />
@@ -280,13 +280,13 @@
           </RakeTaskImpl>
           <RakeTaskImpl id="app">
             <subtasks>
-              <RakeTaskImpl description="Apply the template supplied by LOCATION=(/path/to/template) or URL" fullCommand="app:template" id="template" />
-              <RakeTaskImpl description="Update configs and some other initially generated files (or use just update:configs or update:bin)" fullCommand="app:update" id="update" />
+              <RakeTaskImpl description="" fullCommand="app:template" id="template" />
               <RakeTaskImpl id="templates">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="app:templates:copy" id="copy" />
                 </subtasks>
               </RakeTaskImpl>
+              <RakeTaskImpl description="" fullCommand="app:update" id="update" />
               <RakeTaskImpl id="update">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="app:update:active_storage" id="active_storage" />
@@ -299,111 +299,109 @@
           </RakeTaskImpl>
           <RakeTaskImpl id="assets">
             <subtasks>
-              <RakeTaskImpl description="Remove old compiled assets" fullCommand="assets:clean[keep]" id="clean[keep]" />
-              <RakeTaskImpl description="Remove compiled assets" fullCommand="assets:clobber" id="clobber" />
-              <RakeTaskImpl description="Load asset compile environment" fullCommand="assets:environment" id="environment" />
-              <RakeTaskImpl description="Compile all the assets named in config.assets.precompile" fullCommand="assets:precompile" id="precompile" />
               <RakeTaskImpl description="" fullCommand="assets:clean" id="clean" />
+              <RakeTaskImpl description="" fullCommand="assets:clobber" id="clobber" />
+              <RakeTaskImpl description="" fullCommand="assets:environment" id="environment" />
+              <RakeTaskImpl description="" fullCommand="assets:precompile" id="precompile" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="cache_digests">
             <subtasks>
-              <RakeTaskImpl description="Lookup first-level dependencies for TEMPLATE (like messages/show or comments/_comment.html)" fullCommand="cache_digests:dependencies" id="dependencies" />
-              <RakeTaskImpl description="Lookup nested dependencies for TEMPLATE (like messages/show or comments/_comment.html)" fullCommand="cache_digests:nested_dependencies" id="nested_dependencies" />
+              <RakeTaskImpl description="" fullCommand="cache_digests:dependencies" id="dependencies" />
+              <RakeTaskImpl description="" fullCommand="cache_digests:nested_dependencies" id="nested_dependencies" />
             </subtasks>
           </RakeTaskImpl>
-          <RakeTaskImpl description="Alias for cucumber:ok" fullCommand="cucumber" id="cucumber" />
+          <RakeTaskImpl description="" fullCommand="cucumber" id="cucumber" />
           <RakeTaskImpl id="cucumber">
             <subtasks>
-              <RakeTaskImpl description="Run all features" fullCommand="cucumber:all" id="all" />
-              <RakeTaskImpl description="Run features that should pass" fullCommand="cucumber:ok" id="ok" />
-              <RakeTaskImpl description="Record failing features and run only them if any exist" fullCommand="cucumber:rerun" id="rerun" />
-              <RakeTaskImpl description="Run features that are being worked on" fullCommand="cucumber:wip" id="wip" />
+              <RakeTaskImpl description="" fullCommand="cucumber:all" id="all" />
+              <RakeTaskImpl description="" fullCommand="cucumber:ok" id="ok" />
+              <RakeTaskImpl description="" fullCommand="cucumber:rerun" id="rerun" />
               <RakeTaskImpl description="" fullCommand="cucumber:statsetup" id="statsetup" />
+              <RakeTaskImpl description="" fullCommand="cucumber:wip" id="wip" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="db">
             <subtasks>
-              <RakeTaskImpl description="Create the database from DATABASE_URL or config/database.yml for the current RAILS_ENV (use db:create:all to create all databases in the config). Without RAILS_ENV or when RAILS_ENV is development, it defaults to creating the development and test databases, except when DATABASE_URL is present" fullCommand="db:create" id="create" />
-              <RakeTaskImpl description="Drop the database from DATABASE_URL or config/database.yml for the current RAILS_ENV (use db:drop:all to drop all databases in the config). Without RAILS_ENV or when RAILS_ENV is development, it defaults to dropping the development and test databases, except when DATABASE_URL is present" fullCommand="db:drop" id="drop" />
-              <RakeTaskImpl id="encryption">
-                <subtasks>
-                  <RakeTaskImpl description="Generate a set of keys for configuring Active Record encryption in a given environment" fullCommand="db:encryption:init" id="init" />
-                </subtasks>
-              </RakeTaskImpl>
-              <RakeTaskImpl id="environment">
-                <subtasks>
-                  <RakeTaskImpl description="Set the environment value for the database" fullCommand="db:environment:set" id="set" />
-                </subtasks>
-              </RakeTaskImpl>
-              <RakeTaskImpl id="fixtures">
-                <subtasks>
-                  <RakeTaskImpl description="Load fixtures into the current environment's database" fullCommand="db:fixtures:load" id="load" />
-                  <RakeTaskImpl description="" fullCommand="db:fixtures:identify" id="identify" />
-                </subtasks>
-              </RakeTaskImpl>
-              <RakeTaskImpl description="Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)" fullCommand="db:migrate" id="migrate" />
-              <RakeTaskImpl id="migrate">
-                <subtasks>
-                  <RakeTaskImpl description="Run the &quot;down&quot; for a given migration VERSION" fullCommand="db:migrate:down" id="down" />
-                  <RakeTaskImpl description="Roll back the database one migration and re-migrate up (options: STEP=x, VERSION=x)" fullCommand="db:migrate:redo" id="redo" />
-                  <RakeTaskImpl description="Display status of migrations" fullCommand="db:migrate:status" id="status" />
-                  <RakeTaskImpl description="Run the &quot;up&quot; for a given migration VERSION" fullCommand="db:migrate:up" id="up" />
-                  <RakeTaskImpl description="" fullCommand="db:migrate:reset" id="reset" />
-                </subtasks>
-              </RakeTaskImpl>
-              <RakeTaskImpl description="Run setup if database does not exist, or run migrations if it does" fullCommand="db:prepare" id="prepare" />
-              <RakeTaskImpl description="Drop and recreate all databases from their schema for the current environment and load the seeds" fullCommand="db:reset" id="reset" />
-              <RakeTaskImpl description="Roll the schema back to the previous version (specify steps w/ STEP=n)" fullCommand="db:rollback" id="rollback" />
-              <RakeTaskImpl id="schema">
-                <subtasks>
-                  <RakeTaskImpl id="cache">
-                    <subtasks>
-                      <RakeTaskImpl description="Clear a db/schema_cache.yml file" fullCommand="db:schema:cache:clear" id="clear" />
-                      <RakeTaskImpl description="Create a db/schema_cache.yml file" fullCommand="db:schema:cache:dump" id="dump" />
-                    </subtasks>
-                  </RakeTaskImpl>
-                  <RakeTaskImpl description="Create a database schema file (either db/schema.rb or db/structure.sql, depending on `ENV['SCHEMA_FORMAT']` or `config.active_record.schema_format`)" fullCommand="db:schema:dump" id="dump" />
-                  <RakeTaskImpl description="Load a database schema file (either db/schema.rb or db/structure.sql, depending on `ENV['SCHEMA_FORMAT']` or `config.active_record.schema_format`) into the database" fullCommand="db:schema:load" id="load" />
-                </subtasks>
-              </RakeTaskImpl>
-              <RakeTaskImpl description="Load the seed data from db/seeds.rb" fullCommand="db:seed" id="seed" />
-              <RakeTaskImpl id="seed">
-                <subtasks>
-                  <RakeTaskImpl description="Truncate tables of each database for current environment and load the seeds" fullCommand="db:seed:replant" id="replant" />
-                </subtasks>
-              </RakeTaskImpl>
-              <RakeTaskImpl description="Create all databases, load all schemas, and initialize with the seed data (use db:reset to also drop all databases first)" fullCommand="db:setup" id="setup" />
-              <RakeTaskImpl description="Retrieve the current schema version number" fullCommand="db:version" id="version" />
               <RakeTaskImpl description="" fullCommand="db:_dump" id="_dump" />
               <RakeTaskImpl description="" fullCommand="db:abort_if_pending_migrations" id="abort_if_pending_migrations" />
               <RakeTaskImpl description="" fullCommand="db:charset" id="charset" />
               <RakeTaskImpl description="" fullCommand="db:check_protected_environments" id="check_protected_environments" />
               <RakeTaskImpl description="" fullCommand="db:collation" id="collation" />
+              <RakeTaskImpl description="" fullCommand="db:create" id="create" />
               <RakeTaskImpl id="create">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="db:create:all" id="all" />
                 </subtasks>
               </RakeTaskImpl>
+              <RakeTaskImpl description="" fullCommand="db:drop" id="drop" />
               <RakeTaskImpl id="drop">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="db:drop:_unsafe" id="_unsafe" />
                   <RakeTaskImpl description="" fullCommand="db:drop:all" id="all" />
                 </subtasks>
               </RakeTaskImpl>
+              <RakeTaskImpl id="encryption">
+                <subtasks>
+                  <RakeTaskImpl description="" fullCommand="db:encryption:init" id="init" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl id="environment">
+                <subtasks>
+                  <RakeTaskImpl description="" fullCommand="db:environment:set" id="set" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl id="fixtures">
+                <subtasks>
+                  <RakeTaskImpl description="" fullCommand="db:fixtures:identify" id="identify" />
+                  <RakeTaskImpl description="" fullCommand="db:fixtures:load" id="load" />
+                </subtasks>
+              </RakeTaskImpl>
               <RakeTaskImpl description="" fullCommand="db:forward" id="forward" />
               <RakeTaskImpl description="" fullCommand="db:load_config" id="load_config" />
+              <RakeTaskImpl description="" fullCommand="db:migrate" id="migrate" />
+              <RakeTaskImpl id="migrate">
+                <subtasks>
+                  <RakeTaskImpl description="" fullCommand="db:migrate:down" id="down" />
+                  <RakeTaskImpl description="" fullCommand="db:migrate:redo" id="redo" />
+                  <RakeTaskImpl description="" fullCommand="db:migrate:reset" id="reset" />
+                  <RakeTaskImpl description="" fullCommand="db:migrate:status" id="status" />
+                  <RakeTaskImpl description="" fullCommand="db:migrate:up" id="up" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="" fullCommand="db:prepare" id="prepare" />
               <RakeTaskImpl description="" fullCommand="db:purge" id="purge" />
               <RakeTaskImpl id="purge">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="db:purge:all" id="all" />
                 </subtasks>
               </RakeTaskImpl>
+              <RakeTaskImpl description="" fullCommand="db:reset" id="reset" />
               <RakeTaskImpl id="reset">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="db:reset:all" id="all" />
                 </subtasks>
               </RakeTaskImpl>
+              <RakeTaskImpl description="" fullCommand="db:rollback" id="rollback" />
+              <RakeTaskImpl id="schema">
+                <subtasks>
+                  <RakeTaskImpl id="cache">
+                    <subtasks>
+                      <RakeTaskImpl description="" fullCommand="db:schema:cache:clear" id="clear" />
+                      <RakeTaskImpl description="" fullCommand="db:schema:cache:dump" id="dump" />
+                    </subtasks>
+                  </RakeTaskImpl>
+                  <RakeTaskImpl description="" fullCommand="db:schema:dump" id="dump" />
+                  <RakeTaskImpl description="" fullCommand="db:schema:load" id="load" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="" fullCommand="db:seed" id="seed" />
+              <RakeTaskImpl id="seed">
+                <subtasks>
+                  <RakeTaskImpl description="" fullCommand="db:seed:replant" id="replant" />
+                </subtasks>
+              </RakeTaskImpl>
+              <RakeTaskImpl description="" fullCommand="db:setup" id="setup" />
               <RakeTaskImpl id="setup">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="db:setup:all" id="all" />
@@ -417,46 +415,36 @@
                 </subtasks>
               </RakeTaskImpl>
               <RakeTaskImpl description="" fullCommand="db:truncate_all" id="truncate_all" />
+              <RakeTaskImpl description="" fullCommand="db:version" id="version" />
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl description="" fullCommand="default" id="default" />
+          <RakeTaskImpl description="" fullCommand="environment" id="environment" />
+          <RakeTaskImpl description="" fullCommand="features" id="features" />
           <RakeTaskImpl id="javascript">
             <subtasks>
-              <RakeTaskImpl description="Build your JavaScript bundle" fullCommand="javascript:build" id="build" />
-              <RakeTaskImpl description="Remove JavaScript builds" fullCommand="javascript:clobber" id="clobber" />
-              <RakeTaskImpl description="Install JavaScript dependencies" fullCommand="javascript:install" id="install" />
+              <RakeTaskImpl description="" fullCommand="javascript:build" id="build" />
+              <RakeTaskImpl description="" fullCommand="javascript:clobber" id="clobber" />
+              <RakeTaskImpl description="" fullCommand="javascript:install" id="install" />
               <RakeTaskImpl id="install">
                 <subtasks>
-                  <RakeTaskImpl description="Install Bun" fullCommand="javascript:install:bun" id="bun" />
-                  <RakeTaskImpl description="Install esbuild" fullCommand="javascript:install:esbuild" id="esbuild" />
-                  <RakeTaskImpl description="Install node-specific elements for bundlers that use node/yarn" fullCommand="javascript:install:node_shared" id="node_shared" />
-                  <RakeTaskImpl description="Install rollup.js" fullCommand="javascript:install:rollup" id="rollup" />
-                  <RakeTaskImpl description="Install shared elements for all bundlers" fullCommand="javascript:install:shared" id="shared" />
-                  <RakeTaskImpl description="Install Webpack" fullCommand="javascript:install:webpack" id="webpack" />
+                  <RakeTaskImpl description="" fullCommand="javascript:install:bun" id="bun" />
+                  <RakeTaskImpl description="" fullCommand="javascript:install:esbuild" id="esbuild" />
+                  <RakeTaskImpl description="" fullCommand="javascript:install:node_shared" id="node_shared" />
+                  <RakeTaskImpl description="" fullCommand="javascript:install:rollup" id="rollup" />
+                  <RakeTaskImpl description="" fullCommand="javascript:install:shared" id="shared" />
+                  <RakeTaskImpl description="" fullCommand="javascript:install:webpack" id="webpack" />
                 </subtasks>
               </RakeTaskImpl>
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="log">
             <subtasks>
-              <RakeTaskImpl description="Truncate all/specified *.log files in log/ to zero bytes (specify which logs with LOGS=test,development)" fullCommand="log:clear" id="clear" />
+              <RakeTaskImpl description="" fullCommand="log:clear" id="clear" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="parallel">
             <subtasks>
-              <RakeTaskImpl description="Create test databases via db:create --&gt; parallel:create[num_cpus]" fullCommand="parallel:create[count]" id="create[count]" />
-              <RakeTaskImpl description="Drop test databases via db:drop --&gt; parallel:drop[num_cpus]" fullCommand="parallel:drop[count]" id="drop[count]" />
-              <RakeTaskImpl description="Run features in parallel with parallel:features[num_cpus]" fullCommand="parallel:features[count,pattern,options,pass_through]" id="features[count,pattern,options,pass_through]" />
-              <RakeTaskImpl description="Run features-spinach in parallel with parallel:features-spinach[num_cpus]" fullCommand="parallel:features-spinach[count,pattern,options,pass_through]" id="features-spinach[count,pattern,options,pass_through]" />
-              <RakeTaskImpl description="Load dumped schema for test databases via db:schema:load --&gt; parallel:load_schema[num_cpus]" fullCommand="parallel:load_schema[count]" id="load_schema[count]" />
-              <RakeTaskImpl description="Load structure for test databases via db:schema:load --&gt; parallel:load_structure[num_cpus]" fullCommand="parallel:load_structure[count]" id="load_structure[count]" />
-              <RakeTaskImpl description="Update test databases via db:migrate --&gt; parallel:migrate[num_cpus]" fullCommand="parallel:migrate[count]" id="migrate[count]" />
-              <RakeTaskImpl description="Update test databases by dumping and loading --&gt; parallel:prepare[num_cpus]" fullCommand="parallel:prepare[count]" id="prepare[count]" />
-              <RakeTaskImpl description="Launch given rake command in parallel" fullCommand="parallel:rake[command,count]" id="rake[command,count]" />
-              <RakeTaskImpl description="Rollback test databases via db:rollback --&gt; parallel:rollback[num_cpus]" fullCommand="parallel:rollback[count]" id="rollback[count]" />
-              <RakeTaskImpl description="Load the seed data from db/seeds.rb via db:seed --&gt; parallel:seed[num_cpus]" fullCommand="parallel:seed[count]" id="seed[count]" />
-              <RakeTaskImpl description="Setup test databases via db:setup --&gt; parallel:setup[num_cpus]" fullCommand="parallel:setup[count]" id="setup[count]" />
-              <RakeTaskImpl description="Run spec in parallel with parallel:spec[num_cpus]" fullCommand="parallel:spec[count,pattern,options,pass_through]" id="spec[count,pattern,options,pass_through]" />
-              <RakeTaskImpl description="Run test in parallel with parallel:test[num_cpus]" fullCommand="parallel:test[count,pattern,options,pass_through]" id="test[count,pattern,options,pass_through]" />
               <RakeTaskImpl description="" fullCommand="parallel:create" id="create" />
               <RakeTaskImpl description="" fullCommand="parallel:drop" id="drop" />
               <RakeTaskImpl description="" fullCommand="parallel:features" id="features" />
@@ -473,27 +461,36 @@
               <RakeTaskImpl description="" fullCommand="parallel:test" id="test" />
             </subtasks>
           </RakeTaskImpl>
-          <RakeTaskImpl description="Run all specs in spec directory (excluding plugin specs)" fullCommand="spec" id="spec" />
+          <RakeTaskImpl id="railties">
+            <subtasks>
+              <RakeTaskImpl id="install">
+                <subtasks>
+                  <RakeTaskImpl description="" fullCommand="railties:install:migrations" id="migrations" />
+                </subtasks>
+              </RakeTaskImpl>
+            </subtasks>
+          </RakeTaskImpl>
+          <RakeTaskImpl description="" fullCommand="spec" id="spec" />
           <RakeTaskImpl id="spec">
             <subtasks>
-              <RakeTaskImpl description="Run the code examples in spec/Controller" fullCommand="spec:Controller" id="Controller" />
-              <RakeTaskImpl description="Run the code examples in spec/helpers" fullCommand="spec:helpers" id="helpers" />
-              <RakeTaskImpl description="Run the code examples in spec/mailers" fullCommand="spec:mailers" id="mailers" />
-              <RakeTaskImpl description="Run the code examples in spec/models" fullCommand="spec:models" id="models" />
-              <RakeTaskImpl description="Run the code examples in spec/requests" fullCommand="spec:requests" id="requests" />
+              <RakeTaskImpl description="" fullCommand="spec:Controller" id="Controller" />
+              <RakeTaskImpl description="" fullCommand="spec:helpers" id="helpers" />
+              <RakeTaskImpl description="" fullCommand="spec:mailers" id="mailers" />
+              <RakeTaskImpl description="" fullCommand="spec:models" id="models" />
               <RakeTaskImpl description="" fullCommand="spec:prepare" id="prepare" />
+              <RakeTaskImpl description="" fullCommand="spec:requests" id="requests" />
               <RakeTaskImpl description="" fullCommand="spec:statsetup" id="statsetup" />
             </subtasks>
           </RakeTaskImpl>
-          <RakeTaskImpl description="Report code statistics (KLOCs, etc) from the application or engine" fullCommand="stats" id="stats" />
+          <RakeTaskImpl description="" fullCommand="stats" id="stats" />
           <RakeTaskImpl id="stimulus">
             <subtasks>
-              <RakeTaskImpl description="Install Stimulus into the app" fullCommand="stimulus:install" id="install" />
+              <RakeTaskImpl description="" fullCommand="stimulus:install" id="install" />
               <RakeTaskImpl id="install">
                 <subtasks>
-                  <RakeTaskImpl description="Install Stimulus on an app running bun" fullCommand="stimulus:install:bun" id="bun" />
-                  <RakeTaskImpl description="Install Stimulus on an app running importmap-rails" fullCommand="stimulus:install:importmap" id="importmap" />
-                  <RakeTaskImpl description="Install Stimulus on an app running node" fullCommand="stimulus:install:node" id="node" />
+                  <RakeTaskImpl description="" fullCommand="stimulus:install:bun" id="bun" />
+                  <RakeTaskImpl description="" fullCommand="stimulus:install:importmap" id="importmap" />
+                  <RakeTaskImpl description="" fullCommand="stimulus:install:node" id="node" />
                 </subtasks>
               </RakeTaskImpl>
               <RakeTaskImpl id="manifest">
@@ -504,13 +501,13 @@
               </RakeTaskImpl>
             </subtasks>
           </RakeTaskImpl>
-          <RakeTaskImpl description="Run all tests in test folder except system ones" fullCommand="test" id="test" />
+          <RakeTaskImpl description="" fullCommand="test" id="test" />
           <RakeTaskImpl id="test">
             <subtasks>
-              <RakeTaskImpl description="Reset the database and run `bin/rails test`" fullCommand="test:db" id="db" />
               <RakeTaskImpl description="" fullCommand="test:all" id="all" />
               <RakeTaskImpl description="" fullCommand="test:channels" id="channels" />
               <RakeTaskImpl description="" fullCommand="test:controllers" id="controllers" />
+              <RakeTaskImpl description="" fullCommand="test:db" id="db" />
               <RakeTaskImpl description="" fullCommand="test:functionals" id="functionals" />
               <RakeTaskImpl description="" fullCommand="test:generators" id="generators" />
               <RakeTaskImpl description="" fullCommand="test:helpers" id="helpers" />
@@ -527,7 +524,6 @@
           </RakeTaskImpl>
           <RakeTaskImpl id="time">
             <subtasks>
-              <RakeTaskImpl description="List all time zones, list by two-letter country code (`bin/rails time:zones[US]`), or list by UTC offset (`bin/rails time:zones[-8]`)" fullCommand="time:zones[country_or_offset]" id="zones[country_or_offset]" />
               <RakeTaskImpl description="" fullCommand="time:zones" id="zones" />
               <RakeTaskImpl id="zones">
                 <subtasks>
@@ -538,15 +534,20 @@
               </RakeTaskImpl>
             </subtasks>
           </RakeTaskImpl>
+          <RakeTaskImpl description="" fullCommand="tmp" id="tmp" />
+          <RakeTaskImpl description="" fullCommand="tmp/cache" id="tmp/cache" />
+          <RakeTaskImpl description="" fullCommand="tmp/cache/assets" id="tmp/cache/assets" />
+          <RakeTaskImpl description="" fullCommand="tmp/pids" id="tmp/pids" />
+          <RakeTaskImpl description="" fullCommand="tmp/sockets" id="tmp/sockets" />
           <RakeTaskImpl id="tmp">
             <subtasks>
-              <RakeTaskImpl description="Clear cache, socket and screenshot files from tmp/ (narrow w/ tmp:cache:clear, tmp:sockets:clear, tmp:screenshots:clear)" fullCommand="tmp:clear" id="clear" />
-              <RakeTaskImpl description="Create tmp directories for cache, sockets, and pids" fullCommand="tmp:create" id="create" />
               <RakeTaskImpl id="cache">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="tmp:cache:clear" id="clear" />
                 </subtasks>
               </RakeTaskImpl>
+              <RakeTaskImpl description="" fullCommand="tmp:clear" id="clear" />
+              <RakeTaskImpl description="" fullCommand="tmp:create" id="create" />
               <RakeTaskImpl id="pids">
                 <subtasks>
                   <RakeTaskImpl description="" fullCommand="tmp:pids:clear" id="clear" />
@@ -571,44 +572,27 @@
           </RakeTaskImpl>
           <RakeTaskImpl id="turbo">
             <subtasks>
-              <RakeTaskImpl description="Install Turbo into the app" fullCommand="turbo:install" id="install" />
+              <RakeTaskImpl description="" fullCommand="turbo:install" id="install" />
               <RakeTaskImpl id="install">
                 <subtasks>
-                  <RakeTaskImpl description="Install Turbo into the app with bun" fullCommand="turbo:install:bun" id="bun" />
-                  <RakeTaskImpl description="Install Turbo into the app with asset pipeline" fullCommand="turbo:install:importmap" id="importmap" />
-                  <RakeTaskImpl description="Install Turbo into the app with webpacker" fullCommand="turbo:install:node" id="node" />
-                  <RakeTaskImpl description="Switch on Redis and use it in development" fullCommand="turbo:install:redis" id="redis" />
+                  <RakeTaskImpl description="" fullCommand="turbo:install:bun" id="bun" />
+                  <RakeTaskImpl description="" fullCommand="turbo:install:importmap" id="importmap" />
+                  <RakeTaskImpl description="" fullCommand="turbo:install:node" id="node" />
+                  <RakeTaskImpl description="" fullCommand="turbo:install:redis" id="redis" />
                 </subtasks>
               </RakeTaskImpl>
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="yarn">
             <subtasks>
-              <RakeTaskImpl description="Install all JavaScript dependencies as specified via Yarn" fullCommand="yarn:install" id="install" />
+              <RakeTaskImpl description="" fullCommand="yarn:install" id="install" />
             </subtasks>
           </RakeTaskImpl>
           <RakeTaskImpl id="zeitwerk">
             <subtasks>
-              <RakeTaskImpl description="Check project structure for Zeitwerk compatibility" fullCommand="zeitwerk:check" id="check" />
+              <RakeTaskImpl description="" fullCommand="zeitwerk:check" id="check" />
             </subtasks>
           </RakeTaskImpl>
-          <RakeTaskImpl description="" fullCommand="default" id="default" />
-          <RakeTaskImpl description="" fullCommand="environment" id="environment" />
-          <RakeTaskImpl description="" fullCommand="features" id="features" />
-          <RakeTaskImpl id="railties">
-            <subtasks>
-              <RakeTaskImpl id="install">
-                <subtasks>
-                  <RakeTaskImpl description="" fullCommand="railties:install:migrations" id="migrations" />
-                </subtasks>
-              </RakeTaskImpl>
-            </subtasks>
-          </RakeTaskImpl>
-          <RakeTaskImpl description="" fullCommand="tmp" id="tmp" />
-          <RakeTaskImpl description="" fullCommand="tmp/cache" id="tmp/cache" />
-          <RakeTaskImpl description="" fullCommand="tmp/cache/assets" id="tmp/cache/assets" />
-          <RakeTaskImpl description="" fullCommand="tmp/pids" id="tmp/pids" />
-          <RakeTaskImpl description="" fullCommand="tmp/sockets" id="tmp/sockets" />
         </subtasks>
       </RakeTaskImpl>
     </option>
