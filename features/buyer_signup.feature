@@ -24,4 +24,3 @@ Feature: Sign up as a buyer
     And I am on the buyer edit page
     When I complete the edit form
     Then I should be on my profile page
-#    Then I should see my address and payment method

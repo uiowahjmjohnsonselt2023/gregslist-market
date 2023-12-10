@@ -1,0 +1,12 @@
+<% if @q %>
+  <h2>Searching for "<%= @q %>" in <b>Items</b> | <%= link_to "Sellers", search_seller_path(search: {q:@q}) %></h2>
+<% end %>
+
+<div class="row mb-5">
+  <div class="row col-10 offset-1">
+    <%= render partial: "items/item_list", locals: { items: @items } %>
+    <% if !@items.present? %>
+      <h2><em>Sorry, no items found</em></h2>
+    <% end %>
+  </div>
+</div>

@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '3.2.2'
 
-gem "aws-sdk-s3", require: false
+gem 'aws-sdk'
 gem 'bcrypt', '~> 3.1.7'
 gem 'better_errors', '~> 2.10', '>= 2.10.1'
 gem 'bootsnap', require: false
@@ -50,7 +50,7 @@ group :test do
   gem 'rails-controller-testing'
   gem 'shoulda-matchers', '~> 5.0'
   gem 'simplecov', require: false
-  gem 'pg'
+  # gem 'pg'
 end
 
 group :production do
