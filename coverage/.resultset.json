@@ -1,6 +1,36 @@
 {
   "RSpec": {
     "coverage": {
+      "/mnt/c/Users/pchiu/RubymineProjects/gregslist-market/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          1,
+          null,
+          1,
+          null,
+          1,
+          null,
+          1,
+          3,
+          null,
+          null,
+          1,
+          3,
+          1,
+          null,
+          null,
+          3,
+          2,
+          2,
+          null,
+          null,
+          3,
+          null,
+          null,
+          null
+        ]
+      },
       "/mnt/c/Users/pchiu/RubymineProjects/gregslist-market/app/controllers/buyers_controller.rb": {
         "lines": [
           null,
@@ -53,36 +83,6 @@
           null,
           1,
           2,
-          null,
-          null
-        ]
-      },
-      "/mnt/c/Users/pchiu/RubymineProjects/gregslist-market/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          0,
-          null,
-          null,
-          0,
-          0,
-          0,
-          null,
-          null,
-          0,
-          null,
           null,
           null
         ]
@@ -555,7 +555,7 @@
           1,
           1,
           null,
-          14,
+          16,
           1,
           null,
           1,
@@ -686,6 +686,6 @@
         ]
       }
     },
-    "timestamp": 1702182165
+    "timestamp": 1702182849
   }
 }
