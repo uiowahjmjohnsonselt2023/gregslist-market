@@ -12,16 +12,6 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
   config.action_mailer.default_url_options = { protocol: 'http', host: 'https://secure-sands-83668-91cd943ee44e.herokuapp.com/' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-    address:              'mail.voterapp.org',
-    port:                 465,
-    domain:               'voterapp.org',
-    user_name:            'gregslist@voterapp.org',
-    password:             ',JDW#_(T]&xM',
-    authentication:       'plain',
-
-  }
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
