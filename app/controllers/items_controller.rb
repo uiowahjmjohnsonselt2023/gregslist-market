@@ -27,8 +27,10 @@ class ItemsController < ApplicationController
              else
                Item.joins(seller: :users)
              end
+
     @q = params[:search] && params[:search][:q]
-    if @q.empty?
+    
+    if (@q.nil? || @q.empty? ) && !current_user&.admin
       flash[:warning] = 'Please enter a search term'
       redirect_to root_path
     else
