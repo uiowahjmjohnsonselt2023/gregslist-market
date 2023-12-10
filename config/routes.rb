@@ -48,6 +48,7 @@ Rails.application.routes.draw do
 
   # Defines the routes for reviews
   resources :seller_reviews
+  resources :item_reviews
 
   # Defines the routes for cart
   resources :carts, only: [:show] do
