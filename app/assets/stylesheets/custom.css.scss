@@ -43,3 +43,32 @@ footer ul li {
 .price-dark-green{
   color: #006400;
 }
+
+.classname{
+  max-height: 1200px;
+  overflow-y: auto;
+}
+
+.card-img-container {
+  position: relative;
+  width: 100%;
+  padding-top: 100%; /* 1:1 aspect ratio (square) */
+  overflow: hidden;
+}
+.card-img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.message-container {
+  max-width: 900px;
+  margin: -50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
