@@ -152,5 +152,20 @@ And /^(?:|I )should not be able to log in with email "([^"]*)" and password "([^
   fill_in "Password", with: password
   click_button "Log in"
   expect(page).to have_content("Invalid email/password combination")
+end
 
+And 'I want to update my user information' do
+  click_link 'Edit Profile'
+end
+
+And("I complete the update form") do
+  @password="update_password"
+  @password_confirmation="update_password"
+  fill_in "user_password", with: @password
+  fill_in "user_password_confirmation", with: @password_confirmation
+
+  click_button "Save changes"
+  @user.update(
+    password: @password
+  )
 end
