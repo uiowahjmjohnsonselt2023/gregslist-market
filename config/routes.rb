@@ -45,7 +45,9 @@ Rails.application.routes.draw do
   get 'butter_item' => 'items#butter'
 
   # Defines the routes for reviews
+  get 'edit_seller_review' => 'seller_reviews#edit'
   post 'edit_seller_review' => 'seller_reviews#edit'
+  get 'create_or_edit_seller_review' => 'seller_reviews#create_or_edit'
   resources :seller_reviews
 
   # Defines the routes for cart
