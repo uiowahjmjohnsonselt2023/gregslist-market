@@ -14,7 +14,6 @@
       <%= submit_tag "Search", class: "btn btn-outline-success my-2 my-sm-0 mr-3" %>
     <% end %>
 
-
     <% if logged_in? %>
       <%= link_to "Account", user_path(current_user), class: "mr-3" %>
       <% unless current_user.admin? %>
