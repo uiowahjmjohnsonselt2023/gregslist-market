@@ -104,7 +104,20 @@ RSpec.describe User, type: :model do
     end
   end
 
+  describe '#downcase_email' do
+    it 'downcases the email attribute before saving' do
+      user = User.create(name: 'John Doe', username: 'john_doe', email: 'John@example.com', password: 'password')
+      # user.save
+      expect(user.email).to eq('john@example.com')
+    end
 
+    it 'does not modify email if it is nil' do
+      user = User.new(name: 'John Doe', email: nil, password: 'password')
+      user.save
+
+      expect(user.email).to be_nil
+    end
+  end
 
 
 
