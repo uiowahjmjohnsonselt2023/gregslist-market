@@ -2,6 +2,8 @@ class Item < ApplicationRecord
   belongs_to :seller
   has_many :item_categories
   has_many :categories, through: :item_categories
+  has_many :cart_items
+  has_many :carts, through: :cart_items
   has_one_attached :image
 
   def category_names
@@ -19,5 +21,4 @@ class Item < ApplicationRecord
   def self.ransackable_attributes(_auth_object = nil)
     %w[description listed_price name]
   end
-
 end
